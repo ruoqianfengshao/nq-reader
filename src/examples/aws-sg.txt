@@ -1,0 +1,248 @@
+########################################################################
+                  bash <(curl -sL https://run.NodeQuality.com)
+                   https://github.com/LloydAsp/NodeQuality
+        报告时间：2026-07-11 11:51:42 CST  脚本版本：v0.0.1
+        频道: https://t.me/nodeselect 网站：https://NodeQuality.com
+########################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                          硬件质量体检报告：54.254.*.*
+                    https://github.com/xykt/HardwareQuality
+                    bash <(curl -sL https://Check.Place) -H
+            报告时间：2026-07-11 11:51:56 CST  脚本版本：v2026-05-21
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+一、操作系统信息
+容器/虚拟化：          Amazon EC2（Nitro/KVM）
+架构：                 x86_64
+操作系统/内核：        Debian GNU/Linux 12 (bookworm) 6.1.0-47-cloud-amd64
+运行时间：             0 天 0 小时 41 分钟
+负载：                 0.36, 0.11, 0.03
+进程：                 3 用户，83 进程，11/112 活跃/总服务
+区域设置：             C, UTF-8, Etc/UTC UTC +0000
+二、主板信息
+主板：    Amazon EC2, Not Specified, 版本Not Specified, SN:Not Specified
+BIOS：    Amazon EC2, 版本1.0
+芯片组：  Intel 82371SB PIIX3 ISA [Natoma/Triton II]
+          Intel 440FX - 82441FX PMC [Natoma]
+网卡：    Amazon.com, Inc. Elastic Network Adapter (ENA)
+三、CPU测评
+CPU：     Intel Xeon Platinum 8259CL @ 2.50GHz 步进7 (6代) 32/64-bit
+           ╚═ 1核心, 2线程, 2499.998MHz, 利用率6%                   
+缓存：    L1d 32 KiB, L1i 32 KiB, L2 1 MiB, L3 35.8 MiB
+指令集：   ✘ VT-x/AMD-V    ✔ AES-NI    ✔ AVX2    ✔ BMI1/2    ✘ EPT/NPT 
+Sysbench：单线程 957.59     多线程 1649.62
+GB5基准： J1900 N5105 N100 6700K 9900K 5900X 12900K 14900K 7713 7995WX
+GB5单核：    |804
+GB5多核：     |948
+详细结果：https://browser.geekbench.com/v5/cpu/24444322
+五、内存测评
+内存：    总容量 945 MB,  已用 326 MB(34%),  可用 619 MB(66%)
+Sysbench：读取 22308.1 MB/s    写入 18141.8 MB/s    延迟 158 ns
+六、硬盘测评
+硬盘：    数量 1,  总容量 30G,  已用容量 2.5G(8%),  可用容量 26G(92%)
+测试设备：nvme0n1p1(/r**t) -> DISK
+Fio测试： RND4K/Q1    IOPS||RND4K/Q32   IOPS||SEQ1M/Q1    IOPS||SEQ1M/Q8    IOPS
+读取：    6.46MB/s    1.7k||12.9MB/s    3.3k||137MB/s      137||129MB/s      128
+写入：    4.34MB/s    1.1k||12.8MB/s    3.3k||137MB/s      137||129MB/s      128
+七、HQ硬件加权评分
+项目：      总 分          CPU           GPU          内 存         硬 盘  
+分数：      22726    =    12938    +     N/A     +    8438     +    1350   
+排名：      2.9%          7.1%           N/A          3.1%          2.5%   
+================================================================================
+今日硬件检测量：117；总检测量：116231。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/hardware/GU62YNXPQ.svg
+
+########################################################################
+                       IP质量体检报告：54.254.*.*
+                   https://github.com/xykt/IPQuality
+                bash <(curl -sL https://Check.Place) -I
+        报告时间：2026-07-11 11:57:29 CST  脚本版本：v2026-03-29
+########################################################################
+一、基础信息（Maxmind 数据库）
+自治系统号：            AS16509
+组织：                  Amazon.com, Inc.
+坐标：                  103°51′3″E, 1°17′14″N
+地图：                  https://check.place/1.2872,103.8507,15,cn
+城市：                  N/A, 新加坡, 17
+使用地：                [SG]新加坡, [AS]亚洲
+注册地：                [US]美国
+时区：                  Asia/Singapore
+IP类型：                 广播IP 
+二、IP类型属性
+数据库：      IPinfo    ipregistry    ipapi    IP2Location   AbuseIPDB 
+使用类型：     机房        机房        机房        机房        机房    
+公司类型：     机房        机房        机房        机房    
+三、风险评分
+风险等级：      极低         低       中等       高         极高
+IP2Location：   3|低风险
+Scamalytics：  1|低风险
+ipapi：                    0.91%|较高风险
+AbuseIPDB：    0|低风险
+DB-IP：         |低风险
+四、风险因子
+库： IP2Location ipapi ipregistry IPQS Scamalytics ipdata IPinfo DB-IP
+地区：    [SG]    [SG]    [SG]     无     [SG]    [SG]    [SG]    [SG]
+代理：     否      否      否      无      否      否      否      否 
+Tor：      否      否      否      无      否      否      否      无 
+VPN：      否      否      否      无      否      无      否      无 
+服务器：   是      是      是      无      是      是      是      无 
+滥用：     否      否      否      无      否      否      无      否 
+机器人：   否      否      无      无      否      无      无      否 
+五、流媒体及AI服务解锁检测
+服务商：  TikTok   Disney+  Netflix Youtube  AmazonPV  Reddit   ChatGPT 
+状态：     解锁     屏蔽     解锁     解锁     解锁     屏蔽     解锁   
+地区：     [SG]              [SG]     [SG]     [SG]              [SG]   
+方式：     原生              原生     原生     原生              原生   
+六、邮局连通性及黑名单检测
+本地25端口出站：阻断
+通信：远端25端口不可达​
+IP地址黑名单数据库：  有效 439   正常 394   已标记 45   黑名单 0
+========================================================================
+今日IP检测量：2538；总检测量：1665226。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/ip/QAMRHARPL.svg
+
+********************************************************************************
+                          网络质量体检报告：54.254.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 11:58:17 CST  脚本版本：v2026-01-25
+********************************************************************************
+一、BGP信息（BGP.TOOLS & HE.NET）
+注册信息：          ARIN, AS16509 Amazon.com, Inc., Prefix/17
+注册/修改日期：     2012-08-01 / 2021-02-10
+地区：              [JP]Japan, Eastern Asia, Asia
+地址：              Meguro Central Square, 3-1-1 Kamiosaki,Shinagawa-ku
+活跃邻居：          Subnet/24  25 / 256     Prefix/17  2761 / 32768 
+二、本地策略
+NAT类型：         全锥形 
+映射行为：独立映射  过滤行为：端点独立过滤 端口行为：端口保留  环回：支持
+TCP拥塞控制算法：bbr          TCP接收缓冲区（rmem）：4096 131072 6291456
+队列调度算法：   fq           TCP发送缓冲区（wmem）：4096 16384 4194304
+三、接入信息（*=Tier1 *=非Tier1 *=上游）
+互联网交换点接入数：0         上游数量：11        对等互联数量：113
+AS174  AS1299  AS2914 AS3257 AS3320 AS3356 AS3491 AS5511 AS6453 AS6461 AS6762  
+Cogent Arelion   NTT    GTT   DTAG   Lumen  PCCW  Orange  TATA   Zayo  Sparkle 
+AS6830  AS7018 AS12956 AS7474 AS38561 
+Liberty  AT&T  Telxius  Optus  NTT AU 
+四、三网TCP大包延迟（依次为电信|联通|移动 Step=80ms） 京⣄⣀⣀⣠⣀79 ⣤⣤⣤⣤⣤83 ⣀⣀⣀⣀⣀76 
+津⣤⣤⣤⣤⣤102⣀⣀⣀⣀⣀76 ⣀⣀⣀⣀⣀77  冀⣤⣀⣠⣠⣠83 ⣤⣤⣤⣤⣤86 ⣤⣤⣤⣤⣤100 晋⣴⣤⣦⣤⣦126⢠⣶⣴⣶⢰162⡄⡆⠀⠀⠀162
+蒙⣤⣤⣤⣤⣤95 ⣀⣀⣀⣀⣀75 ⣤⣤⣤⣤⣤82  辽⣤⣤⣤⣤⣤101⣤⣤⣤⣤⣤87 ⣤⣤⣤⣤⣤103 吉⣤⣤⣤⣤⣤103⣤⣤⣤⣤⣤89 ⣤⣤⣤⣤⣤101
+黑⢰⠀⡆⡆⢰168⣤⣤⣤⣤⣤97 ⣤⣤⣤⡄⣤92  沪⣀⣀⣀⣀⣀66 ⣶⣷⣾⣶⣷205⠀⣀⣀⣀⣀64  苏⣀⣀⣀⣀⣀76 ⣀⣀⣀⣀⣀76 ⣀⣀⣀⣀⣀76 
+浙⣀⣀⣀⣀⣀67 ⣀⣀⣀⣀⣀65 ⣀⣀⣀⣀⣀70  皖⣄⣀⣀⣀⣀71 ⣀⣀⣀⣀⣀64 ⣤⣤⣤⣤⣤81  闽⣀⣀⣀⣀⣀58 ⣀⣀⣀⣀⣀57 ⣀⣀⣀⣀⣀65 
+赣⣀⣀⣀⣀⣀69 ⣀⣀⣀⣀⣀50 ⣀⣀⣀⣀⣀72  鲁⣤⣤⣤⣤⣤86 ⢠⣤⣤⣤⣤81 ⣤⣤⣤⢠⣤86  豫⣤⣤⣤⣤⣤81 ⣀⣀⣀⣀⣀64 ⣤⡄⣤⣤⣤82 
+鄂⣄⣠⣠⣀⣠81 ⣀⣀⣀⣀⣀59 ⣠⣤⣤⣤⣤83  湘⣀⣀⣀⣀⣀73 ⣀⣀⣀⣀⣀56 ⣀⣀⣀⣀⣀62  粤⣶⣶⣶⣶⣶193⣀⣀⣀⣀⣀44 ⣀⣀⣀⣀⣀50 
+桂⠀⠀⣤⡄⡄113⣀⣀⣀⣀⣀52 ⣀⣀⣀⣀⣀56  琼⣀⣀⣀⣀⣀53 ⣀⣀⣀⣀⣀53 ⣀⣀⣀⣀⣀58  渝⣤⣤⣤⣤⣤82 ⣀⣀⣀⣀⣀62 ⣤⣤⣤⣤⣤90 
+川⣀⢠⣠⣀⣄75 ⣀⡀⣀⣀⢀72 ⣤⣤⣤⣤⣤87  贵⣀⣀⣀⣀⣀59 ⣀⣀⣀⣀⣀56 ⣀⣀⣀⣀⣀71  云⣀⣀⣀⣀⣀66 ⣀⣀⣀⣀⣀68 ⣠⣀⣀⣀⣀71 
+藏⣀⣀⣀⣀⣀72 ⣀⣀⣀⣀⣄79 ⣤⣤⣤⣤⣤123 陕⣤⣄⣀⣤⣠80 ⣀⣀⣀⣀⣀72 ⣤⣤⣤⣤⣤93  甘⣀⣄⣠⣀⣀80 ⣀⣀⣀⣀⣀75 ⣤⣤⣤⣤⣤106
+青⢸⣿⣿⣷⣿246⣄⣀⣀⣄⣀79 ⣤⣤⣤⣤⣤107 宁⣤⣤⣤⣤⣤89 ⣤⣤⣤⣤⣤80 ⣤⣤⣤⣤⣤93  新⣤⣤⣤⣤⣤119⣤⣤⣤⣤⣤99 ⣤⣤⣤⣤⣤119
+五、三网回程路由（线路可能随网络负载动态变化）
+北京TCP：电信   Amazon->163    || 联通   NoData->4837   || 移动   NoData->CMI   
+北京UDP：电信   Amazon->163    || 联通   NoData->4837   || 移动   NoData->CMI   
+上海TCP：电信   Amazon->163    || 联通   Orange->4837   || 移动   NoData->CMI   
+上海UDP：电信   Amazon->163    || 联通   Orange->4837   || 移动   NoData->CMI   
+广州TCP：电信   Cogent->163    || 联通   NoData->4837   || 移动   NoData->CMI   
+广州UDP：电信   Cogent->163    || 联通   NoData->4837   || 移动   Amazon->CMI   
+六、国内测速   发送  延迟    接收  延迟||单位：Mbps ms  发送  延迟    接收  延迟
+苏州电信       1160   105    2441    97||杭州电信       1162   113    1964   107
+上海联通       1204   102    3160   100||北京联通        984   128    3361   118
+苏州移动        279   221       0   230||深圳移动          ERROR         ERROR  
+七、国际互连   延迟 发送 重传 接收 重传||单位：ms Mbps  延迟 发送 重传 接收 重传
+香港      ⣀⣀⣀⣀⣀⣀ 32   829   0   749   0||东京      ⣀⣀⣀⣀⣀⣀ 69   365   8   333   0
+新加坡    ⣀⣀⣀⣀⣀⣀  1  4330 .2m  3770  1k||悉尼      ⣤⠀⣤⠀⣤⣧169     ERROR   120   0
+洛杉矶    ⣶⣶⣶⣶⣶⣶170   123   2   115   0||纽约      ⣶⣶⣶⣶⣶⣶222     ERROR     ERROR
+法兰克福  ⣿⣿⣿⣿⣿⣿243   114   0    99   0||伦敦      ⣶⣶⣶⣶⣶⣶161   136   0   115   0
+阿姆斯特丹⣿⣿⣿⣿⣿⣿247    93  1k    18   0||圣保罗    ⣿⣿⣿⣿⣿⣿387    26   0     1   0
+================================================================================
+今日网络检测量：384；总检测量：750869。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/6IGDGNK3W.svg
+
+********************************************************************************
+                          网络质量体检报告：54.254.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 12:06:51 CST  脚本版本：v2026-01-25
+********************************************************************************
+五、三网回程路由（线路可能随网络负载动态变化）
+  北京 电信    Amazon -> 163  
+地理路径：新加坡 -> 上海 -> 北京    自治系统路径：AS16509 -> AS4134 -> AS4847 
+ 1       1.42ms  240.64.*.*                               * RFC1112
+ 2-3     2.06ms  99.82.*.*    AS16509   [AMAZO-4]         新加坡 amazon.com
+ 6      69.39ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 chinatelecom.com.cn 电信
+ 7      90.76ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 北京 chinatelecom.com.cn 电信
+ 9-10   85.88ms  36.112.*.*   AS4847                      中国 北京 bj.189.cn
+11      89.36ms  219.141.*.*  AS4847    [CHINATELECOM-BJ] 中国 北京 bj.189.cn
+12      87.39ms  106.37.*.*   AS4847    [CHINANET-HN]     中国 北京 bj.189.cn
+  北京 联通    Unknown -> 4837  
+地理路径：新加坡 -> 广东 -> 上海 -> 北京    自治系统路径：AS4837 -> AS4808 
+ 5-9     0.54ms  241.0.*.*                                * RFC1112
+10       1.56ms  150.222.*.*            [AT-88]           * 新加坡
+11       2.42ms  219.158.*.*  AS4837    [CU169-BACKBONE]  新加坡 chinaunicom.cn
+12      41.99ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+13-15   65.37ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 上海 chinaunicom.cn 联通
+17      80.84ms  125.33.*.*   AS4808    [UNICOM-BJ]       中国 北京 www.bbn.com.cn 联通
+18-19   77.24ms  61.148.*.*   AS4808    [UNICOM-CN]       中国 北京市 www.bbn.com.cn 联通
+21      87.57ms  221.222.*.*  AS4808    [UNICOM-BJ]       中国 北京 海淀 www.bbn.com.cn
+  北京 移动    Unknown -> CMI  
+地理路径：新加坡 -> 香港 -> 北京    自治系统路径：AS58453 -> AS9808 -> AS56048 
+ 1       1.27ms  15.230.*.*                               * 新加坡
+ 2-3     1.59ms  240.1.*.*                                * RFC1112
+ 6       1.32ms  223.120.*.*  AS58453   [CMI-INT]         新加坡 cmi.chinamobile.com 移动
+ 7      32.49ms  223.120.*.*  AS58453   [CMI-INT]         中国 香港 cmi.chinamobile.com 移动
+ 8-9    67.29ms  221.183.*.*  AS9808    [CMNET]           中国 北京 X-I chinamobileltd.com 移动
+13-15   84.29ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+17      78.94ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+  上海 电信    Amazon -> 163  
+地理路径：新加坡 -> 上海    自治系统路径：AS16509 -> AS4134 -> AS4812 
+ 5-9     0.63ms  241.0.*.*                                * RFC1112
+10-11   58.87ms  99.82.*.*    AS16509   [AMAZO-4]         新加坡 amazon.com
+12-14   70.42ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 chinatelecom.com.cn
+21      73.05ms  101.226.*.*  AS4812    [CHINANET-SH]     中国 上海市 chinatelecom.cn 电信
+  上海 联通    Orange -> 4837  
+地理路径：美国 -> 新加坡 -> 德国 -> 法国 -> 北京 -> 上海    自治系统路径：AS16509 -> AS5511 -> AS4837 -> AS140979 
+ 1       1.50ms  240.64.*.*                               * RFC1112
+ 2       2.49ms  99.83.*.*    AS16509   [AMAZO-4]         美国 弗吉尼亚州 AMAZON amazon.com
+ 3       1.83ms  99.83.*.*              [AMAZO-4]         * 新加坡
+ 4     387.59ms  193.251.*.*  AS5511    [OPENTRANSIT-BACKBONE]德国 黑森 美因河畔法兰克福 wholesale.orange.com
+ 5     233.19ms  193.251.*.*  AS5511                      法国 wholesale.orange.com
+ 6-7   229.19ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 北京市 chinaunicom.cn 联通
+16     192.60ms  112.64.*.*   AS140979  [APNIC-AP]        中国 上海市 闵行 chinaunicom.cn 联通
+  上海 移动    Unknown -> CMI  
+地理路径：新加坡 -> 美国 -> 上海    自治系统路径：AS58453 -> AS9808 
+ 1       1.09ms  240.64.*.*                               * RFC1112
+ 2      21.03ms  150.222.*.*            [AT-88]           * 新加坡
+ 3       2.78ms  99.82.*.*              [AMAZO-4]         * 美国
+ 5      58.83ms  223.120.*.*  AS58453   [CMI-INT]         中国 上海 cmi.chinamobile.com 移动
+ 6-8    63.57ms  221.183.*.*  AS9808    [CMNET]           中国 上海 X-I chinamobileltd.com 移动
+11      65.00ms  117.185.*.*  AS9808    [CMNET]           中国 上海市 chinamobileltd.com 移动
+  广东 电信    Cogent -> 163  
+地理路径：新加坡 -> 法国 -> 德国 -> 广东    自治系统路径：AS174 -> AS4134 
+ 1       1.54ms  240.64.*.*                               * RFC1112
+ 4       2.66ms  154.54.*.*   AS174     [COGENT-BONE]     新加坡 cogentco.com
+ 5     159.70ms  154.54.*.*   AS174     [COGENT-BONE]     法国 普罗旺斯-阿尔卑斯-蓝色海岸大区 马赛 cogentco.com
+ 6     160.08ms  154.54.*.*   AS174     [COGENT-BONE]     法国 法兰西岛大区 巴黎 cogentco.com
+ 7-8   159.71ms  154.54.*.*   AS174     [COGENT-BONE]     德国 黑森 美因河畔法兰克福 cogentco.com
+ 9     192.34ms  149.11.*.*   AS174     [COGENT-149]      德国 黑森 美因河畔法兰克福 cogentco.com
+10-12  190.56ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn
+15     193.28ms  113.108.*.*  AS4134    [CHINANET-GD]     中国 广东省 广州市 chinatelecom.com.cn 电信
+19     194.16ms  183.47.*.*   AS4134    [APNIC-AP]        中国 广东省 广州市 chinatelecom.com.cn 电信
+  广东 联通    Unknown -> 4837  
+地理路径：新加坡 -> 广东    自治系统路径：AS4837 -> AS136958 
+ 5-9     0.54ms  241.0.*.*                                * RFC1112
+10       2.03ms  150.222.*.*            [AT-88]           * 新加坡
+11       8.02ms  219.158.*.*  AS4837    [CU169-BACKBONE]  新加坡 chinaunicom.cn
+12-13   41.96ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+21      43.83ms  157.148.*.*  AS136958  [UNICOM-GD]       中国 广东省 广州市 chinaunicom.cn 联通
+  广东 移动    Unknown -> CMI  
+地理路径：新加坡 -> 香港 -> 广东    自治系统路径：AS58453 -> AS9808 -> AS56040 
+ 1       1.61ms  52.93.*.*                                * 新加坡
+ 2-3     1.90ms  240.1.*.*                                * RFC1112
+ 6-7     1.38ms  223.120.*.*  AS58453   [CMI-INT]         中国 香港 cmi.chinamobile.com
+ 8-10   42.44ms  221.183.*.*  AS9808    [CMNET]           中国 广东 广州 X-I chinamobileltd.com 移动
+12-15   47.01ms  183.235.*.*  AS56040   [APNIC-AP]        中国 广东 广州 gd.10086.cn 移动
+19      51.77ms  211.139.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+================================================================================
+今日网络检测量：398；总检测量：750883。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/2QVBMFZS3.svg
+
+[NodeQuality链接](https://nodequality.com/r/u307dvusT6phZBBKgoueqOP6wjp60Kjv)

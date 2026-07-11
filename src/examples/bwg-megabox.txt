@@ -1,0 +1,243 @@
+########################################################################
+                  bash <(curl -sL https://run.NodeQuality.com)
+                   https://github.com/LloydAsp/NodeQuality
+        报告时间：2026-07-10 22:46:17 CST  脚本版本：v0.0.1
+        频道: https://t.me/nodeselect 网站：https://NodeQuality.com
+########################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                         硬件质量体检报告：104.224.*.*
+                    https://github.com/xykt/HardwareQuality
+                    bash <(curl -sL https://Check.Place) -H
+            报告时间：2026-07-10 22:46:21 CST  脚本版本：v2026-05-21
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+一、操作系统信息
+容器/虚拟化：          KVM 虚拟机
+架构：                 x86_64
+操作系统/内核：        Debian GNU/Linux 12 (bookworm) 6.18.38-x64v3-xanmod1
+运行时间：             0 天 4 小时 32 分钟
+负载：                 0.20, 0.05, 0.02
+进程：                 99 进程，16/133 活跃/总服务
+区域设置：             C, UTF-8, Etc/UTC UTC +0000
+二、主板信息
+BIOS：    SeaBIOS, 版本1.16.3-4.el9.alma.1
+芯片组：  Intel 82371SB PIIX3 ISA [Natoma/Triton II]
+          Intel 440FX - 82441FX PMC [Natoma]
+网卡：    Red Hat, Inc. Virtio network device
+三、CPU测评
+CPU：     AMD EPYC-Genoa Processor 步进0 (25代) 32/64-bit
+           ╚═ 2核心, 2线程, 2794.724MHz, 利用率3%        
+缓存：    L1d 64 KiB, L1i 64 KiB, L2 2 MiB, L3 32 MiB
+指令集：   ✘ VT-x/AMD-V    ✔ AES-NI    ✔ AVX2    ✔ BMI1/2    ✘ EPT/NPT 
+Sysbench：单线程 1613.24     多线程 3092.14
+GB5基准： J1900 N5105 N100 6700K 9900K 5900X 12900K 14900K 7713 7995WX
+GB5单核：    |894
+GB5多核：        |1677
+详细结果：https://browser.geekbench.com/v5/cpu/24443225
+四、显卡测评
+显卡：    [集显]AMD Cirrus Logic GD 5446 
+五、内存测评
+内存：    总容量 2.0 GB,  已用 0.5 GB(24%),  可用 1.5 GB(76%)
+交换：    总容量 1024 MB,  已用 0 MB(0%),  可用 1024 MB(100%)
+超开指标： ✔ 气球回收     ✘ KSM 复用 
+Sysbench：读取 45780.6 MB/s    写入 20449.0 MB/s    延迟 160 ns
+六、硬盘测评
+硬盘：    数量 1,  总容量 39G,  已用容量 4.8G(12%),  可用容量 33G(88%)
+测试设备：sda2(/r**t) -> DISK
+Fio测试： RND4K/Q1    IOPS||RND4K/Q32   IOPS||SEQ1M/Q1    IOPS||SEQ1M/Q8    IOPS
+读取：    24.6MB/s    6.3k||308MB/s      79k||1248MB/s    1.2k||4411MB/s    4.4k
+写入：    25.9MB/s    6.6k||245MB/s      63k||1491MB/s    1.5k||3537MB/s    3.5k
+七、HQ硬件加权评分
+项目：      总 分          CPU           GPU          内 存         硬 盘  
+分数：      37215    =    20249    +     N/A     +    13098    +    3868   
+排名：      10.3%         17.4%          N/A          8.5%          16.1%  
+================================================================================
+今日硬件检测量：736；总检测量：115877。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/hardware/2U6ICZ2AT.svg
+
+########################################################################
+                      IP质量体检报告：104.224.*.*
+                   https://github.com/xykt/IPQuality
+                bash <(curl -sL https://Check.Place) -I
+        报告时间：2026-07-10 22:50:19 CST  脚本版本：v2026-03-29
+########################################################################
+一、基础信息（Maxmind 数据库）
+自治系统号：            AS25820
+组织：                  IT7 Networks Inc
+坐标：                  118°15′11″W, 34°2′53″N
+地图：                  https://check.place/34.0481,-118.2531,15,cn
+城市：                  加州, 洛杉矶, 90014
+使用地：                [US]美国, [NA]北美洲
+注册地：                [CA]加拿大
+时区：                  America/Los_Angeles
+IP类型：                 广播IP 
+二、IP类型属性
+数据库：      IPinfo    ipregistry    ipapi    IP2Location   AbuseIPDB 
+使用类型：     机房        机房        机房        机房        机房    
+公司类型：     机房        商业        机房        机房    
+三、风险评分
+风险等级：      极低         低       中等       高         极高
+IP2Location：                                                99|高风险
+Scamalytics：  1|低风险
+ipapi：       0.20%|低风险
+AbuseIPDB：    0|低风险
+DB-IP：         |低风险
+四、风险因子
+库： IP2Location ipapi ipregistry IPQS Scamalytics ipdata IPinfo DB-IP
+地区：    [US]    [US]    [US]     无     [US]    [US]    [US]    [US]
+代理：     是      否      否      无      否      否      否      否 
+Tor：      否      否      否      无      否      否      否      无 
+VPN：      是      否      是      无      否      无      否      无 
+服务器：   否      是      是      无      否      是      是      无 
+滥用：     否      否      否      无      否      否      无      否 
+机器人：   否      否      无      无      否      无      无      否 
+五、流媒体及AI服务解锁检测
+服务商：  TikTok   Disney+  Netflix Youtube  AmazonPV  Reddit   ChatGPT 
+状态：     解锁     解锁     解锁     解锁     解锁     解锁     解锁   
+地区：     [US]     [US]     [US]     [US]     [US]     []     [US]   
+方式：     原生     原生     原生     原生     原生     原生     原生   
+六、邮局连通性及黑名单检测
+本地25端口出站：可用
+通信：+Gmail+Outlook+Yahoo+Apple+QQ+MailRU+AOL-GMX-MailCOM+163+Sohu-Sina
+IP地址黑名单数据库：  有效 439   正常 335   已标记 104   黑名单 0
+========================================================================
+今日IP检测量：8365；总检测量：1657626。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/ip/2464MYI3N.svg
+
+********************************************************************************
+                         网络质量体检报告：104.224.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-10 22:51:15 CST  脚本版本：v2026-01-25
+********************************************************************************
+一、BGP信息（BGP.TOOLS & HE.NET）
+注册信息：          ARIN, AS25820 IT7 Networks Inc, Prefix/21
+注册/修改日期：     2014-10-17 / 2024-10-15
+地区：              [CA]Canada, Northern America, Americas
+地址：              4974 Kingsway Ave, Suite 668
+活跃邻居：          Subnet/24  190 / 256     Prefix/21  1453 / 2048 
+二、本地策略
+NAT类型：         开放网络无NAT 
+TCP拥塞控制算法：bbr          TCP接收缓冲区（rmem）：4096 87380 67108864
+队列调度算法：   fq           TCP发送缓冲区（wmem）：4096 65536 67108864
+三、接入信息（*=Tier1 *=非Tier1 *=上游）
+互联网交换点接入数：56        上游数量：5         对等互联数量：27
+AS174  AS1299  AS2914 AS3257 AS3320 AS3356 AS3491 AS5511 AS6453 AS6461 AS6762  
+Cogent Arelion   NTT    GTT   DTAG   Lumen  PCCW  Orange  TATA   Zayo  Sparkle 
+AS6830  AS7018 AS12956 AS7474 AS137409 
+Liberty  AT&T  Telxius  Optus    GSL   
+四、三网TCP大包延迟（依次为电信|联通|移动 Step=80ms） 京⣤⣤⣤⣤⣤153⣤⣤⣤⣤⣤151⣤⣤⣤⣤⣤152
+津⣶⣶⣶⣶⣶163⣤⣤⣤⣤⣤150⣤⢠⣤⣤⣤149 冀⣤⣤⣤⣤⣤152⣶⣶⣶⣶⣶161⣶⣶⣶⣶⣶163 晋⣷⣴⣧⣷⣿241⢸⠀⠀⠀⠀331⡄⣿⢸⢸⡇297
+蒙⣴⣤⣶⣶⣤159⣤⣤⣤⣤⣤153⣤⣤⣤⣤⣤146 辽⣶⣶⣶⣶⣶167⣶⣶⣶⣶⣶165⣶⣶⣶⣶⣶166 吉⣶⣶⣶⣶⣶165⣶⣶⣶⣶⣶171⣶⡆⣶⣶⢰170
+黑⣶⣶⣶⣶⣶171⣶⣶⣶⣶⣶182⣶⣶⣶⣶⣶168 沪⣤⣤⣤⣤⣤130⢠⣤⣤⣤⣤138⣤⣤⣤⡄⡄129 苏⣤⣤⣤⣤⣤133⡄⣤⣤⣤⣤138⣤⣤⣤⣤⣤143
+浙⣤⣤⣤⣤⣤140⣤⣤⣤⣤⣤147⣤⣤⣤⣤⣤130 皖⣤⣤⣤⣤⣤147⣤⣤⣤⣤⣤142⣤⣤⣤⣤⡄148 闽⣤⣤⣤⣤⣤150⡆⣶⣶⣶⣶164⣤⣤⣤⡄⣤154
+赣⡄⣤⣤⣤⣤143⣤⣤⣤⣤⣤150⡄⣤⣤⣤⣤142 鲁⡄⣶⣶⣶⣦163⢠⣤⣴⣤⡄151⣤⣤⣤⣤⡄149 豫⣶⣶⣶⣶⣶166⣤⣤⣤⣤⣤152⣤⣤⣤⣤⣤155
+鄂⣤⣤⣤⣤⣤141⣤⣤⣤⣤⣤147⣤⣤⣤⣤⣤148 湘⣤⣤⣤⣴⣤153⣤⣤⣤⣤⣤145⣤⣤⣤⣤⣤147 粤⣤⣤⣦⣦⣤159⣶⣶⣶⣶⣶161⣶⣶⣶⣶⣶168
+桂⣶⣶⣶⣶⣶165⣶⣶⣶⣶⣶164⣶⣶⣶⣶⣶164 琼⣶⣶⣶⣶⣶160⣶⣶⣶⣶⣶168⣶⣶⣶⣶⣶170 渝⣶⣶⣶⣶⣶160⣶⣶⣶⣶⣶165⣶⣶⣶⣶⣶162
+川⣴⣴⣴⣶⣶159⣶⣶⣶⣶⢰170⣶⣶⣶⣶⣶167 贵⣶⣶⣶⣶⣶172⣶⣶⣶⣶⣶174⣶⣶⣶⣶⣶161 云⣶⣶⣶⣶⣶178⣶⣶⣶⣶⣶174⣶⣶⣶⣶⣶171
+藏⣶⣶⣶⣶⣶163⣶⣶⣶⣶⣶167⣤⣦⣤⣤⣤159 陕⣤⣤⣤⣤⣤151⣴⣦⣶⣦⣦158⠀⠀⠀⠀⠀0   甘⣤⣤⣤⣤⣤154⣶⣶⣶⣶⣶170⣶⣶⣶⣶⣶166
+青⣶⣶⣶⣶⣶173⣤⣤⣤⣤⣤151⣶⣶⣶⣶⣶185 宁⣶⣶⣶⣶⣶164⣶⣶⣶⣶⣶168⢰⣶⣶⣶⣶167 新⣶⣶⣶⣶⣶189⣶⣶⣶⣶⣶198⣶⣶⣶⢰⣶191
+五、三网回程路由（线路可能随网络负载动态变化）
+北京TCP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+北京UDP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+上海TCP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+上海UDP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+广州TCP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+广州UDP：电信      IT7->CN2GIA || 联通      IT7->9929   || 移动   NoData->CMIN2 
+六、国内测速   发送  延迟    接收  延迟||单位：Mbps ms  发送  延迟    接收  延迟
+苏州电信       1331   197    4203   214||镇江电信        647   196    4583   223
+上海联通          ERROR         ERROR  ||香港联通          ERROR         ERROR  
+苏州移动         15   560       0   476||深圳移动          ERROR         ERROR  
+七、国际互连   延迟 发送 重传 接收 重传||单位：ms Mbps  延迟 发送 重传 接收 重传
+香港      ⣶⣶⣶⣶⣶⣷233   477  15   612   0||东京      ⣤⣤⣤⣤⣤⣤114  1178   0  1385  74
+新加坡    ⣶⣶⣶⣶⣶⣶232   493   1   503   0||悉尼      ⣤⣤⣤⣤⣤⣤138   394  1k   415   0
+洛杉矶    ⣀⣀⣀⣀⣀⣀  0  7173  2k  7598   0||纽约      ⣀⣀⣀⣀⣀⣀ 67     ERROR     ERROR
+法兰克福  ⣤⣤⣤⣤⣤⣤152   155   0   190   0||伦敦      ⣤⣤⣤⣤⣤⣤131  1046  61  1296   0
+阿姆斯特丹⣤⣤⣤⣤⣤⣤147  1738   0  2005   0||圣保罗    ⣿⣿⣿⣿⣿⣿261   610   0     5 152
+================================================================================
+今日网络检测量：2516；总检测量：749616。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/1WN72BNQ6.svg
+
+********************************************************************************
+                         网络质量体检报告：104.224.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-10 22:58:45 CST  脚本版本：v2026-01-25
+********************************************************************************
+五、三网回程路由（线路可能随网络负载动态变化）
+  北京 电信    IT7 -> CN2GIA  
+地理路径：美国 -> 上海 -> 北京    自治系统路径：AS25820 -> AS4809 -> AS4134 -> AS4809 -> AS4847 
+ 2       0.74ms  45.78.*.*    AS25820                     美国 加利福尼亚州 洛杉矶 it7.net
+ 4     121.66ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+ 5-7     0.99ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+11     164.48ms  36.112.*.*   AS4847                      中国 北京 bj.189.cn
+13     156.27ms  106.37.*.*   AS4847    [CHINANET-HN]     中国 北京 bj.189.cn
+  北京 联通    IT7 -> 9929  
+地理路径：加拿大 -> 上海 -> 北京    自治系统路径：AS25820 -> AS10099 -> AS9929 -> AS4808 
+ 2       0.83ms  142.0.*.*    AS25820                     加拿大 不列颠哥伦比亚省 温哥华 it7.net
+ 4     131.66ms  203.160.*.*  AS10099   [CUG-BACKBONE]    中国 上海 chinaunicomglobal.com 联通
+ 6     152.85ms  218.105.*.*  AS9929    [CNC-BACKBONE]    中国 北京 chinaunicom.cn 联通 CUII
+ 7     158.78ms  210.78.*.*             [CNC-BACKBONE]    * 中国 北京 chinaunicom.cn 联通 CUII
+10     165.05ms  124.64.*.*   AS4808    [UNICOM-BJ]       中国 北京市 www.bbn.com.cn 联通
+11     155.53ms  61.148.*.*   AS4808    [UNICOM-CN]       中国 北京市 www.bbn.com.cn 联通
+15     161.40ms  221.222.*.*  AS4808    [UNICOM-BJ]       中国 北京 海淀 www.bbn.com.cn
+  北京 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海 -> 北京    自治系统路径：AS58807 -> AS9808 -> AS56048 
+ 2       0.57ms  100.100.*.*                              * RFC6598
+ 3-4    15.40ms  223.120.*.*  AS58807   [CMIN2-NET]       美国 加利福尼亚 洛杉矶 cmi.chinamobile.com 移动
+ 5     126.32ms  223.120.*.*  AS58807   [CMIN2-NET]       中国 上海 洛杉矶-上海 cmi.chinamobile.com 移动
+ 6-8   126.51ms  221.183.*.*  AS9808    [CMNET]           中国 上海 X-I chinamobileltd.com 移动
+ 9     151.27ms  221.183.*.*  AS9808    [CMNET]           中国 北京 chinamobileltd.com 移动
+12-14  151.27ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+16     153.09ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+  上海 电信    IT7 -> CN2GIA  
+地理路径：美国 -> 上海    自治系统路径：AS25820 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4812 
+ 2       0.89ms  45.78.*.*    AS25820                     美国 加利福尼亚州 洛杉矶 it7.net
+ 4     121.36ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+ 5       1.17ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+14     130.17ms  101.226.*.*  AS4812    [CHINANET-SH]     中国 上海市 chinatelecom.cn 电信
+  上海 联通    IT7 -> 9929  
+地理路径：加拿大 -> 上海    自治系统路径：AS25820 -> AS10099 -> AS9929 -> AS140979 
+ 2       0.56ms  142.0.*.*    AS25820                     加拿大 不列颠哥伦比亚省 温哥华 it7.net
+ 4     131.47ms  203.160.*.*  AS10099   [CUG-BACKBONE]    中国 上海 chinaunicomglobal.com 联通
+ 6     130.06ms  218.105.*.*  AS9929    [CNC-BACKBONE]    中国 上海 chinaunicom.cn 联通 CUII
+15     130.96ms  112.64.*.*   AS140979  [APNIC-AP]        中国 上海市 闵行 chinaunicom.cn 联通
+  上海 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海    自治系统路径：AS58807 -> AS9808 -> AS24400 -> AS9808 
+ 2       0.61ms  100.100.*.*                              * RFC6598
+ 3-4     0.86ms  223.120.*.*  AS58807   [CMIN2-NET]       美国 加利福尼亚 洛杉矶 cmi.chinamobile.com 移动
+ 5     126.46ms  223.120.*.*  AS58807   [CMIN2-NET]       中国 上海 洛杉矶-上海 cmi.chinamobile.com 移动
+ 6-9   128.04ms  221.183.*.*  AS9808    [CMNET]           中国 上海 X-I chinamobileltd.com 移动
+10     128.81ms  117.135.*.*  AS24400   [CMNET]           中国 上海市 sh.10086.cn 移动
+13     128.19ms  117.185.*.*  AS9808    [CMNET]           中国 上海市 chinamobileltd.com 移动
+  广东 电信    IT7 -> CN2GIA  
+地理路径：美国 -> 广东    自治系统路径：AS25820 -> AS4809 -> AS4134 -> AS4809 -> AS4134 
+ 2       2.90ms  45.78.*.*    AS25820                     美国 加利福尼亚州 洛杉矶 it7.net
+ 4     157.80ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 广东 广州 chinatelecom.cn 电信
+ 6-7     1.38ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+11     155.88ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn 电信
+14     163.79ms  183.47.*.*   AS4134    [APNIC-AP]        中国 广东省 广州市 chinatelecom.com.cn 电信
+  广东 联通    IT7 -> 9929  
+地理路径：加拿大 -> 上海 -> 广东 -> 江苏    自治系统路径：AS25820 -> AS10099 -> AS9929 -> AS4837 -> AS17623 -> AS135061 
+ 2       3.07ms  142.0.*.*    AS25820                     加拿大 不列颠哥伦比亚省 温哥华 it7.net
+ 4     136.15ms  162.219.*.*  AS10099   [CUG-BACKBONE]    中国 上海 chinaunicomglobal.com 联通
+ 6     155.60ms  218.105.*.*  AS9929    [CNC-BACKBONE]    中国 广东 广州 chinaunicom.cn 联通 CUII
+ 7     161.52ms  210.14.*.*             [CNC-BACKBONE]    * 中国 广东 广州
+ 8-9   162.48ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+11     173.45ms  120.80.*.*   AS17623   [APNIC-AP]        中国 广东省 深圳市 chinaunicom.cn
+13     160.35ms  61.241.*.*   AS135061                    中国 江苏省 南京市 chinaunicom.cn 联通
+  广东 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海 -> 广东    自治系统路径：AS58807 -> AS9808 -> AS56040 
+ 2       0.38ms  100.100.*.*                              * RFC6598
+ 3-4     0.71ms  223.120.*.*  AS58807   [CMIN2-NET]       美国 加利福尼亚 洛杉矶 cmi.chinamobile.com 移动
+ 5     126.17ms  223.120.*.*  AS58807   [CMIN2-NET]       中国 上海 洛杉矶-上海 cmi.chinamobile.com 移动
+ 6-8   126.17ms  221.183.*.*  AS9808    [CMNET]           中国 上海 X-I chinamobileltd.com 移动
+ 9-10  159.55ms  111.24.*.*   AS9808    [CMNET]           中国 广东 广州 chinamobileltd.com 移动
+11-14  160.25ms  183.235.*.*  AS56040   [APNIC-AP]        中国 广东 深圳 gd.10086.cn 移动
+17     166.52ms  211.139.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+================================================================================
+今日网络检测量：2552；总检测量：749652。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/CY3G8759N.svg
+
+[NodeQuality链接](https://nodequality.com/r/yQ3ZPTO8eC7no6Ay9YHLqB4EQbZ3OJlW)

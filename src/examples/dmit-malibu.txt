@@ -1,0 +1,439 @@
+########################################################################
+                  bash <(curl -sL https://run.NodeQuality.com)
+                   https://github.com/LloydAsp/NodeQuality
+        报告时间：2026-07-11 02:40:05 CST  脚本版本：v0.0.1
+        频道: https://t.me/nodeselect 网站：https://NodeQuality.com
+########################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                          硬件质量体检报告：154.21.*.*
+                    https://github.com/xykt/HardwareQuality
+                    bash <(curl -sL https://Check.Place) -H
+            报告时间：2026-07-11 02:40:11 CST  脚本版本：v2026-05-21
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+一、操作系统信息
+容器/虚拟化：          KVM 虚拟机
+架构：                 x86_64
+操作系统/内核：        Debian GNU/Linux 12 (bookworm) 6.1.0-49-amd64
+运行时间：             11 天 12 小时 30 分钟
+负载：                 0.32, 0.10, 0.03
+进程：                 3 用户，115 进程，18/132 活跃/总服务
+区域设置：             C, UTF-8, Etc/UTC UTC +0000
+二、主板信息
+BIOS：    SeaBIOS, 版本rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org
+芯片组：  Intel 82801IB (ICH9) LPC Interface Controller
+          Intel 82G33/G31/P35/P31 Express DRAM Controller
+声卡：    Intel 82801I (ICH9 Family) HD Audio Controller
+网卡：    Red Hat, Inc. Virtio network device
+三、CPU测评
+CPU：     AMD EPYC 9654 96-Core Processor 步进1 (25代) 32/64-bit
+           ╚═ 1核心, 1线程, 2396.396MHz, 利用率6%               
+缓存：    L1d 64 KiB, L1i 64 KiB, L2 512 KiB, L3 16 MiB
+指令集：   ✘ VT-x/AMD-V    ✔ AES-NI    ✔ AVX2    ✔ BMI1/2    ✘ EPT/NPT 
+Sysbench：单线程 4141.86     
+GB5基准： J1900 N5105 N100 6700K 9900K 5900X 12900K 14900K 7713 7995WX
+GB5单核：     |970
+GB5多核：      |1249
+详细结果：https://browser.geekbench.com/v5/cpu/24443588
+四、显卡测评
+显卡：    [集显]AMD 1111 (rev 02) 
+五、内存测评
+内存：    总容量 959 MB,  已用 396 MB(41%),  可用 563 MB(59%)
+交换：    总容量 1024 MB,  已用 270 MB(26%),  可用 754 MB(74%)
+超开指标： ✔ 气球回收     ✘ KSM 复用 
+Sysbench：读取 50514.5 MB/s    写入 30031.1 MB/s    延迟 145 ns
+六、硬盘测评
+硬盘：    数量 1,  总容量 20G,  已用容量 5.8G(29%),  可用容量 13G(71%)
+测试设备：vda1(/r**t) -> DISK
+Fio测试： RND4K/Q1    IOPS||RND4K/Q32   IOPS||SEQ1M/Q1    IOPS||SEQ1M/Q8    IOPS
+读取：    6.69MB/s    1.7k||89.6MB/s     23k||325MB/s      324||1009MB/s    1.0k
+写入：    54.3MB/s     14k||66.4MB/s     17k||1051MB/s    1.1k||1051MB/s    1.1k
+七、HQ硬件加权评分
+项目：      总 分          CPU           GPU          内 存         硬 盘  
+分数：      28110    =    16457    +     N/A     +    9926     +    1727   
+排名：      5.2%          11.8%          N/A          4.7%          4.4%   
+================================================================================
+今日硬件检测量：898；总检测量：116039。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/hardware/1ELJJ7IYJ.svg
+
+########################################################################
+                       IP质量体检报告：154.21.*.*
+                   https://github.com/xykt/IPQuality
+                bash <(curl -sL https://Check.Place) -I
+        报告时间：2026-07-11 02:44:03 CST  脚本版本：v2026-03-29
+########################################################################
+一、基础信息（Maxmind 数据库）
+自治系统号：            AS906
+组织：                  DMIT Cloud Services
+坐标：                  118°16′15″W, 34°3′5″N
+地图：                  https://check.place/34.0515,-118.2707,15,cn
+城市：                  加州, 洛杉矶, 90017
+使用地：                [US]美国, [NA]北美洲
+注册地：                [US]美国
+时区：                  America/Los_Angeles
+IP类型：                 原生IP 
+二、IP类型属性
+数据库：      IPinfo    ipregistry    ipapi    IP2Location   AbuseIPDB 
+使用类型：     机房        机房        机房        机房        其他    
+公司类型：     机房        家宽        机房        机房    
+三、风险评分
+风险等级：      极低         低       中等       高         极高
+IP2Location：   3|低风险
+Scamalytics：         10|低风险
+ipapi：                          1.76%|较高风险
+DB-IP：         |低风险
+四、风险因子
+库： IP2Location ipapi ipregistry IPQS Scamalytics ipdata IPinfo DB-IP
+地区：    [US]    [US]    [US]     无     [US]    [US]    [US]    [US]
+代理：     否      否      否      无      否      否      否      否 
+Tor：      否      否      否      无      否      否      否      无 
+VPN：      否      否      否      无      否      无      否      无 
+服务器：   是      是      是      无      否      是      是      无 
+滥用：     否      否      否      无      否      否      无      否 
+机器人：   否      否      无      无      否      无      无      否 
+五、流媒体及AI服务解锁检测
+服务商：  TikTok   Disney+  Netflix Youtube  AmazonPV  Reddit   ChatGPT 
+状态：     解锁     解锁     解锁     解锁     解锁     解锁     解锁   
+地区：     [US]     [US]     [US]     [US]     [US]     []     [US]   
+方式：     原生     原生     原生     原生     原生     原生     原生   
+六、邮局连通性及黑名单检测
+本地25端口出站：阻断
+通信：远端25端口不可达​
+IP地址黑名单数据库：  有效 439   正常 392   已标记 45   黑名单 2
+========================================================================
+今日IP检测量：10450；总检测量：1659715。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/ip/2PI8ZH6O2.svg
+
+########################################################################
+              IP质量体检报告(Lite)：2605:52c0:2:*:*:*:*:*
+                   https://github.com/xykt/IPQuality
+                bash <(curl -sL https://Check.Place) -I
+        报告时间：2026-07-11 02:44:03 CST  脚本版本：v2026-03-29
+########################################################################
+一、基础信息（IPinfo 数据库）
+自治系统号：            AS906
+组织：                  DMIT Cloud Services
+坐标：                  118°14′37″W, 34°3′8″N
+地图：                  https://check.place/34.0522,-118.2437,12,cn
+城市：                  Los Angeles, 90013
+使用地：                [US]United States of America, Americas
+注册地：                [US]United States of America
+时区：                  America/Los_Angeles
+IP类型：                 原生IP 
+二、IP类型属性
+数据库：      IPinfo    ipregistry    ipapi 
+使用类型：     机房        机房        机房    
+公司类型：     机房        机房        机房    
+三、风险评分
+风险等级：      极低         低       中等       高         极高
+ipapi：    0.00%|极低风险
+DB-IP：         |低风险
+四、风险因子
+库：     ipapi ipregistry IPinfo DB-IP
+地区：    [US]    [US]    [US]    [US]
+代理：     否      否      否      否 
+Tor：      否      否      否      无 
+VPN：      否      否      否      无 
+服务器：   是      是      是      无 
+滥用：     否      否      无      否 
+机器人：   否      无      无      否 
+五、流媒体及AI服务解锁检测
+服务商：  TikTok   Disney+  Netflix Youtube  AmazonPV  Reddit   ChatGPT 
+状态：     失败     屏蔽     解锁     解锁     屏蔽     屏蔽     解锁   
+地区：                       [US]     [US]                       [US]   
+方式：                       原生     原生                       原生   
+六、邮局连通性及黑名单检测
+本地25端口出站：阻断
+通信：+Gmail-Outlook-Yahoo-Apple+QQ-MailRU-AOL-GMX-MailCOM-163-Sohu-Sina
+========================================================================
+今日IP检测量：10466；总检测量：1659731。感谢使用xy系列脚本！ 
+
+********************************************************************************
+                          网络质量体检报告：154.21.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 02:45:49 CST  脚本版本：v2026-01-25
+********************************************************************************
+一、BGP信息（BGP.TOOLS & HE.NET）
+注册信息：          ARIN, AS906 Private Customer, Prefix/24
+注册/修改日期：     2026-01-29 / 2026-01-29
+地区：              [US]United States of America, Northern America, Americas
+地址：              Private Residence
+活跃邻居：          Prefix/24  182 / 256 
+二、本地策略
+NAT类型：         开放网络无NAT 
+TCP拥塞控制算法：bbr          TCP接收缓冲区（rmem）：16384 16777216 536870912
+队列调度算法：   fq           TCP发送缓冲区（wmem）：16384 16777216 536870912
+三、接入信息（*=Tier1 *=非Tier1 *=上游）
+互联网交换点接入数：56        上游数量：6         对等互联数量：7
+AS174  AS1299  AS2914 AS3257 AS3320 AS3356 AS3491 AS5511 AS6453 AS6461 AS6762  
+Cogent Arelion   NTT    GTT   DTAG   Lumen  PCCW  Orange  TATA   Zayo  Sparkle 
+AS6830  AS7018 AS12956 AS137409 
+Liberty  AT&T  Telxius    GSL   
+四、三网TCP大包延迟（依次为电信|联通|移动 Step=80ms） 京⣤⣤⣤⣤⣤155⣤⣤⣤⣤⣤148⣤⣤⣤⣤⣤152
+津⣤⣤⣤⣤⣤156⣤⣤⣤⣤⣤148⣤⣤⣤⣤⣤151 冀⣤⣤⣤⣤⣤149⣶⣶⣶⣶⣶167⣤⣤⣤⣤⣤156 晋⣶⣷⡇⣿⣿276⡇⠀⠀⠀⠀334⠀⠀⠀⠀⠀0  
+蒙⣴⣶⣦⣶⣦160⣶⣶⣶⣶⣶162⣤⣤⣤⣤⣤157 辽⣶⣶⣶⣶⣶162⣶⣶⣶⣶⣶161⣶⣶⣶⣶⣶172 吉⣶⣶⣶⣶⣶166⣶⣶⣶⣶⣶171⣶⣶⣶⣶⣶171
+黑⣶⣶⣶⣶⣶168⣶⣶⣶⣶⣶167⣶⣶⣶⣶⣶172 沪⢠⣤⣤⣤⣤129⣤⣤⣤⣤⣤133⢠⡄⣤⣤⣤130 苏⣤⣤⣤⣤⣤131⣤⣤⣤⣤⣤131⣤⣤⣤⣤⣤142
+浙⣤⣤⣤⣤⣤137⣤⣤⣤⣤⣤136⣤⣤⣤⣤⣤135 皖⣤⣤⣤⣤⣤134⣤⣤⣤⣤⣤137⣤⣤⣤⣤⣤144 闽⣤⣤⣤⣤⣤148⣶⣶⣶⣶⣶163⣤⣤⣤⣤⣤151
+赣⣤⣤⣤⣤⣤148⣤⣤⣤⣤⣤145⣤⣤⣤⣤⣤142 鲁⣶⣶⣶⣶⣶162⢠⣤⣤⣤⣤151⣦⣤⣤⣤⣤155 豫⣤⣤⣤⣤⣤154⣤⣤⣤⣤⣤152⣤⣤⣤⣤⣤148
+鄂⣤⣤⣤⣤⣤142⣤⣤⣤⣤⣤150⣤⣤⣤⣤⣤147 湘⣶⣶⣶⣶⣶163⣤⣤⣤⣤⣤157⣦⣦⣤⣶⣤159 粤⣦⣶⣴⣴⣴161⣶⣴⣴⣦⣶160⣶⣶⣶⣶⣶174
+桂⣤⣤⣤⣤⣤157⣶⣶⣶⣶⣶170⣶⣶⣶⣶⣶173 琼⣶⣶⣶⣶⣶166⣶⣶⣶⣶⣶167⣶⣶⣶⣶⣶164 渝⣤⣤⣤⣤⣤153⣶⣶⣶⣶⣶169⣶⣶⣶⣶⣶176
+川⣤⣴⣶⣴⣦159⣶⣶⣶⣶⣶176⣶⣶⣶⣶⣶173 贵⣶⣶⣶⣶⣶167⣶⣶⣶⣶⣶177⣶⣶⣶⣶⣶162 云⣶⣶⣶⣶⣶168⣶⣶⣶⣶⣶170⣶⣶⣶⣶⣶179
+藏⣶⣶⣶⣶⣶191⣶⣶⣶⣶⣶169⣶⣶⣶⣶⣶177 陕⣤⣤⣤⣤⣤152⣦⣶⣴⣶⣶163⣶⣶⣶⣶⣶173 甘⣤⣤⣤⣤⣤150⣶⣶⣶⣶⣶169⣶⣶⣶⣶⣶168
+青⣶⣶⣶⣶⣶171⣶⣶⣶⣶⣶169⣶⣶⣶⣶⣶174 宁⣶⣶⣶⣶⣶163⣤⣤⣤⣤⣤157⣶⣶⣶⣶⣶173 新⣶⣶⣶⣶⣶195⣶⣶⣶⣶⣶190⣶⣶⣶⣶⣶184
+五、三网回程路由（线路可能随网络负载动态变化）
+北京TCP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+北京UDP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+上海TCP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+上海UDP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+广州TCP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+广州UDP：电信    AS906->CN2GIA || 联通    AS906->CN2GIA || 移动    AS906->CN2GIA
+六、国内测速   发送  延迟    接收  延迟||单位：Mbps ms  发送  延迟    接收  延迟
+苏州电信        663   198     477   204||杭州电信        606   193     884   204
+上海联通        682   197     713   224||香港联通          ERROR         ERROR  
+苏州移动        564   276       0   306||深圳移动          ERROR         ERROR  
+七、国际互连   延迟 发送 重传 接收 重传||单位：ms Mbps  延迟 发送 重传 接收 重传
+香港      ⣤⣤⣤⣤⣤⣤151   368 26k   657  5k||东京      ⣤⣤⣤⣤⣤⣤100   483 28k   548  4k
+新加坡    ⣶⣶⣶⣶⣶⣶231   430   0   411  1k||悉尼      ⣤⣤⣤⣤⣤⣤137   385 15k   660  1k
+洛杉矶    ⣀⣀⣀⣀⣀⣀  0  1011 71k   938  1k||纽约      ⣀⣀⣀⣀⣀⣀ 57     ERROR     ERROR
+法兰克福  ⣤⣤⣤⣤⣤⣤152   150   0   176   0||伦敦      ⣤⣤⣤⣤⣤⣤132   440 24k   536  4k
+阿姆斯特丹⣤⣤⣤⣤⣤⣤147   631 80k   139 51k||圣保罗    ⣿⡇⣿⣿⢸⣿262   202 43k     1  31
+================================================================================
+今日网络检测量：3138；总检测量：750236。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/320K5AJTC.svg
+
+********************************************************************************
+                    网络质量体检报告：2605:52c0:2:*:*:*:*:*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 02:45:49 CST  脚本版本：v2026-01-25
+********************************************************************************
+一、BGP信息（BGP.TOOLS & HE.NET）
+注册信息：          ARIN, AS906 DMIT Cloud Services, Prefix/48
+注册/修改日期：     2019-07-11 / 2019-07-11
+地区：              [US]United States of America, Northern America, Americas
+地址：              418 Broadway Ste N
+二、本地策略
+TCP拥塞控制算法：bbr          TCP接收缓冲区（rmem）：16384 16777216 536870912
+队列调度算法：   fq           TCP发送缓冲区（wmem）：16384 16777216 536870912
+三、接入信息（*=Tier1 *=非Tier1 *=上游）
+互联网交换点接入数：38        上游数量：4         对等互联数量：5
+AS174  AS1299  AS2914 AS3257 AS3320 AS3356 AS3491 AS5511 AS6453 AS6461 AS6762  
+Cogent Arelion   NTT    GTT   DTAG   Lumen  PCCW  Orange  TATA   Zayo  Sparkle 
+AS6830   AS6939   AS7018 AS12956 AS137409 
+Liberty Hurricane  AT&T  Telxius    GSL   
+四、三网TCP大包延迟（依次为电信|联通|移动 Step=80ms） 京⣤⣤⣤⣤⣤153⣤⣤⣤⣤⣤153⣤⣤⣶⣦⣦158
+津⣤⣤⣤⣤⣤154⣦⣴⣶⣦⣴160⣴⣴⣶⣶⣴158 冀⣴⣤⣤⣦⣤157⣶⣶⣤⣤⣴160⣴⣶⣦⣤⣴158 晋⣶⣦⣶⣴⣤161⣶⣦⣶⣦⣶164⣤⣤⣤⣤⣤152
+蒙⣶⣶⣶⣴⣶164⣶⣶⣤⣴⣴160⣤⣦⣤⣤⣦157 辽⣶⣶⣦⣶⣶166⣶⣶⣶⣴⣶168⣶⣶⣶⣶⣶167 吉⣶⣶⣶⣶⣶170⣶⣶⣶⣶⣶178⣶⣶⣶⣶⣶171
+黑⣶⣶⣶⣶⣶169⣶⣶⣶⣶⣶175⣶⣶⣶⣶⣶167 沪⣤⣤⣤⣤⣤130⣤⣤⣤⣤⣤139⣤⣤⣤⣤⣤128 苏⣤⣤⣤⣤⣤138⣤⣤⣤⣤⣤142⣤⣤⣤⣤⣤139
+浙⣶⣦⣶⣶⣴164⣤⣤⣤⣤⣤140⣤⣤⣤⣤⣤137 皖⣤⣤⣤⣤⣤137⣤⣤⣤⣤⣤143⣤⣤⣤⣤⣤143 闽⣴⣶⣶⣶⣶170⣤⣤⣶⣤⣴155⣶⣴⣤⣶⣶160
+赣⣤⣤⣤⣤⣤149⣤⣤⣤⣤⣤147⣤⣤⣤⣤⣤142 鲁⣶⣶⣴⣦⣦165⣤⣤⣤⣤⣤147⣤⣤⣤⣤⣤142 豫⣶⣶⣶⣶⣶166⣤⣤⣤⣤⣤151⣤⣤⣤⣤⣤151
+鄂⣤⣤⣤⣤⣤146⣤⣤⣤⣦⣦154⣤⣤⣤⣤⣤146 湘⣤⣦⣤⣴⣤157⣤⣤⣤⣤⣤152⣤⣤⣤⣤⣤148 粤⣶⣶⣶⣶⣴163⣶⣴⣶⣦⣶164⣶⣶⣶⣶⣶165
+桂⣶⣶⣶⣶⣶164⣴⣶⣶⣤⣴161⣶⣶⣶⣶⣶166 琼⣶⣶⣶⣶⣶163⣶⣶⣶⣶⣶171⣶⣶⣶⣶⣶168 渝⣶⣶⣴⣶⣦162⣤⣤⣦⣤⣶159⣦⣦⣶⣴⣶162
+川⣦⣶⣴⣶⣴161⣴⣦⣶⣴⣤158⣴⣴⣶⣦⣤160 贵⣶⣶⣶⣶⣶175⣶⣶⣶⣶⣶165⣶⣶⣶⣦⣶162 云⣶⣶⣶⣶⣶174⣶⣶⣶⣶⣶176⣶⣶⣶⣶⣶167
+藏⣶⣶⣶⣶⣶189⣴⣶⣶⣶⣶169⣤⣶⣤⣤⣤150 陕⣶⣶⣶⣶⣶167⣤⣦⣴⣤⣶157⣴⣶⣶⣶⣤169 甘⣴⣤⣶⣴⣦159⣶⣶⣴⣶⣴165⣶⣶⣴⣶⣶166
+青⣶⣶⣶⣶⣶172⣦⣶⣶⣶⣶167⣶⣶⣶⣶⣶184 宁⣶⣶⣶⣶⣶169⣤⣶⣶⣴⣶165⣶⣶⣶⣶⣶165 新⣶⣶⣶⣶⣶192⣶⣶⣶⣶⣶203⣶⣴⣶⣶⣶166
+五、三网回程路由（线路可能随网络负载动态变化）
+北京TCP：电信   NoData->9929   || 联通   NoData->9929   || 移动   NoData->CMIN2 
+北京UDP：电信   NoData->10099  || 联通   NoData->10099  || 移动   NoData->CMIN2 
+上海TCP：电信   NoData->163    || 联通   NoData->9929   || 移动   NoData->CMIN2 
+上海UDP：电信   NoData->CN2GIA || 联通   NoData->10099  || 移动   NoData->CMIN2 
+广州TCP：电信   NoData->9929   || 联通   NoData->9929   || 移动   NoData->CMIN2 
+广州UDP：电信   NoData->10099  || 联通   NoData->10099  || 移动   NoData->CMIN2 
+七、国际互连   延迟 发送 重传 接收 重传||单位：ms Mbps  延迟 发送 重传 接收 重传
+香港      ⣶⣶⣶⣶⣶⣶172   504 11k   551  5k||东京      ⣤⣤⣤⣤⣤⣤101   568 26k   433  5k
+新加坡    ⣶⣶⣶⣶⣶⣶225   462   0   455  3k||悉尼      ⣤⣤⣤⣤⣤⣤136   364 29k   726   0
+洛杉矶    ⣀⣀⣀⣀⣀⣀  0  1045 70k   968  2k||纽约      ⣀⣀⣀⣀⣀⣀ 57     ERROR     ERROR
+法兰克福  ⣤⣤⣤⣤⣤⣤148   147   0   176   0||伦敦      ⣤⣤⣤⣤⣤⣤135   549 19k   424  3k
+阿姆斯特丹⣤⣤⣤⣤⣤⣤143   552 56k   108 69k||圣保罗    ⣿⣿⣿⣿⣿⣿264   170 35k    12 840
+================================================================================
+今日网络检测量：3146；总检测量：750244。感谢使用xy系列脚本！ 
+
+********************************************************************************
+                          网络质量体检报告：154.21.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 02:56:58 CST  脚本版本：v2026-01-25
+********************************************************************************
+五、三网回程路由（线路可能随网络负载动态变化）
+  北京 电信    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海 -> 北京    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4847 
+ 1       0.18ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.48ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.64ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     121.00ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+ 8     150.94ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 北京 chinatelecom.com.cn 电信
+11-12  152.21ms  219.141.*.*  AS4847    [CHINATELECOM-BJ] 中国 北京 bj.189.cn
+14     151.36ms  106.37.*.*   AS4847    [CHINANET-HN]     中国 北京 bj.189.cn
+  北京 联通    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海 -> 北京    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS4808 -> AS4837 -> AS4808 
+ 1       0.25ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.53ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       1.01ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4-5   127.87ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+11     150.98ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 chinatelecom.com.cn 电信
+12     151.64ms  202.96.*.*   AS4808    [UNICOM-BJ]       中国 北京 4808-Core www.bbn.com.cn 联通
+13-14  156.01ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 北京 chinaunicom.cn 联通
+16     151.31ms  61.148.*.*   AS4808    [UNICOM-CN]       中国 北京 www.bbn.com.cn
+  北京 移动    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海 -> 北京    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS9808 -> AS4134 -> AS56048 -> AS9808 -> AS56048 
+ 1       0.22ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.60ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.84ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4-8   127.63ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+ 9     148.72ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 北京 北京 chinatelecom.com.cn
+12     151.18ms  221.183.*.*  AS9808    [CMNET]           中国 北京 chinamobileltd.com 移动
+14-15  153.38ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+18     156.07ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+  上海 电信    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4812 
+ 1       0.26ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.66ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.63ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     127.32ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+14     123.29ms  101.226.*.*  AS4812    [CHINANET-SH]     中国 上海市 chinatelecom.cn 电信
+  上海 联通    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS140979 
+ 1       0.34ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.71ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.73ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     127.91ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+12     132.50ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 chinatelecom.com.cn 电信
+17     133.60ms  58.246.*.*   AS140979                    中国 上海市 chinaunicom.cn 联通
+  上海 移动    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 上海    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS9808 -> AS4809 -> AS9808 
+ 1       0.36ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.61ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.80ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4-5   127.71ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 上海 X-I chinatelecom.cn 电信
+ 9     128.89ms  221.183.*.*  AS9808    [CMNET]           中国 上海 chinamobileltd.com 移动
+14     130.77ms  221.183.*.*  AS9808    [CMNET]           中国 上海 chinamobileltd.com 移动
+  广东 电信    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 广东    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 
+ 1       0.34ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.56ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       1.08ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     153.18ms  59.43.*.*    AS4809    [CN2-Global]      * 中国 广东 广州 X-I chinatelecom.cn 电信
+ 6     156.71ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 广东 广州 chinatelecom.cn 电信
+ 7     155.78ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn 电信
+12     153.25ms  113.96.*.*   AS4134    [CHINANET-GD]     中国 广东 广州 chinatelecom.com.cn 电信
+13     162.97ms  14.18.*.*    AS4134                      中国 广东 广州 chinatelecom.com.cn 电信
+14     163.83ms  183.47.*.*   AS4134    [APNIC-AP]        中国 广东省 广州市 chinatelecom.com.cn 电信
+  广东 联通    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 广东    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS4809 -> AS4134 -> AS4837 -> AS4134 -> AS17816 -> AS136958 
+ 1       0.44ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.77ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       0.70ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     153.15ms  59.43.*.*    AS4809    [CN2-Global]      * 中国 广东 广州 X-I chinatelecom.cn 电信
+ 7-8   149.74ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 广东 广州 chinatelecom.cn 电信
+ 9     154.32ms  118.84.*.*   AS4134    [CHINANET-BB]     中国 北京市 chinatelecom.com.cn 电信
+10     165.10ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+11     153.32ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn 电信
+15     157.40ms  120.86.*.*   AS17816   [APNIC-AP]        中国 广东 广州 中国联通 联通
+17     162.18ms  157.148.*.*  AS136958  [UNICOM-GD]       中国 广东省 广州市 chinaunicom.cn 联通
+  广东 移动    AS906 -> CN2GIA  
+地理路径：gateway -> 美国 -> 广东    自治系统路径：AS906 -> AS4134 -> AS4809 -> AS4134 -> AS9808 -> AS4809 -> AS4134 -> AS56040 
+ 1       0.38ms  193.41.*.*   AS906     [DMIT-BB]         Anycast Anycast gateway DMIT.com
+ 2       0.76ms  193.41.*.*   AS906     [DMIT-BB]         美国 加利福尼亚 洛杉矶 DMIT.com
+ 3       1.03ms  218.30.*.*   AS4134    [CHINANET-US]     美国 加利福尼亚州 洛杉矶 chinatelecom.com.cn
+ 4     162.43ms  59.43.*.*    AS4809    [CN2-BackBone]    * 中国 广东 广州 chinatelecom.cn 电信
+ 9     159.38ms  221.183.*.*  AS9808    [CMNET]           中国 广东 广州 chinamobileltd.com 移动
+11     154.17ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn 电信
+12-15  168.25ms  183.235.*.*  AS56040   [APNIC-AP]        中国 广东 广州 gd.10086.cn 移动
+16     160.05ms  211.136.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+19     174.99ms  211.139.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+================================================================================
+今日网络检测量：3153；总检测量：750251。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/2QSIH65SZ.svg
+
+********************************************************************************
+                    网络质量体检报告：2605:52c0:2:*:*:*:*:*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-11 02:56:58 CST  脚本版本：v2026-01-25
+********************************************************************************
+五、三网回程路由（线路可能随网络负载动态变化）
+  北京 电信    Unknown -> 9929  
+地理路径：美国 -> 香港 -> 上海 -> 北京    自治系统路径：AS10099 -> AS9929 -> AS4134 -> AS23724 
+ 1-5     0.58ms  2605:52c0::*:*:*:*:*                 * 美国
+ 6-7     0.91ms  2401:8a00:f880:*:*:*:*:*   AS10099   中国 香港 chinaunicomglobal.com 联通
+ 8     137.43ms  2401:8a00:fe00:*:*:*:*:*   AS10099   中国 上海 LAX-SHA chinaunicomglobal.com
+ 9     138.02ms  2408:8120:2:*:*:*:*:*      AS9929    中国 上海 chinaunicom.cn 联通 CUII
+10     148.45ms  2408:8120:2:*:*:*:*:*      AS9929    中国 北京 chinaunicom.cn 联通 CUII
+11-12  157.96ms  240e::e:*:*:*:*:*          AS4134    中国 北京 chinatelecom.com.cn
+13-15  151.16ms  240e:0:9000:*:*:*:*:*      AS23724   中国 北京 bjtelecom.net 电信
+16     154.46ms  240e:904:800:*:*:*:*:*     AS23724   中国 北京市 bjtelecom.net 电信
+  北京 联通    Unknown -> 9929  
+地理路径：美国 -> 上海 -> 北京    自治系统路径：AS10099 -> AS9929 -> AS4808 
+ 1-6     0.53ms  2605:52c0::*:*:*:*:*                 * 美国
+ 7     127.96ms  2401:8a00:fe00:*:*:*:*:*   AS10099   中国 上海 LAX-SHA chinaunicomglobal.com
+ 8     132.29ms  2408:8120:2:*:*:*:*:*      AS9929    中国 上海 chinaunicom.cn 联通 CUII
+ 9-11  142.83ms  2408:8120:2:*:*:*:*:*      AS9929    中国 北京 chinaunicom.cn 联通 CUII
+13-15  149.68ms  2408:8000:1100:*:*:*:*:*   AS4808    中国 北京 www.bbn.com.cn 联通
+16     156.51ms  2408:8706:0:*:*:*:*:*      AS4808    中国 北京市 www.bbn.com.cn 联通
+  北京 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海 -> 天津    自治系统路径：AS58807 -> AS9808 -> AS38019 -> AS9808 
+ 1-7     0.96ms  2605:52c0::*:*:*:*:*                 * 美国
+ 8       1.90ms  2402:4f00:f002:*:*:*:*:*   AS58807   美国 加利福尼亚 洛杉矶 cmi.chinamobile.com
+ 9-12  126.31ms  2409:8080:0:*:*:*:*:*      AS9808    中国 上海 chinamobileltd.com 移动
+13-14  155.99ms  2409:8080:1:*:*:*:*:*      AS9808    中国 天津市 chinamobileltd.com 移动
+15-16  151.54ms  2409:8002:48:*:*:*:*:*     AS38019   中国 天津市 tj.10086.cn 移动
+18     154.12ms  2409:8c02:11c:*:*:*:*:*    AS9808    中国 天津市 chinamobileltd.com 移动
+  上海 电信    Unknown -> 163  
+地理路径：美国 -> 北京 -> 上海    自治系统路径：AS4809 -> AS4134 -> AS4812 -> AS4811 
+ 1-2     0.61ms  2605:52c0::*:*:*:*:*                 * 美国
+ 3       0.70ms  2605:9d80:9003:*:*:*:*:*   AS4809    美国 www.chinatelecom.com.cn
+ 4-5   127.79ms  240e:20:1800:*:*:*:*:*     AS4134    中国 chinatelecom.com.cn 电信
+ 6-7   121.35ms  240e:20::*:*:*:*:*         AS4134    中国 北京市 chinatelecom.com.cn 电信
+ 8-10  131.12ms  240e:18:10:*:*:*:*:*       AS4812    中国 上海 chinatelecom.cn
+11     126.66ms  240e:96c:1100:*:*:*:*:*    AS4811    中国 上海市 chinatelecom.cn 电信
+  上海 联通    Unknown -> 9929  
+地理路径：美国 -> 香港 -> 上海 -> 江苏    自治系统路径：AS10099 -> AS9929 -> AS4837 
+ 1-6     0.61ms  2605:52c0::*:*:*:*:*                 * 美国
+ 7       1.01ms  2401:8a00:f880:*:*:*:*:*   AS10099   中国 香港 chinaunicomglobal.com 联通
+ 8     137.54ms  2401:8a00:fe00:*:*:*:*:*   AS10099   中国 上海 LAX-SHA chinaunicomglobal.com
+ 9-10  138.12ms  2408:8120:2:*:*:*:*:*      AS9929    中国 上海 chinaunicom.cn 联通 CUII
+11     130.58ms  2408:8000:2:*:*:*:*:*      AS4837    中国 上海 chinaunicom.cn 联通
+12     129.85ms  2408:8000:2:*:*:*:*:*      AS4837    中国 chinaunicom.cn 联通
+13-15  133.16ms  2408:8000:2:*:*:*:*:*      AS4837    中国 江苏 南京 上海-江苏 chinaunicom.cn 联通
+16     136.96ms  2408:873c:6810:*:*:*:*:*   AS4837    中国 江苏省 泰州市 chinaunicom.cn 联通
+  上海 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海    自治系统路径：AS58807 -> AS9808 -> AS24400 -> AS9808 
+ 1-7     0.76ms  2605:52c0::*:*:*:*:*                 * 美国
+ 8       1.82ms  2402:4f00:f002:*:*:*:*:*   AS58807   美国 加利福尼亚 洛杉矶 cmi.chinamobile.com
+ 9-12  127.80ms  2409:8080:0:*:*:*:*:*      AS9808    中国 上海 chinamobileltd.com 移动
+13     130.36ms  2409:801e:f0:*:*:*:*:*     AS24400   中国 上海市 sh.10086.cn 移动
+16     129.24ms  2409:8c1e:75b0:*:*:*:*:*   AS9808    中国 上海 上海 chinamobileltd.com
+  广东 电信    Unknown -> 9929  
+地理路径：美国 -> 香港 -> 上海 -> 广东    自治系统路径：AS10099 -> AS9929 -> AS4134 -> AS58466 
+ 1-6     0.60ms  2605:52c0::*:*:*:*:*                 * 美国
+ 7       0.85ms  2401:8a00:f880:*:*:*:*:*   AS10099   中国 香港 chinaunicomglobal.com 联通
+ 8-9   138.22ms  2408:8120:2:*:*:*:*:*      AS9929    中国 上海 chinaunicom.cn 联通 CUII
+10-11  168.52ms  2408:8120:2:*:*:*:*:*      AS9929    中国 广东 广州 chinaunicom.cn 联通 CUII
+12     154.35ms  240e::e:*:*:*:*:*          AS4134    中国 广东 广州 chinatelecom.com.cn 电信
+13-15  159.97ms  240e:1f:5000:*:*:*:*:*     AS58466   中国 广东省 广州市 chinatelecom.com.cn 电信
+16     160.84ms  240e:97c:38:*:*:*:*:*      AS58466   中国 广东省 广州市 chinatelecom.com.cn 电信
+  广东 联通    Unknown -> 9929  
+地理路径：美国 -> 香港 -> 上海 -> 广东    自治系统路径：AS10099 -> AS9929 -> AS4837 -> AS135061 -> AS17623 -> AS135061 
+ 1-6     0.79ms  2605:52c0::*:*:*:*:*                 * 美国
+ 7       1.02ms  2401:8a00:f880:*:*:*:*:*   AS10099   中国 香港 chinaunicomglobal.com 联通
+ 8     127.94ms  2401:8a00:fe00:*:*:*:*:*   AS10099   中国 上海 LAX-SHA chinaunicomglobal.com
+ 9-11  164.88ms  2408:8120:2:*:*:*:*:*      AS9929    中国 广东 广州 chinaunicom.cn 联通 CUII
+12     157.45ms  2408:8000:2:*:*:*:*:*      AS4837    中国 广东 广州 chinaunicom.cn 联通
+13-14  159.08ms  2408:8001:3171:*:*:*:*:*   AS135061  中国 广东 深圳 chinaunicom.cn
+15     167.16ms  2408:8001:3071:*:*:*:*:*   AS17623   中国 广东 深圳 chinaunicom.cn
+16     159.85ms  2408:8756:2cef:*:*:*:*:*   AS135061  中国 广东省 深圳市 chinaunicom.cn 联通
+  广东 移动    Unknown -> CMIN2  
+地理路径：美国 -> 上海 -> 广东    自治系统路径：AS58807 -> AS9808 -> AS56040 -> AS9808 
+ 1-7     0.56ms  2605:52c0::*:*:*:*:*                 * 美国
+ 8       0.99ms  2402:4f00:f002:*:*:*:*:*   AS58807   美国 加利福尼亚 洛杉矶 cmi.chinamobile.com
+ 9     126.22ms  2402:4f00:f000:*:*:*:*:*   AS58807   中国 上海 cmi.chinamobile.com
+10-11  127.89ms  2409:8080:0:*:*:*:*:*      AS9808    中国 上海 chinamobileltd.com 移动
+12-14  160.19ms  2409:8080:1:*:*:*:*:*      AS9808    中国 广东 广州 chinamobileltd.com 移动
+15-17  160.42ms  2409:8055:0:*:*:*:*:*      AS56040   中国 广东 gd.10086.cn
+18     164.13ms  2409:8c54:2010:*:*:*:*:*   AS9808    中国 广东省 chinamobileltd.com 移动
+================================================================================
+今日网络检测量：3154；总检测量：750252。感谢使用xy系列脚本！
+
+[NodeQuality链接](https://nodequality.com/r/k54Qyrt6RvdHCTGk0Nnrq0tAcEAtq8AA)

@@ -1815,9 +1815,9 @@ textarea:focus {
 /* Report surface redesign, excluding share poster cards. */
 :root {
   --page-bg:
-    radial-gradient(circle at 10% -8%, rgba(20, 184, 166, 0.16), transparent 30%),
-    radial-gradient(circle at 92% 3%, rgba(59, 130, 246, 0.12), transparent 28%),
-    linear-gradient(180deg, #f8fbff 0%, #edf4fb 42%, #f4f8fb 100%);
+    linear-gradient(rgba(246, 248, 250, 0.72), rgba(240, 244, 247, 0.92)),
+    url("./assets/page-backgrounds/network-map-light.webp") center top / cover fixed no-repeat,
+    #eef2f5;
   --nav-bg: rgba(248, 251, 255, 0.74);
   --surface: rgba(255, 255, 255, 0.82);
   --surface-soft: rgba(255, 255, 255, 0.58);
@@ -1847,9 +1847,9 @@ textarea:focus {
 
 .theme-dark {
   --page-bg:
-    radial-gradient(circle at 14% -6%, rgba(20, 199, 172, 0.14), transparent 31%),
-    radial-gradient(circle at 86% 0%, rgba(59, 130, 246, 0.12), transparent 30%),
-    linear-gradient(180deg, #090d13 0%, #0b1017 48%, #07090d 100%);
+    linear-gradient(rgba(8, 11, 15, 0.7), rgba(8, 11, 15, 0.9)),
+    url("./assets/page-backgrounds/network-map-dark.webp") center top / cover fixed no-repeat,
+    #080b0f;
   --nav-bg: rgba(7, 10, 15, 0.74);
   --surface: rgba(16, 23, 34, 0.82);
   --surface-soft: rgba(255, 255, 255, 0.045);
@@ -1922,15 +1922,14 @@ textarea:focus {
 }
 
 .entry-stage::before {
-  position: absolute;
-  right: -70px;
-  bottom: 12%;
-  width: 320px;
-  height: 320px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(32, 199, 172, 0.14), transparent 65%);
-  content: "";
-  pointer-events: none;
+  content: none;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    background-position: 62% top;
+    background-attachment: scroll;
+  }
 }
 
 .entry-copy {

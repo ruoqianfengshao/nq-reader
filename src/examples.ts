@@ -3,11 +3,11 @@ import bwgMegabox from "./examples/bwg-megabox.txt?raw";
 import dmitCorona from "./examples/dmit-corona.txt?raw";
 import dmitMalibu from "./examples/dmit-malibu.txt?raw";
 import vmissLaxTriBasic from "./examples/vmiss-lax-tri-basic.txt?raw";
-import awsSgBackground from "./assets/example-cards/aws-sg.png";
-import bwgMegaboxBackground from "./assets/example-cards/bwg-megabox.png";
-import dmitCoronaBackground from "./assets/example-cards/dmit-corona.png";
-import dmitMalibuBackground from "./assets/example-cards/dmit-malibu.png";
-import vmissLaxBackground from "./assets/example-cards/vmiss-lax.png";
+import awsSgBackground from "./assets/example-cards/aws-sg.webp";
+import bwgMegaboxBackground from "./assets/example-cards/bwg-megabox.webp";
+import dmitCoronaBackground from "./assets/example-cards/dmit-corona.webp";
+import dmitMalibuBackground from "./assets/example-cards/dmit-malibu.webp";
+import vmissLaxBackground from "./assets/example-cards/vmiss-lax.webp";
 
 export const reportExamples = [
   { name: "BWG MegaBox", report: bwgMegabox, background: bwgMegaboxBackground },

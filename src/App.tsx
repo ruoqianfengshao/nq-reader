@@ -171,7 +171,7 @@ function App() {
               <div className="entry-copy">
                 <p className="panel-kicker">NodeQuality report reader</p>
                 <h1>NQ 简单读</h1>
-                <p>分析 NodeQuality 报告，人人都可以读懂 NQ</p>
+                <p>分析 NodeQuality 报告，得到简单结论</p>
               </div>
 
             <div className="entry-box">

@@ -907,10 +907,13 @@ function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
   ]);
-  if (useCase.name !== "代理" || !tags.some((tag) => /^(顶级|精品)线路$|^三网CN2GIA$/.test(tag))) return tags;
+  if (useCase.name !== "代理") return tags;
 
-  const hasCarrierHappy = tags.some((tag) => /^(电信|联通|移动)快乐$|^三网快乐$/.test(tag));
-  const concise = hasCarrierHappy ? tags.filter((tag) => !/^(电信|联通|移动)精品线路$/.test(tag)) : tags;
+  const ordered = tags.includes("线路鸡") ? ["线路鸡", ...tags.filter((tag) => tag !== "线路鸡")] : tags;
+  if (!ordered.some((tag) => /^(顶级|精品)线路$|^三网CN2GIA$/.test(tag))) return ordered;
+
+  const hasCarrierHappy = ordered.some((tag) => /^(电信|联通|移动)快乐$|^三网快乐$/.test(tag));
+  const concise = hasCarrierHappy ? ordered.filter((tag) => !/^(电信|联通|移动)精品线路$/.test(tag)) : ordered;
   const anomaly = concise.find((tag) => tag === "部分方向异常");
   if (!anomaly) return concise.slice(0, 3);
   return [...concise.filter((tag) => tag !== anomaly).slice(0, 2), anomaly];
@@ -1062,7 +1065,10 @@ function semanticTags(name: string, verdict: string, evidence: string[]): string
     const telecomPremium = evidence.some((item) => item.startsWith("电信线路 ") && /CN2GIA|CTGGIA/i.test(item) && !/CN2混合|GT/.test(item));
     const unicomPremium = evidence.some((item) => item.startsWith("联通线路 ") && /CN2GIA|CTGGIA|10099|9929/i.test(item));
     const mobilePremium = evidence.some((item) => item.startsWith("移动线路 ") && /CMIN2/i.test(item));
+    const isLineMachine = /三网 CN2GIA|顶级线路|精品线路/.test(verdict) ||
+      evidence.some((item) => /^(电信|联通|移动)代理 .*=(顶级|快乐)$/.test(item));
     return compactTags([
+      isLineMachine ? "线路鸡" : "",
       ...carrierQualityTags(evidence),
       evidence.some((item) => /^(国内测速|丢包|国际互连) .*=(部分方向异常|明显丢包|异常)$/.test(item)) ? "部分方向异常" : "",
       !/三网 CN2GIA|三网顶级线路/.test(verdict) && telecomPremium && unicomPremium && mobilePremium ? "三网精品线" : "",

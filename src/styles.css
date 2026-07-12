@@ -1907,19 +1907,19 @@ textarea:focus {
 }
 
 .app-shell:has(.tool-desktop.has-report) {
-  --surface: rgba(255, 255, 255, 0.94);
-  --surface-soft: rgba(255, 255, 255, 0.78);
-  background:
-    radial-gradient(circle at 50% -18%, rgba(32, 199, 172, 0.08), transparent 34%),
-    linear-gradient(180deg, #f8fafc 0%, #f3f7fa 44%, #eef3f7 100%);
+  --surface: #ffffff;
+  --surface-soft: #f6f8fa;
+  --line: #d8dee4;
+  --line-strong: #c7ced6;
+  background: #f6f8fa;
 }
 
 .app-shell.theme-dark:has(.tool-desktop.has-report) {
-  --surface: rgba(15, 22, 32, 0.96);
-  --surface-soft: rgba(255, 255, 255, 0.055);
-  background:
-    radial-gradient(circle at 50% -18%, rgba(32, 199, 172, 0.07), transparent 32%),
-    linear-gradient(180deg, #0a1018 0%, #080d14 48%, #070b11 100%);
+  --surface: #11161d;
+  --surface-soft: #0d1117;
+  --line: #30363d;
+  --line-strong: #3d444d;
+  background: #0d1117;
 }
 
 .tool-desktop:has(.entry-stage) {
@@ -2299,17 +2299,14 @@ textarea:focus {
   min-height: 214px;
   padding: 20px;
   overflow: hidden;
-  border-radius: 18px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.46)),
-    var(--surface);
-  box-shadow: 0 20px 54px rgba(48, 72, 103, 0.11);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: none;
 }
 
 .theme-dark .use-case-card {
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035)),
-    rgba(255, 255, 255, 0.035);
+  background: var(--surface);
 }
 
 .use-case-card::after {
@@ -2331,7 +2328,8 @@ textarea:focus {
 }
 
 .use-case-card:hover {
-  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  transform: none;
 }
 
 .use-case-card span {
@@ -2373,18 +2371,15 @@ textarea:focus {
 
 .conclusion-card,
 .module-card {
-  border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.34)),
-    var(--surface-soft);
-  box-shadow: 0 20px 58px rgba(48, 72, 103, 0.09);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: none;
 }
 
 .theme-dark .conclusion-card,
 .theme-dark .module-card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
-    rgba(255, 255, 255, 0.035);
+  background: var(--surface);
 }
 
 .conclusion-card {
@@ -2410,7 +2405,7 @@ textarea:focus {
   width: 44px;
   height: 44px;
   border: 0;
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow: inset 0 0 0 1px currentColor;
 }
 
@@ -2473,7 +2468,8 @@ textarea:focus {
   gap: 1px;
   overflow: hidden;
   margin-top: 16px;
-  border-radius: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   background: var(--line);
 }
 
@@ -2481,11 +2477,11 @@ textarea:focus {
   min-height: 106px;
   padding: 16px;
   border-right: 0;
-  background: rgba(255, 255, 255, 0.46);
+  background: var(--surface-soft);
 }
 
 .theme-dark .reason-tile {
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--surface-soft);
 }
 
 .reason-tile span {

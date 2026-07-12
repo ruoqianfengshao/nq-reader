@@ -905,7 +905,6 @@ function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases
   }
   return compactTags([
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
-    ...carrierHappyTags(useCase.verdict, useCase.evidence),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
   ]);
 }
@@ -943,20 +942,21 @@ function verdictGrade(name: string, verdict: string, severity: string): string {
   return "表现一般";
 }
 
-function carrierHappyTags(verdict: string, evidence: string[]): string[] {
-  const text = `${verdict} ${evidence.join(" ")}`;
-  return ["电信", "联通", "移动"].flatMap((carrier) => {
-    const happyRegionCount = evidence
-      .filter((item) => item.startsWith(`${carrier}地区 `) && item.endsWith("=快乐"))
-      .flatMap((item) => item.replace(new RegExp(`^${carrier}地区\\s+`), "").replace(/=快乐$/, "").split("、"))
-      .filter((item) => item.endsWith(carrier)).length;
-    if (happyRegionCount >= 4) return [`${carrier}快乐`];
+function carrierQualityTags(evidence: string[]): string[] {
+  const tags = ["电信", "联通", "移动"].flatMap((carrier) => {
+    const carrierGrade = evidence
+      .find((item) => item.startsWith(`${carrier}代理 `))
+      ?.match(/=(顶级|快乐)$/)?.[1];
+    if (carrierGrade === "顶级") return [`${carrier}优化`];
+    if (carrierGrade === "快乐") return [`${carrier}快乐`];
 
-    const direct = new RegExp(`${carrier}快乐`).test(text);
-    const regional = new RegExp(`[\u4e00-\u9fa5]{1,4}${carrier}快乐`).test(text);
-    const regionHappy = new RegExp(`${carrier}地区 [^=]*=快乐`).test(text);
-    return direct || regional || regionHappy ? [`${carrier}快乐`] : [];
+    const regionHappy = evidence.some((item) => item.startsWith(`${carrier}地区 `) && item.endsWith("=快乐"));
+    return regionHappy ? [`${carrier}快乐`] : [];
   });
+
+  if (tags.length === 3 && tags.every((tag) => tag.endsWith("优化"))) return ["三网优化"];
+  if (tags.length === 3 && tags.every((tag) => tag.endsWith("快乐"))) return ["三网快乐"];
+  return tags;
 }
 
 type PosterRegion = "asia" | "northAmerica" | "southAmerica" | "europe" | "australia";
@@ -1052,20 +1052,13 @@ function semanticTags(name: string, verdict: string, evidence: string[]): string
   const text = `${verdict} ${evidence.join(" ")}`;
   if (name === "代理") {
     return compactTags([
-      ...carrierHappyTags(verdict, evidence),
-      /电信代理 .*=(顶级|快乐)/.test(text) ? "电信优化" : "",
-      /联通代理 .*=(顶级|快乐)/.test(text) ? "联通优化" : "",
-      /移动代理 .*=(顶级|快乐)/.test(text) ? "移动优化" : "",
+      ...carrierQualityTags(evidence),
       /电信代理 .*CN2.*联通代理 .*10099.*移动代理 .*CMIN2/.test(text) ? "三网精品线" : "",
       /CN2\s*GIA|CN2GIA/i.test(text) && !/CN2混合|GT/.test(text) ? "三网CN2GIA" : "",
       /毕业[机鸡]/.test(text) ? "毕业鸡" : "",
       /电信线路 .*=(顶级|精品|精品混合)/.test(text) ? "电信精品线路" : "",
       /联通线路 .*=(顶级|精品|精品混合)/.test(text) ? "联通精品线路" : "",
       /移动线路 .*=(顶级|精品|精品混合)/.test(text) ? "移动精品线路" : "",
-      /三网线路[机鸡]/.test(text) || (/电信代理 .*=(顶级|快乐)/.test(text) && /联通代理 .*=(顶级|快乐)/.test(text) && /移动代理 .*=(顶级|快乐)/.test(text)) ? "三网线路鸡" : "",
-      /电信线路[机鸡]/.test(text) || /电信代理 .*=(顶级|快乐)/.test(text) ? "电信线路鸡" : "",
-      /联通线路[机鸡]/.test(text) || /联通代理 .*=(顶级|快乐)/.test(text) ? "联通线路鸡" : "",
-      /移动线路[机鸡]/.test(text) || /移动代理 .*=(顶级|快乐)/.test(text) ? "移动线路鸡" : "",
       /低延迟/.test(text) ? "低延迟" : "",
     ]);
   }

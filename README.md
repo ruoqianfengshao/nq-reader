@@ -12,6 +12,7 @@ NQ Reader 是一个纯前端的 NodeQuality 报告阅读器。粘贴 NodeQuality
 - 展示结论对应的原始指标与档位
 - 生成适合分享的结论海报，并支持复制为图片
 - 提供浅色、深色主题和内置示例报告
+- 在结果页提供 NodeSeek 延伸阅读；宽屏固定显示，窄屏和移动端通过导航资料按钮打开
 
 当前不支持直接读取报告 URL。使用时需要复制 NodeQuality 报告正文并粘贴到输入框。
 
@@ -159,6 +160,7 @@ src/
 ├── analyzerTypes.ts     # 分析结果与证据类型
 ├── rules/useCases.ts    # 四类用途结论规则
 ├── examples.ts          # 首页示例报告
+├── resources.ts         # NodeSeek 参考资料链接
 ├── App.tsx              # 结果展示、标签和分享海报逻辑
 └── styles.css           # 浅色/深色界面样式
 ```

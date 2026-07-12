@@ -159,13 +159,33 @@ button {
   transition: color 160ms ease, background-color 160ms ease;
 }
 
+.resource-trigger {
+  display: none;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 8px;
+  color: var(--muted-strong);
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.resource-trigger:hover {
+  color: var(--text-strong);
+  background: var(--surface-soft);
+}
+
 .github-link:hover {
   color: var(--text-strong);
   background: var(--surface-soft);
 }
 
 .brand-mark:focus-visible,
-.github-link:focus-visible {
+.github-link:focus-visible,
+.resource-trigger:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -1946,6 +1966,104 @@ textarea:focus {
   --line: #30363d;
   --line-strong: #3d444d;
   background: #0d1117;
+}
+
+.basic-info-block {
+  padding-top: 30px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.reference-panel-fixed {
+  position: fixed;
+  top: 86px;
+  left: calc(50% + 584px);
+  z-index: 4;
+  display: grid;
+  gap: 10px;
+  width: 224px;
+  max-height: calc(100vh - 110px);
+  padding: 14px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+}
+
+.theme-dark .reference-panel-fixed {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+
+.reference-panel-fixed > strong,
+.resource-drawer-heading > strong {
+  color: var(--text-strong);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.reference-links {
+  display: grid;
+}
+
+.reference-links a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14px;
+  gap: 9px;
+  align-items: start;
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted-strong);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.reference-links a:hover {
+  color: var(--text-strong);
+}
+
+.reference-links svg {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.resource-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(3, 8, 14, 0.42);
+  backdrop-filter: blur(3px);
+}
+
+.resource-drawer {
+  width: min(340px, 88vw);
+  height: 100%;
+  padding: 18px;
+  overflow: auto;
+  border-left: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: -18px 0 48px rgba(3, 8, 14, 0.16);
+}
+
+.resource-drawer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1499px) {
+  .reference-panel-fixed {
+    display: none;
+  }
+
+  .resource-trigger {
+    display: inline-grid;
+  }
 }
 
 .tool-desktop:has(.entry-stage) {

@@ -1,12 +1,14 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
+  BookOpen,
   Bot,
   Check,
   CheckCircle2,
   Copy,
   Cpu,
   Database,
+  ExternalLink,
   Gauge,
   Globe2,
   HardDrive,
@@ -32,6 +34,7 @@ import {
 import { toBlob } from "html-to-image";
 import { analyzeReport } from "./analyzer";
 import { reportExamples } from "./examples";
+import { referenceResources } from "./resources";
 import copyHelpImage from "./assets/copy-help.webp";
 import asia_landing_v1 from "./assets/result-card-variants/asia/landing.webp";
 import asia_landing_v2 from "./assets/result-card-variants/asia/landing.webp";
@@ -100,10 +103,25 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [showCopyHelp, setShowCopyHelp] = useState(false);
   const [showReparse, setShowReparse] = useState(false);
+  const [showResources, setShowResources] = useState(false);
   const result = useMemo(() => analyzeReport(submitted), [submitted]);
 
   const hasInput = input.trim().length > 0;
   const hasReport = submitted.trim().length > 0;
+
+  useEffect(() => {
+    if (!showResources) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setShowResources(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [showResources]);
 
   function analyzeInput() {
     const nextReport = input.trim();
@@ -143,6 +161,7 @@ function App() {
     setInput("");
     setSubmitted("");
     setShowReparse(false);
+    setShowResources(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -156,6 +175,18 @@ function App() {
           </button>
           <div className="nav-copy">
             <span className="nav-description">NodeQuantity report reader</span>
+            {hasReport && (
+              <button
+                className="resource-trigger"
+                type="button"
+                aria-label="打开参考资料"
+                title="参考资料"
+                aria-expanded={showResources}
+                onClick={() => setShowResources(true)}
+              >
+                <BookOpen size={18} />
+              </button>
+            )}
             <a
               className="github-link"
               href="https://github.com/ruoqianfengshao/nq-reader"
@@ -345,10 +376,10 @@ function App() {
               )}
 
               {result.modules.length > 0 && (
-                <section className="result-block">
+                <section className="result-block basic-info-block">
                   <div className="section-heading">
                     <h2>基础信息翻译</h2>
-                    <p>把 NQ 里的硬件、IP、网络指标翻成更容易理解的话。</p>
+                    <p>逐项翻译 NQ 报告中的指标，尽量给出好理解的评价。</p>
                   </div>
                   <div className="module-list">
                     {result.modules.map((module) => (
@@ -397,10 +428,46 @@ function App() {
               )}
 
             </div>
+            <ReferencePanel className="reference-panel-fixed" />
+            {showResources && (
+              <div className="resource-overlay" role="presentation" onClick={() => setShowResources(false)}>
+                <aside className="resource-drawer" role="dialog" aria-modal="true" aria-label="参考资料" onClick={(event) => event.stopPropagation()}>
+                  <div className="resource-drawer-heading">
+                    <strong>参考资料</strong>
+                    <button className="icon-button" type="button" aria-label="关闭参考资料" onClick={() => setShowResources(false)}>
+                      <X size={18} />
+                    </button>
+                  </div>
+                  <ReferenceLinks onNavigate={() => setShowResources(false)} />
+                </aside>
+              </div>
+            )}
           </>
         )}
       </section>
     </main>
+  );
+}
+
+function ReferencePanel({ className }: { className: string }) {
+  return (
+    <aside className={className} aria-label="参考资料">
+      <strong>参考资料</strong>
+      <ReferenceLinks />
+    </aside>
+  );
+}
+
+function ReferenceLinks({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <nav className="reference-links">
+      {referenceResources.map((resource) => (
+        <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url} onClick={onNavigate}>
+          <span>{resource.title}</span>
+          <ExternalLink size={14} />
+        </a>
+      ))}
+    </nav>
   );
 }
 

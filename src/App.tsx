@@ -395,8 +395,8 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
       <div className="example-grid">
         {reportExamples.map((example) => {
           const result = analyzeReport(example.report);
-          const proxy = result.useCases.find((useCase) => useCase.name === "代理");
-          const tags = proxy ? shareTagsForUseCase(proxy).slice(0, 2) : [];
+          const featuredUseCase = homepageFeaturedUseCase(result.useCases);
+          const tags = featuredUseCase ? shareTagsForUseCase(featuredUseCase).slice(0, 2) : [];
           return (
             <button className="example-card" style={{ backgroundImage: `url(${example.background})` }} type="button" key={example.name} onClick={() => onSelect(example.report)}>
               <strong>{example.name}</strong>
@@ -410,6 +410,24 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
       </div>
     </section>
   );
+}
+
+function homepageFeaturedUseCase(useCases: ReturnType<typeof analyzeReport>["useCases"]) {
+  const candidates = useCases.filter((useCase) => useCase.severity !== "risk");
+  const pool = candidates.length > 0 ? candidates : useCases;
+  return [...pool].sort((left, right) => homepageUseCaseScore(right) - homepageUseCaseScore(left))[0];
+}
+
+function homepageUseCaseScore(useCase: ReturnType<typeof analyzeReport>["useCases"][number]): number {
+  const text = `${useCase.name} ${useCase.verdict}`;
+  const quality = useCase.severity === "good" ? 100 : useCase.severity === "watch" ? 40 : 0;
+  const distinction = /落地[机鸡]/.test(text) ? 50
+    : /毕业[机鸡]/.test(text) ? 45
+      : /AI \/ 流媒体快乐[机鸡]|流媒体快乐[机鸡]|流媒体解锁[机鸡]/.test(text) ? 40
+        : /顶级|精品|快乐[机鸡]/.test(text) ? 35
+          : /大盘[机鸡]/.test(text) ? 30
+            : 0;
+  return quality + distinction;
 }
 
 function reportLocation(result: ReturnType<typeof analyzeReport>): string {

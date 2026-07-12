@@ -907,10 +907,13 @@ function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
   ]);
-  if (useCase.name !== "代理" || !tags.some((tag) => /^(顶级|精品)线路$/.test(tag))) return tags;
+  if (useCase.name !== "代理" || !tags.some((tag) => /^(顶级|精品)线路$|^三网CN2GIA$/.test(tag))) return tags;
 
   const hasCarrierHappy = tags.some((tag) => /^(电信|联通|移动)快乐$|^三网快乐$/.test(tag));
-  return (hasCarrierHappy ? tags.filter((tag) => !/^(电信|联通|移动)精品线路$/.test(tag)) : tags).slice(0, 3);
+  const concise = hasCarrierHappy ? tags.filter((tag) => !/^(电信|联通|移动)精品线路$/.test(tag)) : tags;
+  const anomaly = concise.find((tag) => tag === "部分方向异常");
+  if (!anomaly) return concise.slice(0, 3);
+  return [...concise.filter((tag) => tag !== anomaly).slice(0, 2), anomaly];
 }
 
 function proxyGoodRegionTags(evidence: string[]): string[] {
@@ -1061,6 +1064,7 @@ function semanticTags(name: string, verdict: string, evidence: string[]): string
     const mobilePremium = evidence.some((item) => item.startsWith("移动线路 ") && /CMIN2/i.test(item));
     return compactTags([
       ...carrierQualityTags(evidence),
+      evidence.some((item) => /^(国内测速|丢包|国际互连) .*=(部分方向异常|明显丢包|异常)$/.test(item)) ? "部分方向异常" : "",
       !/三网 CN2GIA|三网顶级线路/.test(verdict) && telecomPremium && unicomPremium && mobilePremium ? "三网精品线" : "",
       telecomPremium ? "电信CN2GIA" : "",
       /毕业[机鸡]/.test(text) ? "毕业鸡" : "",
@@ -1105,7 +1109,7 @@ function compactTags(tags: string[]): string[] {
 
 function tagClass(tag: string): string {
   if (/毕业|顶级|精品|优化|快乐|CN2GIA|线路[机鸡]|落地[机鸡]|解锁|低延迟|大文件|开放|AI可用|(电信|联通|移动)$/.test(tag)) return "good";
-  if (/谨慎|送中|不适合|小内存/.test(tag)) return "risk";
+  if (/谨慎|异常|送中|不适合|小内存/.test(tag)) return "risk";
   return "watch";
 }
 

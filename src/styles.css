@@ -148,17 +148,13 @@ button {
 }
 
 .github-link {
-  display: inline-flex;
+  display: inline-grid;
   flex: 0 0 auto;
-  gap: 7px;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
+  width: 34px;
   height: 34px;
-  padding: 0 9px;
   border-radius: 8px;
   color: var(--muted-strong);
-  font-size: 0.82rem;
-  font-weight: 750;
   text-decoration: none;
   transition: color 160ms ease, background-color 160ms ease;
 }

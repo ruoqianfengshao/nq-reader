@@ -395,8 +395,7 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
       <div className="example-grid">
         {reportExamples.map((example) => {
           const result = analyzeReport(example.report);
-          const featuredUseCase = homepageFeaturedUseCase(result.useCases);
-          const tags = featuredUseCase ? shareTagsForUseCase(featuredUseCase).slice(0, 2) : [];
+          const tags = homepageExampleTags(result.useCases);
           return (
             <button className="example-card" style={{ backgroundImage: `url(${example.background})` }} type="button" key={example.name} onClick={() => onSelect(example.report)}>
               <strong>{example.name}</strong>
@@ -412,21 +411,31 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
   );
 }
 
-function homepageFeaturedUseCase(useCases: ReturnType<typeof analyzeReport>["useCases"]) {
-  const candidates = useCases.filter((useCase) => useCase.severity !== "risk");
-  const pool = candidates.length > 0 ? candidates : useCases;
-  return [...pool].sort((left, right) => homepageUseCaseScore(right) - homepageUseCaseScore(left))[0];
+function homepageExampleTags(useCases: ReturnType<typeof analyzeReport>["useCases"]): string[] {
+  const positive = useCases
+    .filter((useCase) => useCase.severity !== "risk")
+    .map((useCase) => ({
+      severity: useCase.severity,
+      tag: shareTagsForUseCase(useCase).find((tag) => !/谨慎|待确认|看地区|受限|风险|不适合/.test(tag)),
+    }))
+    .filter((candidate): candidate is { severity: "good" | "watch"; tag: string } => Boolean(candidate.tag));
+
+  return positive
+    .sort((left, right) => homepageTagScore(right.tag, right.severity) - homepageTagScore(left.tag, left.severity))
+    .map((candidate) => candidate.tag)
+    .filter((tag, index, tags) => tags.indexOf(tag) === index)
+    .slice(0, 2);
 }
 
-function homepageUseCaseScore(useCase: ReturnType<typeof analyzeReport>["useCases"][number]): number {
-  const text = `${useCase.name} ${useCase.verdict}`;
-  const quality = useCase.severity === "good" ? 100 : useCase.severity === "watch" ? 40 : 0;
-  const distinction = /落地[机鸡]/.test(text) ? 50
-    : /毕业[机鸡]/.test(text) ? 45
-      : /AI \/ 流媒体快乐[机鸡]|流媒体快乐[机鸡]|流媒体解锁[机鸡]/.test(text) ? 40
-        : /顶级|精品|快乐[机鸡]/.test(text) ? 35
-          : /大盘[机鸡]/.test(text) ? 30
-            : 0;
+function homepageTagScore(tag: string, severity: "good" | "watch"): number {
+  const quality = severity === "good" ? 100 : 40;
+  const distinction = /落地[机鸡]/.test(tag) ? 50
+    : /毕业[机鸡]/.test(tag) ? 45
+      : /顶级|精品/.test(tag) ? 40
+        : /线路[机鸡]|电信快乐|联通快乐|移动快乐/.test(tag) ? 35
+          : /流媒体解锁|AI可用/.test(tag) ? 30
+            : /大盘[机鸡]|轻量建站/.test(tag) ? 20
+              : 0;
   return quality + distinction;
 }
 

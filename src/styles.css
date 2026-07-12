@@ -2058,7 +2058,7 @@ textarea:focus {
   min-height: 168px;
   padding: 14px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 8px;
   color: white;
   background-color: #26323b;
@@ -2066,7 +2066,7 @@ textarea:focus {
   background-size: cover;
   text-align: left;
   cursor: pointer;
-  transition: border-color 160ms ease, transform 160ms ease;
+  transition: transform 160ms ease;
 }
 
 .example-card::before {
@@ -2077,9 +2077,23 @@ textarea:focus {
   content: "";
 }
 
+.example-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  transition: border-color 160ms ease;
+}
+
 .example-card:hover {
-  border-color: var(--accent-border);
   transform: translateY(-2px);
+}
+
+.example-card:hover::after {
+  border-color: rgba(255, 255, 255, 0.58);
 }
 
 .example-card:focus-visible {

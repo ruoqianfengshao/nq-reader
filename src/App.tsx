@@ -910,8 +910,8 @@ function proxyGoodRegionTags(evidence: string[]): string[] {
 
 function verdictGrade(name: string, verdict: string, severity: string): string {
   if (/毕业[机鸡]/.test(verdict)) return "毕业鸡";
-  if (/顶级/.test(verdict)) return "顶级";
-  if (/精品/.test(verdict)) return "精品";
+  if (/顶级/.test(verdict)) return name === "代理" ? "顶级线路" : "顶级";
+  if (/精品/.test(verdict)) return name === "代理" ? "精品线路" : "精品";
   if (/落地[机鸡]/.test(verdict)) return "落地鸡";
   if (/解锁[机鸡]|流媒体可用/.test(verdict)) return "流媒体解锁";
   if (/快乐[机鸡]|快乐/.test(verdict)) return name === "代理" ? "线路鸡" : "快乐鸡";

@@ -172,8 +172,11 @@ function topRouteMode(lines: Evidence[]): "三网 CN2GIA" | "三网顶级线路"
   const allCn2Gia = [telecom, unicom, mobile].every((value) => /CN2GIA|CTGGIA/i.test(value) && clean(value));
   if (allCn2Gia) return "三网 CN2GIA";
 
+  const unicomTop = /(?:AS)?9929/i.test(unicom) &&
+    !/(?:AS)?4837|CU169/i.test(unicom) &&
+    clean(unicom);
   const optimized = /CN2GIA|CTGGIA/i.test(telecom) && clean(telecom) &&
-    /(?:AS)?9929/i.test(unicom) && clean(unicom) &&
+    unicomTop &&
     /CMIN2/i.test(mobile) && clean(mobile);
   return optimized ? "三网顶级线路" : undefined;
 }

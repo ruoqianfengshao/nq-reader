@@ -1815,7 +1815,7 @@ textarea:focus {
 /* Report surface redesign, excluding share poster cards. */
 :root {
   --page-bg:
-    linear-gradient(rgba(246, 248, 250, 0.72), rgba(240, 244, 247, 0.92)),
+    linear-gradient(rgba(246, 248, 250, 0.48), rgba(240, 244, 247, 0.72)),
     url("./assets/page-backgrounds/network-map-light.webp") center top / cover fixed no-repeat,
     #eef2f5;
   --nav-bg: rgba(248, 251, 255, 0.74);
@@ -1847,7 +1847,7 @@ textarea:focus {
 
 .theme-dark {
   --page-bg:
-    linear-gradient(rgba(8, 11, 15, 0.7), rgba(8, 11, 15, 0.9)),
+    linear-gradient(rgba(8, 11, 15, 0.42), rgba(8, 11, 15, 0.68)),
     url("./assets/page-backgrounds/network-map-dark.webp") center top / cover fixed no-repeat,
     #080b0f;
   --nav-bg: rgba(7, 10, 15, 0.74);

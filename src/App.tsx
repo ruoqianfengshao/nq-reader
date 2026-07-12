@@ -901,12 +901,16 @@ function formatShareTitle(title: string): string {
 function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
   if (useCase.name === "代理" && /备用[机鸡]/.test(useCase.verdict)) {
     const regions = proxyGoodRegionTags(useCase.evidence);
-    return regions.length > 0 ? ["谨慎", ...regions] : ["谨慎", "线路待确认"];
+    return regions.length > 0 ? ["谨慎", ...regions].slice(0, 3) : ["谨慎", "线路待确认"];
   }
-  return compactTags([
+  const tags = compactTags([
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
   ]);
+  if (useCase.name !== "代理" || !tags.some((tag) => /^(顶级|精品)线路$/.test(tag))) return tags;
+
+  const hasCarrierHappy = tags.some((tag) => /^(电信|联通|移动)快乐$|^三网快乐$/.test(tag));
+  return (hasCarrierHappy ? tags.filter((tag) => !/^(电信|联通|移动)精品线路$/.test(tag)) : tags).slice(0, 3);
 }
 
 function proxyGoodRegionTags(evidence: string[]): string[] {
@@ -1096,7 +1100,7 @@ function compactTags(tags: string[]): string[] {
 }
 
 function tagClass(tag: string): string {
-  if (/毕业|顶级|精品|优化|线路[机鸡]|落地[机鸡]|解锁|低延迟|大文件|开放|AI可用|(电信|联通|移动)$/.test(tag)) return "good";
+  if (/毕业|顶级|精品|优化|快乐|线路[机鸡]|落地[机鸡]|解锁|低延迟|大文件|开放|AI可用|(电信|联通|移动)$/.test(tag)) return "good";
   if (/谨慎|送中|不适合|小内存/.test(tag)) return "risk";
   return "watch";
 }

@@ -964,13 +964,13 @@ function classifyCarrierRoute(carrier: CarrierName, route: string, profile: Pick
     return;
   }
   if (carrier === "联通") {
-    if (/10099|CUG|9929/i.test(route)) profile.routeGood.push(route);
+    if (/CN2GIA|CTGGIA|10099|CUG|9929/i.test(route)) profile.routeGood.push(route);
     else if (/NTT|Level3/i.test(route)) profile.routeBad.push(route);
     else if (/4837|CU169|CTGGIA|CTGNet/i.test(route)) profile.routeWatch.push(route);
     else profile.routeBad.push(route);
     return;
   }
-  if (/CMIN2/i.test(route)) profile.routeGood.push(route);
+  if (/CN2GIA|CTGGIA|CMIN2/i.test(route)) profile.routeGood.push(route);
   else if (/10099|CMI|CMNET/i.test(route)) profile.routeWatch.push(route);
   else if (/4837|NTT|Level3/i.test(route)) profile.routeBad.push(route);
   else profile.routeBad.push(route);

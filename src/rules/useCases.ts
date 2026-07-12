@@ -157,9 +157,25 @@ function landingRegionName(location?: Evidence): string {
 function lineSummary(lines: Evidence[], topCarriers: CarrierName[]): string {
   const best = lines.filter((item) => item.grade === "顶级" || item.grade === "精品" || item.grade === "精品混合");
   if (best.length === 0) return "";
-  if (best.length === 3 && best.every((item) => item.grade === "顶级") && topCarriers.length === 3) return "三网顶级线路";
+  const topMode = topRouteMode(lines);
+  if (topMode && topCarriers.length === 3) return topMode;
   if (best.length === 3) return "三网精品线路";
   return best.map((item) => `${carrierNameFromEvidence(item)}${item.grade}线路`).join("/");
+}
+
+function topRouteMode(lines: Evidence[]): "三网 CN2GIA" | "三网顶级线路" | undefined {
+  const telecom = lines.find((item) => item.label === "电信线路")?.value ?? "";
+  const unicom = lines.find((item) => item.label === "联通线路")?.value ?? "";
+  const mobile = lines.find((item) => item.label === "移动线路")?.value ?? "";
+  const clean = (value: string) => !/CN2混合|GT|绕路/.test(value);
+
+  const allCn2Gia = [telecom, unicom, mobile].every((value) => /CN2GIA|CTGGIA/i.test(value) && clean(value));
+  if (allCn2Gia) return "三网 CN2GIA";
+
+  const optimized = /CN2GIA|CTGGIA/i.test(telecom) && clean(telecom) &&
+    /(?:AS)?9929/i.test(unicom) && clean(unicom) &&
+    /CMIN2/i.test(mobile) && clean(mobile);
+  return optimized ? "三网顶级线路" : undefined;
 }
 
 function happyRegionSummary(regions: string[]): string[] {

@@ -932,6 +932,7 @@ function proxyGoodRegionTags(evidence: string[]): string[] {
 
 function verdictGrade(name: string, verdict: string, severity: string): string {
   if (/毕业[机鸡]/.test(verdict)) return "毕业鸡";
+  if (/三网 CN2GIA/.test(verdict)) return "三网CN2GIA";
   if (/顶级/.test(verdict)) return name === "代理" ? "顶级线路" : "顶级";
   if (/精品/.test(verdict)) return name === "代理" ? "精品线路" : "精品";
   if (/落地[机鸡]/.test(verdict)) return "落地鸡";
@@ -1060,7 +1061,7 @@ function semanticTags(name: string, verdict: string, evidence: string[]): string
     const mobilePremium = evidence.some((item) => item.startsWith("移动线路 ") && /CMIN2/i.test(item));
     return compactTags([
       ...carrierQualityTags(evidence),
-      telecomPremium && unicomPremium && mobilePremium ? "三网精品线" : "",
+      !/三网 CN2GIA|三网顶级线路/.test(verdict) && telecomPremium && unicomPremium && mobilePremium ? "三网精品线" : "",
       telecomPremium ? "电信CN2GIA" : "",
       /毕业[机鸡]/.test(text) ? "毕业鸡" : "",
       /电信线路 .*=(顶级|精品|精品混合)/.test(text) ? "电信精品线路" : "",
@@ -1103,7 +1104,7 @@ function compactTags(tags: string[]): string[] {
 }
 
 function tagClass(tag: string): string {
-  if (/毕业|顶级|精品|优化|快乐|线路[机鸡]|落地[机鸡]|解锁|低延迟|大文件|开放|AI可用|(电信|联通|移动)$/.test(tag)) return "good";
+  if (/毕业|顶级|精品|优化|快乐|CN2GIA|线路[机鸡]|落地[机鸡]|解锁|低延迟|大文件|开放|AI可用|(电信|联通|移动)$/.test(tag)) return "good";
   if (/谨慎|送中|不适合|小内存/.test(tag)) return "risk";
   return "watch";
 }

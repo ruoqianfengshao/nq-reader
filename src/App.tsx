@@ -8,6 +8,7 @@ import {
   Cpu,
   Database,
   Gauge,
+  GitFork,
   Globe2,
   HardDrive,
   HelpCircle,
@@ -139,16 +140,34 @@ function App() {
     document.getElementById(useCaseTargetId(name))?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function returnHome() {
+    setInput("");
+    setSubmitted("");
+    setShowReparse(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <main className={`app-shell theme-${theme}`}>
       <nav className="topnav">
         <div className="nav-inner">
-          <div className="brand-mark">
+          <button className="brand-mark" type="button" onClick={returnHome} aria-label="返回首页">
             <ScanText size={18} />
             <span>NQ Reader</span>
-          </div>
+          </button>
           <div className="nav-copy">
-            <span>NodeQuantity report reader</span>
+            <span className="nav-description">NodeQuantity report reader</span>
+            <a
+              className="github-link"
+              href="https://github.com/ruoqianfengshao/nq-reader"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="在 GitHub 查看 NQ Reader"
+              title="GitHub"
+            >
+              <GitFork size={18} />
+              <span>GitHub</span>
+            </a>
             <button
               className="theme-switch"
               type="button"

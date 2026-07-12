@@ -128,8 +128,11 @@ button {
 
 .brand-mark {
   gap: 9px;
+  padding: 0;
   color: var(--text-strong);
+  background: transparent;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .brand-mark svg {
@@ -142,6 +145,33 @@ button {
   align-items: center;
   color: var(--muted);
   font-size: 0.86rem;
+}
+
+.github-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 9px;
+  border-radius: 8px;
+  color: var(--muted-strong);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.github-link:hover {
+  color: var(--text-strong);
+  background: var(--surface-soft);
+}
+
+.brand-mark:focus-visible,
+.github-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .nav-copy strong {
@@ -1648,7 +1678,7 @@ textarea:focus {
     width: min(100% - 20px, 1000px);
   }
 
-  .nav-copy span {
+  .nav-description {
     display: none;
   }
 

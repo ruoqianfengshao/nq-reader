@@ -1,0 +1,322 @@
+########################################################################
+                  bash <(curl -sL https://run.NodeQuality.com)
+                   https://github.com/LloydAsp/NodeQuality
+        报告时间：2026-07-12 13:12:50 CST  脚本版本：v0.0.1
+        频道: https://t.me/nodeselect 网站：https://NodeQuality.com
+########################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                         硬件质量体检报告：144.225.*.*
+                    https://github.com/xykt/HardwareQuality
+                    bash <(curl -sL https://Check.Place) -H
+            报告时间：2026-07-12 13:12:59 CST  脚本版本：v2026-05-21
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+一、操作系统信息
+容器/虚拟化：          物理机
+架构：                 x86_64
+操作系统/内核：        Debian GNU/Linux 12 (bookworm) 6.12.95+deb13-amd64
+运行时间：             0 天 0 小时 18 分钟
+负载：                 0.16, 0.11, 0.04
+进程：                 3 用户，172 进程，12/159 活跃/总服务
+区域设置：             C, UTF-8, Etc/UTC UTC +0000
+二、主板信息
+主板：    Supermicro, X11SSE-F, 版本1.01, SN:ZM196S001193
+BIOS：    American Megatrends Inc., 版本3.4
+芯片组：  Intel C236 Chipset LPC/eSPI Controller
+          Intel Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers
+网卡：    Intel I350 Gigabit Network Connection × 2个
+三、CPU测评
+CPU：     Intel Xeon E3-1275 v6 @ 3.80GHz 步进9 (6代) 32/64-bit     
+           ╚═ 4核心, 8线程, 4094.515MHz (800MHz ~ 4200MHz), 利用率1%
+缓存：    L1d 128 KiB, L1i 128 KiB, L2 1 MiB, L3 8 MiB
+指令集：   ✔ VT-x/AMD-V    ✔ AES-NI    ✔ AVX2    ✔ BMI1/2    ✔ EPT/NPT 
+温度：    待机 25℃      负载 55℃ 
+Sysbench：单线程 1368.26     多线程 8945.86
+GB5基准： J1900 N5105 N100 6700K 9900K 5900X 12900K 14900K 7713 7995WX
+GB5单核：      |1196
+GB5多核：                     |4561
+Crypto Score             1455    Single-Core Score||   5290     Multi-Core Score
+Floating Point Score     1306    Single-Core Score||   5080     Multi-Core Score
+Integer Score            1126    Single-Core Score||   4266     Multi-Core Score
+AES-XTS                  1455          2.48 GB/sec||   5290          9.02 GB/sec
+Camera                   1091      12.7 images/sec||   4293      49.8 images/sec
+Clang                    1157      9.01 Klines/sec||   5071      39.5 Klines/sec
+Face Detection           1063      8.18 images/sec||   4804      37.0 images/sec
+Gaussian Blur            1049     57.7 Mpixels/sec||   4204    231.1 Mpixels/sec
+HDR                      2290     31.2 Mpixels/sec||   9416    128.3 Mpixels/sec
+HTML5                    1105   1.30 MElements/sec||   3786   4.45 MElements/sec
+Horizon Detection        1087     26.8 Mpixels/sec||   4992    123.0 Mpixels/sec
+Image Compression        1145     54.2 Mpixels/sec||   5082    240.4 Mpixels/sec
+Image Inpainting         2180    106.9 Mpixels/sec||   7032    345.0 Mpixels/sec
+Machine Learning         1215      46.9 images/sec||   2455      94.9 images/sec
+N-Body Physics           1209      1.51 Mpairs/sec||   5754      7.20 Mpairs/sec
+Navigation               1125         3.17 MTE/sec||   3431         9.67 MTE/sec
+PDF Rendering            1129     61.3 Mpixels/sec||   4619    250.7 Mpixels/sec
+Ray Tracing              1513     1.22 Mpixels/sec||   7296     5.86 Mpixels/sec
+Rigid Body Physics       1198           7421.0 FPS||   6335          39248.0 FPS
+SQLite                   1107      346.8 Krows/sec||   3956       1.24 Mrows/sec
+Speech Recognition       1249       39.9 Words/sec||   3165      101.2 Words/sec
+Structure from Motion     938     8.40 Kpixels/sec||   4212     37.7 Kpixels/sec
+Text Compression         1153          5.83 MB/sec||   5164          26.1 MB/sec
+Text Rendering           1121         357.0 KB/sec||   3448          1.07 MB/sec
+详细结果：https://browser.geekbench.com/v5/cpu/24446225
+四、显卡测评
+显卡：    [集显]Intel ASPEED Technology, Inc. ASPEED Graphics Family (rev 30) 
+          [集显]Intel HD Graphics P630 (rev 04) 1150MHz                       
+五、内存测评
+内存：    总容量 31.1 GB,  已用 0.7 GB(2%),  可用 30.5 GB(98%)              
+           ╠═ [p0n0ch0d1]Micron 16GB DDR4 2667 18ADF2G72AZ-2G6E1 SN:F26A74E9
+           ╚═ [p0n0ch1d1]Micron 16GB DDR4 2667 18ADF2G72AZ-2G6E1 SN:F26A74E3
+交换：    总容量 3.8 GB,  已用 0.0 GB(0%),  可用 3.8 GB(100%)
+Sysbench：读取 30623.3 MB/s    写入 25656.5 MB/s    延迟 109 ns
+六、硬盘测评
+硬盘：    数量 2,  总容量 1.8T,  已用容量 2.9G(0%),  可用容量 1.8T(100%)
+           ╠═ [sda SSD]MTFDDAK960TCB SN:172217579430 960GB 2.5"         
+           ║   ╚═ 通电84次 66278h 24℃   PASSED                          
+           ╚═ [sdb SSD]MTFDDAK960TCB SN:172117534D15 960GB 2.5"         
+               ╚═ 通电55次 50780h 25℃   PASSED                          
+RAID:     md1 -> RAID0(/,[SWAP]) sda3[1] sdb3[0]
+          md0 -> RAID1(/boot) sda2[1] sdb2[0]
+测试设备：mapper/NL--LW--43--71--vg-root(/r**t) -> LVM
+Crystal： RND4K/Q1    IOPS||RND4K/Q32   IOPS||SEQ1M/Q1    IOPS||SEQ1M/Q8    IOPS
+读取：    15.0MB/s    3.8k||441MB/s     113k||679MB/s      678||1034MB/s    1.0k
+写入：    47.7MB/s     12k||364MB/s      93k||610MB/s      609||858MB/s      857
+ATTO：    READ                          IOPS||WRITE                         IOPS
+512B      53.1MB/s                      109k||3.46MB/s                      7.1k
+1K        88.4MB/s                       91k||8.58MB/s                      8.8k
+2K        136MB/s                        69k||19.8MB/s                       10k
+4K        257MB/s                        66k||324MB/s                        83k
+8K        367MB/s                        47k||431MB/s                        55k
+16K       451MB/s                        29k||371MB/s                        24k
+32K       541MB/s                        17k||560MB/s                        18k
+64K       712MB/s                        11k||675MB/s                        11k
+128K      929MB/s                       7.4k||862MB/s                       6.9k
+256K      987MB/s                       3.9k||971MB/s                       3.9k
+512K      963MB/s                       1.9k||932MB/s                       1.9k
+1M        1032MB/s                      1.0k||1000MB/s                       999
+2M        1034MB/s                       516||958MB/s                        478
+4M        1033MB/s                       258||632MB/s                        158
+8M        1035MB/s                       129||972MB/s                        121
+16M       1038MB/s                        64||947MB/s                         59
+32M       1039MB/s                        32||998MB/s                         31
+64M       1026MB/s                        16||947MB/s                         14
+七、HQ硬件加权评分
+项目：      总 分          CPU           GPU          内 存         硬 盘  
+分数：     144203    =    46620    +     N/A     +    66614    +    30969  
+排名：      68.1%         51.7%          N/A          66.9%         68.1%  
+================================================================================
+今日硬件检测量：74；总检测量：117060。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/hardware/2LI885EFW.svg
+
+########################################################################
+                      IP质量体检报告：144.225.*.*
+                   https://github.com/xykt/IPQuality
+                bash <(curl -sL https://Check.Place) -I
+        报告时间：2026-07-12 13:21:43 CST  脚本版本：v2026-03-29
+########################################################################
+一、基础信息（Maxmind 数据库）
+自治系统号：            AS60781
+组织：                  LeaseWeb Netherlands B.V.
+坐标：                  111°40′25″W, 40°17′59″N
+地图：                  https://check.place/40.2997,-111.6737,15,cn
+城市：                  Utah, 奥勒姆, 84097
+使用地：                [NL]荷兰, [NA]北美洲
+注册地：                [US]美国
+时区：                  America/Denver
+IP类型：                 广播IP 
+二、IP类型属性
+数据库：      IPinfo    ipregistry    ipapi    IP2Location   AbuseIPDB 
+使用类型：     机房        机房        家宽        机房        机房    
+公司类型：     商业        机房        家宽        机房    
+三、风险评分
+风险等级：      极低         低       中等       高         极高
+IP2Location：   3|低风险
+Scamalytics：  0|低风险
+ipapi：    0.00%|极低风险
+AbuseIPDB：    0|低风险
+IPQS：                        75|可疑IP
+DB-IP：         |低风险
+四、风险因子
+库： IP2Location ipapi ipregistry IPQS Scamalytics ipdata IPinfo DB-IP
+地区：    [IN]    [US]    [IN]    [US]    [NL]    [US]    [IN]    [NL]
+代理：     否      否      否      是      否      否      否      否 
+Tor：      否      否      否      否      否      否      否      无 
+VPN：      否      否      否      是      否      无      否      无 
+服务器：   是      是      是      无      是      否      是      无 
+滥用：     否      否      否      否      否      否      无      否 
+机器人：   否      否      无      否      否      无      无      否 
+五、流媒体及AI服务解锁检测
+服务商：  TikTok   Disney+  Netflix Youtube  AmazonPV  Reddit   ChatGPT 
+状态：     解锁     屏蔽     解锁     解锁     解锁     屏蔽     解锁   
+地区：     [US]              [IN]     [NL]     [IN]              [IN]   
+方式：     原生              原生     原生     原生              原生   
+六、邮局连通性及黑名单检测
+本地25端口出站：阻断
+通信：远端25端口不可达​
+IP地址黑名单数据库：  有效 439   正常 419   已标记 20   黑名单 0
+========================================================================
+今日IP检测量：1987；总检测量：1677795。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/ip/2B2UL95D9.svg
+
+********************************************************************************
+                         网络质量体检报告：144.225.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-12 13:23:17 CST  脚本版本：v2026-01-25
+********************************************************************************
+一、BGP信息（BGP.TOOLS & HE.NET）
+注册信息：          ARIN, AS60781 LeaseWeb Netherlands B.V., Prefix/24
+注册/修改日期：     2026-06-15 / 2026-06-15
+地区：              [IN]India, Southern Asia, Asia
+地址：              Office No.309 3rd Floor OZone Plaza Bailey Rd RPS More
+活跃邻居：          Prefix/24  5 / 256 
+二、本地策略
+NAT类型：         开放网络无NAT 
+TCP拥塞控制算法：bbrn         TCP接收缓冲区（rmem）：8192 262144 33554432
+队列调度算法：   fq           TCP发送缓冲区（wmem）：4096 16384 33554432
+三、接入信息（*=Tier1 *=非Tier1 *=上游）
+互联网交换点接入数：12        上游数量：9         对等互联数量：6
+AS174  AS1299  AS2914 AS3257 AS3320 AS3356 AS3491 AS5511 AS6453 AS6461 AS6762  
+Cogent Arelion   NTT    GTT   DTAG   Lumen  PCCW  Orange  TATA   Zayo  Sparkle 
+AS6830  AS7018 AS12956 AS16265  
+Liberty  AT&T  Telxius LeaseWeb 
+四、三网TCP大包延迟（依次为电信|联通|移动 Step=80ms） 京⣶⣶⣶⣶⣾215⣶⣶⣶⣶⣶192⣿⣿⣿⣿⣿242
+津⣶⣶⣶⣶⣶193⣶⣶⣶⣶⣶212⣿⣿⣿⣿⣿249 冀⣶⣶⣶⣶⣶201⣿⣿⣿⣿⣿240⣿⣿⣿⣿⣿259 晋⣶⣶⣶⣶⢰199⣿⣿⣿⣿⣿472⢸⠀⠀⠀⠀531
+蒙⣿⣷⣤⣦⣴199⣶⣶⣶⣶⣶214⣿⣿⣿⣿⣿262 辽⣶⣶⣶⣶⣶208⣶⣶⣶⣶⣶225⣿⢸⣿⣿⣿314 吉⣦⣶⣶⣶⢰166⣶⣶⣶⣶⣶230⢸⣿⣿⣿⣿306
+黑⣿⣿⣿⣿⢸250⣶⣶⣶⣶⣶236⣿⣿⣿⣿⣿265 沪⣶⣶⣶⣶⣶203⣶⢰⣶⣶⣶214⢸⣿⢸⣿⣿245 苏⣶⣶⣶⣶⣶181⣶⣶⣶⣶⣶227⣿⣿⣿⣿⣿244
+浙⣶⣶⣶⣶⣶205⣶⣶⣶⣶⣶228⣿⣿⣿⣿⣿248 皖⣶⣶⡆⣷⣷223⣶⣶⣶⣶⣶201⣿⣿⣿⣿⣿314 闽⣶⣶⣶⣶⣶223⣶⣶⣶⣶⣶199⣿⣿⣿⢸⣿284
+赣⣶⣶⣶⣶⣶213⣶⣶⣶⣶⣶190⣿⢸⣿⣿⣿340 鲁⣶⢰⣶⣶⣶209⣶⣶⣷⣶⣶211⡇⣿⣿⡇⣿271 豫⣶⢰⣶⣶⣶180⣶⣶⣶⣶⣶178⣿⣿⣿⣿⣿254
+鄂⣶⡆⣶⣶⡆216⣶⣶⣶⣶⣶197⣿⣿⣿⣿⣿285 湘⣶⣶⣶⣶⣶206⣶⣶⣶⣶⣶193⣿⡇⡇⣿⣿287 粤⣶⣶⣶⣶⣶210⣶⣶⣶⣶⣶196⣶⣶⣶⣶⣶215
+桂⣶⣶⣶⣶⣶214⣶⣶⣶⣶⣶184⣿⣿⣿⣿⣿295 琼⣶⣶⣶⣶⣶194⣶⣶⣶⣶⣶193⣿⣿⡇⣿⣿283 渝⣶⣶⣶⣶⣶181⣶⣶⣶⣶⣶176⣿⣿⣿⣿⡇315
+川⣾⣾⣶⣶⣿232⡆⣶⣶⣶⣶200⡇⣿⣿⣿⡇311 贵⣶⣶⣶⣶⣶213⣶⣶⣶⣶⣶227⣿⣿⣿⢸⣿292 云⣶⣶⣶⣶⣶229⣶⣶⣶⣶⣶213⡇⢸⣿⣿⣿298
+藏⣶⣶⣶⣶⣶233⣶⣶⣶⣶⣶216⣿⣿⡇⣿⢸302 陕⣴⣴⣶⣶⣴175⣶⣶⣶⣾⣶220⣿⣿⣿⣿⣿304 甘⣶⣶⣶⣶⣶217⣿⣿⣿⣿⣿244⣿⣿⣿⣿⣿264
+青⠀⣶⣶⣶⣶211⣶⣶⣶⣶⣶216⣿⣿⣿⣿⣿270 宁⡇⣿⣿⣿⣿258⣶⣶⣶⣶⣶193⣿⣿⣿⣿⣿263 新⣶⣶⣶⣶⣶184⣿⣿⣿⣿⣿246⣿⣿⣿⣿⣿291
+五、三网回程路由（线路可能随网络负载动态变化）
+北京TCP：电信  AS60781->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+北京UDP：电信  AS60781->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+上海TCP：电信  AS60781->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+上海UDP：电信  AS60781->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+广州TCP：电信  AS60781->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+广州UDP：电信  Arelion->163    || 联通   Cogent->4837   || 移动  Arelion->CMI   
+六、国内测速   发送  延迟    接收  延迟||单位：Mbps ms  发送  延迟    接收  延迟
+苏州电信        484     -     493   291||杭州电信         64   576     354    1k
+上海联通        929   316     591   323||北京联通        477   298     531   354
+苏州移动        201     -       0   747||深圳移动          ERROR         ERROR  
+七、国际互连   延迟 发送 重传 接收 重传||单位：ms Mbps  延迟 发送 重传 接收 重传
+香港      ⣶⣶⣶⣶⣶⣶198   666   0   391  3k||东京      ⣿⣿⣿⣿⣿⣿244   479   0     ERROR
+新加坡    ⣤⣤⣤⣤⣤⣤158   744   0   449  5k||悉尼      ⠀⠀⠀⠀⠀⠀  0     ERROR     ERROR
+洛杉矶    ⣤⣤⣤⣤⣤⣤139   769   0   393  6k||纽约      ⣤⣤⣤⣤⣤⣤ 85     ERROR     ERROR
+法兰克福  ⣀⣀⣀⣀⣀⣀  7   931   0   723 157||伦敦      ⣀⣀⣀⣀⣀⣀  7   936   0   862  1k
+阿姆斯特丹⣀⣀⣀⣀⣀⣀  0   940 130   912   0||圣保罗    ⣿⣿⣿⣿⣿⢸291   326   0     5 289
+================================================================================
+今日网络检测量：246；总检测量：753501。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/9G8SJD3AT.svg
+
+********************************************************************************
+                         网络质量体检报告：144.225.*.*
+                       https://github.com/xykt/NetQuality
+                    bash <(curl -sL https://Check.Place) -N
+            报告时间：2026-07-12 13:33:41 CST  脚本版本：v2026-01-25
+********************************************************************************
+五、三网回程路由（线路可能随网络负载动态变化）
+  北京 电信    AS60781 -> 163  
+地理路径：荷兰 -> 英国 -> 上海 -> 北京    自治系统路径：AS60781 -> AS4134 -> AS4847 
+ 2       0.28ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       1.04ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4       0.41ms  31.31.*.*              [Leaseweb-Backbone]* 荷兰 北荷兰省 阿姆斯特丹
+ 5       7.13ms  31.31.*.*                                * 英国 英格兰 伦敦
+ 6      80.72ms  195.66.*.*   AS4134    [LINX-PEER]       英国 英格兰 LINX LON1 - China Telecom - 100Gbps chinatelecom.com.cn
+ 7-9   211.65ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 X-I chinatelecom.com.cn
+12     258.96ms  36.112.*.*   AS4847                      中国 北京 bj.189.cn
+13-14  281.97ms  219.141.*.*  AS4847    [CHINATELECOM-BJ] 中国 北京 bj.189.cn
+15     206.76ms  106.37.*.*   AS4847    [CHINANET-HN]     中国 北京 bj.189.cn
+  北京 联通    Cogent -> 4837  
+地理路径：荷兰 -> 德国 -> 北京    自治系统路径：AS60781 -> AS174 -> AS4837 -> AS4808 
+ 2       0.28ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       1.09ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 5       1.43ms  154.54.*.*   AS174     [COGENT-BONE]     荷兰 北荷兰省 阿姆斯特丹 cogentco.com
+ 6-7     7.80ms  154.54.*.*   AS174     [COGENT-BONE]     德国 黑森 美因河畔法兰克福 cogentco.com
+ 8      15.72ms  149.11.*.*   AS174     [COGENT-149]      德国 黑森州 美因河畔法兰克福 cogentco.com
+ 9-10  219.50ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 北京 北京 chinaunicom.cn
+12     196.55ms  124.64.*.*   AS4808    [UNICOM-BJ]       中国 北京市 www.bbn.com.cn 联通
+13     151.26ms  61.148.*.*   AS4808    [UNICOM-CN]       中国 北京 www.bbn.com.cn
+16     193.66ms  221.222.*.*  AS4808    [UNICOM-BJ]       中国 北京 海淀 www.bbn.com.cn
+  北京 移动    Arelion -> CMI  
+地理路径：荷兰 -> 英国 -> 美国 -> 北京    自治系统路径：AS60781 -> AS1299 -> AS58453 -> AS9808 -> AS56048 
+ 2       0.42ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       0.35ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4-5     0.61ms  62.115.*.*   AS1299    [ARELION-NET]     荷兰 北荷兰省 哈尔夫韦赫 arelion.com
+ 6      27.89ms  62.115.*.*   AS1299    [ARELION-NET]     英国 英格兰 伦敦 arelion.com
+ 7      76.09ms  62.115.*.*   AS1299    [ARELION-NET]     美国 纽约 纽约 arelion.com
+ 8     140.63ms  62.115.*.*   AS1299    [ARELION-NET]     美国 伊利诺伊 芝加哥 arelion.com
+ 9     138.95ms  62.115.*.*   AS1299    [ARELION-NET]     新加坡 arelion.com
+10-13  145.44ms  62.115.*.*   AS1299    [ARELION-NET]     美国 加利福尼亚 圣何塞 arelion.com
+14     242.40ms  223.120.*.*  AS58453   [CMI-INT]         中国 北京 cmi.chinamobile.com 移动
+15     240.86ms  223.120.*.*  AS58453   [CMI-INT]         美国 加利福尼亚 旧金山 cmi.chinamobile.com 移动
+16     241.00ms  221.183.*.*  AS9808    [CMNET]           中国 北京 X-I chinamobileltd.com 移动
+19-22  245.39ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+24     247.31ms  211.136.*.*  AS56048   [CMNET]           中国 北京 bj.10086.cn 移动
+  上海 电信    AS60781 -> 163  
+地理路径：荷兰 -> 英国 -> 上海    自治系统路径：AS60781 -> AS4134 -> AS4812 
+ 2       0.26ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       1.06ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4       0.51ms  31.31.*.*              [Leaseweb-Backbone]* 荷兰 北荷兰省 阿姆斯特丹
+ 5       7.10ms  31.31.*.*                                * 英国 英格兰 伦敦
+ 6      82.76ms  195.66.*.*   AS4134    [LINX-PEER]       英国 英格兰 LINX LON1 - China Telecom - 100Gbps chinatelecom.com.cn
+ 7-9   286.23ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 上海 X-I chinatelecom.com.cn
+16     265.44ms  101.226.*.*  AS4812    [CHINANET-SH]     中国 上海市 chinatelecom.cn 电信
+  上海 联通    Cogent -> 4837  
+地理路径：荷兰 -> 德国 -> 北京 -> 广东 -> 上海    自治系统路径：AS60781 -> AS174 -> AS4837 -> AS140979 
+ 2       0.33ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       0.89ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 5       1.34ms  130.117.*.*  AS174     [COGENT-BONE]     荷兰 北荷兰省 阿姆斯特丹 cogentco.com
+ 6-7     7.92ms  154.54.*.*   AS174     [COGENT-BONE]     德国 黑森 美因河畔法兰克福 cogentco.com
+ 8       8.32ms  149.11.*.*   AS174     [COGENT-149]      德国 黑森州 美因河畔法兰克福 cogentco.com
+ 9     194.18ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 北京市 chinaunicom.cn 联通
+10     179.61ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+19     226.95ms  112.64.*.*   AS140979  [APNIC-AP]        中国 上海市 闵行 chinaunicom.cn 联通
+  上海 移动    Arelion -> CMI  
+地理路径：荷兰 -> 英国 -> 香港 -> 上海    自治系统路径：AS60781 -> AS1299 -> AS58453 -> AS9808 
+ 2       0.44ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       6.58ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4-5     0.59ms  62.115.*.*   AS1299    [ARELION-NET]     荷兰 北荷兰省 阿姆斯特丹 arelion.com
+ 6-8    28.45ms  62.115.*.*   AS1299    [ARELION-NET]     英国 英格兰 伦敦 arelion.com
+ 9       8.67ms  223.120.*.*  AS58453   [CMI-INT]         英国 英格兰 伦敦 cmi.chinamobile.com 移动
+10     238.30ms  223.120.*.*  AS58453   [CMI-INT]         中国 香港 cmi.chinamobile.com 移动
+11-13  239.29ms  221.183.*.*  AS9808    [CMNET]           中国 上海 X-I chinamobileltd.com 移动
+16     246.67ms  117.185.*.*  AS9808    [CMNET]           中国 上海市 chinamobileltd.com 移动
+  广东 电信    Arelion -> 163  
+地理路径：荷兰 -> 英国 -> 广东    自治系统路径：AS60781 -> AS1299 -> AS4134 
+ 2       0.30ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       1.04ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4       1.02ms  62.115.*.*   AS1299    [ARELION-NET]     荷兰 北荷兰省 哈尔夫韦赫 arelion.com
+ 5       7.36ms  31.31.*.*                                * 英国 英格兰 伦敦
+ 6-9   205.41ms  202.97.*.*   AS4134    [CHINANET-BB]     中国 广东 广州 chinatelecom.com.cn 电信
+15     198.93ms  183.47.*.*   AS4134    [APNIC-AP]        中国 广东省 广州市 chinatelecom.com.cn 电信
+  广东 联通    Cogent -> 4837  
+地理路径：荷兰 -> 德国 -> 广东    自治系统路径：AS60781 -> AS174 -> AS4837 -> AS136958 
+ 2       0.41ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       0.89ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 5       1.66ms  154.54.*.*   AS174     [COGENT-BONE]     荷兰 北荷兰省 阿姆斯特丹 cogentco.com
+ 6-7     7.96ms  154.54.*.*   AS174     [COGENT-BONE]     德国 黑森 美因河畔法兰克福 cogentco.com
+ 8       8.38ms  149.11.*.*   AS174     [COGENT-149]      德国 黑森州 美因河畔法兰克福 cogentco.com
+ 9-11  175.68ms  219.158.*.*  AS4837    [CU169-BACKBONE]  中国 广东 广州 chinaunicom.cn 联通
+18     196.10ms  157.148.*.*  AS136958  [UNICOM-GD]       中国 广东省 广州市 chinaunicom.cn 联通
+  广东 移动    Arelion -> CMI  
+地理路径：荷兰 -> 英国 -> 香港 -> 广东    自治系统路径：AS60781 -> AS1299 -> AS58453 -> AS9808 -> AS56040 
+ 2       0.42ms  85.17.*.*    AS60781                     荷兰 弗莱福兰省 莱利斯塔德 leaseweb.com
+ 3       0.95ms  81.17.*.*                                * 荷兰 北荷兰省 阿姆斯特丹
+ 4-5     0.77ms  62.115.*.*   AS1299    [ARELION-NET]     荷兰 北荷兰省 阿姆斯特丹 arelion.com
+ 6-8    28.07ms  62.115.*.*   AS1299    [ARELION-NET]     英国 英格兰 伦敦 arelion.com
+ 9      10.58ms  223.120.*.*  AS58453   [CMI-INT]         英国 英格兰 伦敦 cmi.chinamobile.com 移动
+10     247.84ms  223.120.*.*  AS58453   [CMI-INT]         中国 香港 cmi.chinamobile.com
+11-14  197.66ms  221.183.*.*  AS9808    [CMNET]           中国 广东 广州 X-I chinamobileltd.com 移动
+15     216.58ms  183.235.*.*  AS56040   [APNIC-AP]        中国 广东 广州 gd.10086.cn 移动
+16     248.18ms  211.136.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+21     244.40ms  211.139.*.*  AS56040   [CMNET]           中国 广东 广州 gd.10086.cn 移动
+================================================================================
+今日网络检测量：270；总检测量：753525。感谢使用xy系列脚本！ 
+报告链接：https://Report.Check.Place/net/2G97HDRXN.svg
+
+[NodeQuality链接](https://nodequality.com/r/r1Ri4gPH0t1XGF1MXUoCrWMtc1hBCGKz)

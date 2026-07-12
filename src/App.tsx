@@ -412,31 +412,31 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
 }
 
 function homepageExampleTags(useCases: ReturnType<typeof analyzeReport>["useCases"]): string[] {
-  const positive = useCases
-    .filter((useCase) => useCase.severity !== "risk")
-    .map((useCase) => ({
-      severity: useCase.severity,
-      tag: shareTagsForUseCase(useCase).find((tag) => !/谨慎|待确认|看地区|受限|风险|不适合/.test(tag)),
-    }))
-    .filter((candidate): candidate is { severity: "good" | "watch"; tag: string } => Boolean(candidate.tag));
+  const qualityOrder = { good: 0, watch: 1, risk: 2 } as const;
+  const candidates = useCases.flatMap((useCase, useCaseIndex) =>
+    shareTagsForUseCase(useCase).map((tag, tagIndex) => ({
+      quality: tagClass(tag) as keyof typeof qualityOrder,
+      tag,
+      tagIndex,
+      useCaseIndex,
+    })),
+  ).sort((left, right) =>
+    qualityOrder[left.quality] - qualityOrder[right.quality] ||
+    left.useCaseIndex - right.useCaseIndex ||
+    left.tagIndex - right.tagIndex,
+  );
 
-  return positive
-    .sort((left, right) => homepageTagScore(right.tag, right.severity) - homepageTagScore(left.tag, left.severity))
-    .map((candidate) => candidate.tag)
-    .filter((tag, index, tags) => tags.indexOf(tag) === index)
-    .slice(0, 2);
-}
+  const first = candidates[0];
+  if (!first) return [];
 
-function homepageTagScore(tag: string, severity: "good" | "watch"): number {
-  const quality = severity === "good" ? 100 : 40;
-  const distinction = /落地[机鸡]/.test(tag) ? 50
-    : /毕业[机鸡]/.test(tag) ? 45
-      : /顶级|精品/.test(tag) ? 40
-        : /线路[机鸡]|电信快乐|联通快乐|移动快乐/.test(tag) ? 35
-          : /流媒体解锁|AI可用/.test(tag) ? 30
-            : /大盘[机鸡]|轻量建站/.test(tag) ? 20
-              : 0;
-  return quality + distinction;
+  const fromNextConclusion = first.quality === "good"
+    ? candidates.find((candidate) =>
+      candidate.quality === "good" &&
+      candidate.useCaseIndex !== first.useCaseIndex &&
+      candidate.tag !== first.tag)
+    : undefined;
+  const second = fromNextConclusion ?? candidates.find((candidate) => candidate.tag !== first.tag);
+  return second ? [first.tag, second.tag] : [first.tag];
 }
 
 function reportLocation(result: ReturnType<typeof analyzeReport>): string {

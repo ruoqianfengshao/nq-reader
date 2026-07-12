@@ -1055,10 +1055,13 @@ function stableVariant(value: string): 0 | 1 {
 function semanticTags(name: string, verdict: string, evidence: string[]): string[] {
   const text = `${verdict} ${evidence.join(" ")}`;
   if (name === "代理") {
+    const telecomPremium = evidence.some((item) => item.startsWith("电信线路 ") && /CN2GIA|CTGGIA/i.test(item) && !/CN2混合|GT/.test(item));
+    const unicomPremium = evidence.some((item) => item.startsWith("联通线路 ") && /CN2GIA|CTGGIA|10099|9929/i.test(item));
+    const mobilePremium = evidence.some((item) => item.startsWith("移动线路 ") && /CMIN2/i.test(item));
     return compactTags([
       ...carrierQualityTags(evidence),
-      /电信代理 .*CN2.*联通代理 .*10099.*移动代理 .*CMIN2/.test(text) ? "三网精品线" : "",
-      /CN2\s*GIA|CN2GIA/i.test(text) && !/CN2混合|GT/.test(text) ? "三网CN2GIA" : "",
+      telecomPremium && unicomPremium && mobilePremium ? "三网精品线" : "",
+      telecomPremium ? "电信CN2GIA" : "",
       /毕业[机鸡]/.test(text) ? "毕业鸡" : "",
       /电信线路 .*=(顶级|精品|精品混合)/.test(text) ? "电信精品线路" : "",
       /联通线路 .*=(顶级|精品|精品混合)/.test(text) ? "联通精品线路" : "",

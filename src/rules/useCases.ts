@@ -84,7 +84,7 @@ function proxyBestVerdict(input: {
   riskCarriers: CarrierName[];
 }): string {
   const { lines, happyRegions, watchRegions, topCarriers, happyCarriers, goodCarriers, watchCarriers, riskCarriers } = input;
-  const lineType = lineSummary(lines);
+  const lineType = lineSummary(lines, topCarriers);
   const bestRegion = happyRegionSummary(happyRegions)[0];
   const regionTail = bestRegion ? `，${bestRegion}快乐` : "";
   const watchTail = watchRegions.length > 0 ? `，${watchRegions[0]}看地区` : "";
@@ -154,10 +154,10 @@ function landingRegionName(location?: Evidence): string {
   return names[code] ?? "";
 }
 
-function lineSummary(lines: Evidence[]): string {
+function lineSummary(lines: Evidence[], topCarriers: CarrierName[]): string {
   const best = lines.filter((item) => item.grade === "顶级" || item.grade === "精品" || item.grade === "精品混合");
   if (best.length === 0) return "";
-  if (best.length === 3 && best.every((item) => item.grade === "顶级")) return "三网顶级线路";
+  if (best.length === 3 && best.every((item) => item.grade === "顶级") && topCarriers.length === 3) return "三网顶级线路";
   if (best.length === 3) return "三网精品线路";
   return best.map((item) => `${carrierNameFromEvidence(item)}${item.grade}线路`).join("/");
 }

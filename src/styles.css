@@ -2011,7 +2011,7 @@ textarea:focus {
 
 .reference-links a {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 14px;
+  grid-template-columns: 18px minmax(0, 1fr) 14px;
   gap: 9px;
   align-items: start;
   padding: 11px 0;
@@ -2021,6 +2021,26 @@ textarea:focus {
   font-weight: 650;
   line-height: 1.45;
   text-decoration: none;
+}
+
+.reference-links img {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 4px;
+}
+
+.reference-links a > span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.reference-links small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.2;
 }
 
 .reference-links a:hover {

@@ -474,7 +474,11 @@ function ReferenceLinks({ onNavigate }: { onNavigate?: () => void }) {
     <nav className="reference-links">
       {referenceResources.map((resource) => (
         <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url} onClick={onNavigate}>
-          <span>{resource.title}</span>
+          <img src={resource.icon} alt="" width="18" height="18" />
+          <span>
+            <small>{resource.source}</small>
+            {resource.title}
+          </span>
           <ExternalLink size={14} />
         </a>
       ))}

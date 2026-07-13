@@ -161,7 +161,7 @@ src/
 ├── analyzerTypes.ts     # 分析结果与证据类型
 ├── rules/useCases.ts    # 四类用途结论规则
 ├── examples.ts          # 首页示例报告
-├── resources.ts         # NodeSeek 参考资料链接
+├── resources.ts         # 参考资料来源、站点图标与链接
 ├── App.tsx              # 结果展示、标签和分享海报逻辑
 └── styles.css           # 浅色/深色界面样式
 ```

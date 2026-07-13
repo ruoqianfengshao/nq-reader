@@ -5,6 +5,16 @@ const TAB_ID = "nq-reader-summary";
 const PANEL_ID = "nq-reader-summary-panel";
 let reportPromise: Promise<string> | undefined;
 
+function debug(event: string, details?: unknown) {
+  console.info(`[NQ Reader] ${event}`, details ?? "");
+}
+
+declare const JSZip: {
+  loadAsync(data: string, options: { base64: boolean }): Promise<{
+    file(name: string): { async(type: "text"): Promise<string> } | null;
+  }>;
+};
+
 function addStyles() {
   const style = document.createElement("style");
   style.textContent = `
@@ -64,9 +74,107 @@ function addStyles() {
   document.head.append(style);
 }
 
-function loadReport(): Promise<string> {
-  if (reportPromise) return reportPromise;
-  reportPromise = new Promise((resolve, reject) => {
+function recordToken() {
+  return location.pathname.split("/").filter(Boolean).at(-1) ?? "";
+}
+
+async function loadReportFromApi(): Promise<string> {
+  const token = recordToken();
+  if (!token) throw new Error("未识别 NodeQuality 报告编号");
+  const response = await fetch(`https://api.nodequality.com/api/v1/record/${encodeURIComponent(token)}`);
+  debug("API response", { status: response.status, ok: response.ok });
+  if (!response.ok) throw new Error(`NodeQuality 接口不可用（${response.status}）`);
+  const payload = await response.json() as { success?: boolean; message?: string; data?: { result?: string } };
+  if (!payload.success || !payload.data?.result) throw new Error(payload.message || "NodeQuality 未保存完整报告");
+
+  const archive = await JSZip.loadAsync(payload.data.result, { base64: true });
+  const parts = await Promise.all([
+    "header_info.log",
+    "hardware_quality.log",
+    "basic_info.log",
+    "ip_quality.log",
+    "net_quality.log",
+    "backroute_trace.log",
+  ].map(async (name) => archive.file(name)?.async("text") ?? ""));
+  const [header, hardwareQuality, basicInfo, ip, net, trace] = parts;
+  const report = [header, hardwareQuality || basicInfo, ip, net, trace].filter(Boolean).join("\n\n").trim();
+  if (!report) throw new Error("NodeQuality 接口未返回可解读的报告内容");
+  return report;
+}
+
+function stripAnsi(text: string) {
+  return text
+    .replace(/\x1B(?:\[[0-?]*[ -/]*[@-~]|\][^\x07]*(?:\x07|\x1B\\))/g, "")
+    .replace(/(?:\x1B)?\[[0-?;]*m/g, "");
+}
+
+function loadReportFromPage(): string {
+  const fromText = (value: unknown): string | undefined => {
+    if (typeof value !== "string") return undefined;
+    const report = stripAnsi(value).trim();
+    return /硬件质量体检报告|IP质量体检报告|网络质量体检报告/.test(report) ? report : undefined;
+  };
+  const fromSections = (sections: unknown): string | undefined => {
+    if (!Array.isArray(sections) || sections.length < 3 || !sections.every((item) => typeof item === "string")) return undefined;
+    const report = Array.from(new Set(sections.map(stripAnsi).map((section) => section.trim()).filter(Boolean))).join("\n\n");
+    return /硬件质量体检报告|IP质量体检报告|网络质量体检报告/.test(report) ? report : undefined;
+  };
+
+  const terminalComponent = document.querySelector<HTMLElement>("#viewport-wrapper > [sections]") as (HTMLElement & {
+    __vueParentComponent?: { props?: { sections?: unknown } };
+  }) | null;
+  const attributeSections = terminalComponent?.getAttribute("sections");
+  debug("terminal component", {
+    found: Boolean(terminalComponent),
+    vueKeys: terminalComponent ? Object.getOwnPropertyNames(terminalComponent).filter((key) => key.startsWith("__vue")) : [],
+    sectionsAttributeLength: attributeSections?.length ?? 0,
+    sectionsAttributePrefix: attributeSections?.slice(0, 80) ?? "",
+    parentComponentFound: Boolean(terminalComponent?.__vueParentComponent),
+    sectionsType: typeof terminalComponent?.__vueParentComponent?.props?.sections,
+    sectionsCount: Array.isArray(terminalComponent?.__vueParentComponent?.props?.sections) ? terminalComponent.__vueParentComponent.props.sections.length : 0,
+  });
+  const directReport = fromText(attributeSections) ?? fromSections(terminalComponent?.__vueParentComponent?.props?.sections);
+  if (directReport) return directReport;
+
+  const visited = new Set<object>();
+  const candidates: string[][] = [];
+  const visit = (node: unknown, depth = 0) => {
+    if (!node || typeof node !== "object" || visited.has(node) || depth > 10 || visited.size > 8_000) return;
+    visited.add(node);
+    if (Array.isArray(node) && node.length >= 3 && node.every((item) => typeof item === "string")) {
+      const sections = node as string[];
+      const text = sections.join("\n");
+      if (/硬件质量体检报告|IP质量体检报告|网络质量体检报告/.test(text)) candidates.push(sections);
+    }
+    for (const key of Object.getOwnPropertyNames(node)) {
+      if (key === "parent" || key === "root" || key === "appContext") continue;
+      try {
+        const child = (node as Record<string, unknown>)[key];
+        if (typeof child === "object" && child !== null) visit(child, depth + 1);
+      } catch {
+        // Vue proxy getters may throw for internal fields; skip those fields.
+      }
+    }
+  };
+
+  const roots = [document.getElementById("app"), document.getElementById("terminal-container")].filter(Boolean) as Array<HTMLElement & Record<string, unknown>>;
+  roots.forEach((root) => {
+    visit(root);
+    Object.getOwnPropertyNames(root)
+      .filter((key) => key.startsWith("__vue"))
+      .forEach((key) => visit(root[key]));
+  });
+
+  const sections = candidates.sort((left, right) => right.join("\n").length - left.join("\n").length)[0];
+  debug("Vue sections search", { visited: visited.size, candidates: candidates.length, largestLength: sections?.join("\n").length ?? 0 });
+  if (!sections) throw new Error("NodeQuality 未加载完整终端内容");
+  const report = fromSections(sections);
+  if (!report) throw new Error("页面终端内容为空");
+  return report;
+}
+
+function loadReportFromClipboard(): Promise<string> {
+  return new Promise((resolve, reject) => {
     const copyButton = [...document.querySelectorAll<HTMLButtonElement>(".bench-buttons .button1")]
       .find((button) => button.textContent?.trim() === "复制文本");
     if (!copyButton) return reject(new Error("未找到 NodeQuality 的“复制文本”按钮"));
@@ -92,6 +200,25 @@ function loadReport(): Promise<string> {
       if (!captured) { restore(); reject(new Error("NodeQuality 未在预期时间内生成复制文本")); }
     }, 2000);
   });
+}
+
+function loadReport(): Promise<string> {
+  if (reportPromise) return reportPromise;
+  reportPromise = loadReportFromApi()
+    .catch((error) => {
+      debug("API fallback", error);
+      try {
+        const report = loadReportFromPage();
+        debug("page data loaded", { length: report.length });
+        return report;
+      } catch (pageError) {
+        debug("page data fallback", pageError);
+        return loadReportFromClipboard().catch((clipboardError) => {
+          debug("clipboard fallback", clipboardError);
+          throw new Error(`读取失败：API ${error instanceof Error ? error.message : String(error)}；页面数据 ${pageError instanceof Error ? pageError.message : String(pageError)}；复制文本 ${clipboardError instanceof Error ? clipboardError.message : String(clipboardError)}`);
+        });
+      }
+    });
   return reportPromise;
 }
 

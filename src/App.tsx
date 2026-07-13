@@ -175,18 +175,16 @@ function App() {
           </button>
           <div className="nav-copy">
             <span className="nav-description">NodeQuantity report reader</span>
-            {hasReport && (
-              <button
-                className="resource-trigger"
-                type="button"
-                aria-label="打开参考资料"
-                title="参考资料"
-                aria-expanded={showResources}
-                onClick={() => setShowResources(true)}
-              >
-                <BookOpen size={18} />
-              </button>
-            )}
+            <button
+              className={`resource-trigger ${hasReport ? "" : "is-home"}`}
+              type="button"
+              aria-label="打开参考资料"
+              title="参考资料"
+              aria-expanded={showResources}
+              onClick={() => setShowResources(true)}
+            >
+              <BookOpen size={18} />
+            </button>
             <a
               className="github-link"
               href="https://github.com/ruoqianfengshao/nq-reader"
@@ -255,6 +253,7 @@ function App() {
               </div>
             </div>
             <ReportExamples onSelect={analyzeExample} />
+            <HomeReferences />
             {showCopyHelp && (
               <div className="help-overlay" role="presentation" onClick={() => setShowCopyHelp(false)}>
                 <section className="help-dialog" role="dialog" aria-modal="true" aria-label="复制帮助" onClick={(event) => event.stopPropagation()}>
@@ -429,23 +428,35 @@ function App() {
 
             </div>
             <ReferencePanel className="reference-panel-fixed" />
-            {showResources && (
-              <div className="resource-overlay" role="presentation" onClick={() => setShowResources(false)}>
-                <aside className="resource-drawer" role="dialog" aria-modal="true" aria-label="参考资料" onClick={(event) => event.stopPropagation()}>
-                  <div className="resource-drawer-heading">
-                    <strong>参考资料</strong>
-                    <button className="icon-button" type="button" aria-label="关闭参考资料" onClick={() => setShowResources(false)}>
-                      <X size={18} />
-                    </button>
-                  </div>
-                  <ReferenceLinks onNavigate={() => setShowResources(false)} />
-                </aside>
-              </div>
-            )}
           </>
         )}
       </section>
+      {showResources && (
+        <div className="resource-overlay" role="presentation" onClick={() => setShowResources(false)}>
+          <aside className="resource-drawer" role="dialog" aria-modal="true" aria-label="参考资料" onClick={(event) => event.stopPropagation()}>
+            <div className="resource-drawer-heading">
+              <strong>参考资料</strong>
+              <button className="icon-button" type="button" aria-label="关闭参考资料" onClick={() => setShowResources(false)}>
+                <X size={18} />
+              </button>
+            </div>
+            <ReferenceLinks onNavigate={() => setShowResources(false)} />
+          </aside>
+        </div>
+      )}
     </main>
+  );
+}
+
+function HomeReferences() {
+  return (
+    <section className="home-references" aria-labelledby="home-reference-title">
+      <div className="example-heading">
+        <h2 id="home-reference-title">参考资料</h2>
+        <span>进一步了解 NQ 指标与线路判断</span>
+      </div>
+      <ReferenceLinks />
+    </section>
   );
 }
 

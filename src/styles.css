@@ -147,7 +147,8 @@ button {
   font-size: 0.86rem;
 }
 
-.github-link {
+.github-link,
+.userscript-link {
   display: inline-grid;
   flex: 0 0 auto;
   place-items: center;
@@ -182,13 +183,23 @@ button {
   background: var(--surface-soft);
 }
 
-.github-link:hover {
+.github-link:hover,
+.userscript-link:hover {
   color: var(--text-strong);
   background: var(--surface-soft);
 }
 
+.tampermonkey-mark {
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  mask: url("./assets/tampermonkey.svg") center / contain no-repeat;
+  -webkit-mask: url("./assets/tampermonkey.svg") center / contain no-repeat;
+}
+
 .brand-mark:focus-visible,
 .github-link:focus-visible,
+.userscript-link:focus-visible,
 .resource-trigger:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;

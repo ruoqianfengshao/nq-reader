@@ -339,7 +339,7 @@ function App() {
                       <span>{useCase.name}</span>
                       <strong>{useCase.verdict}</strong>
                       <div className="use-case-tags">
-                        {semanticTags(useCase.name, useCase.verdict, useCase.evidence).slice(0, 3).map((tag) => (
+                        {useCaseTags(result, useCase).slice(0, 3).map((tag) => (
                           <small className={tagClass(tag)} key={tag}>{tag}</small>
                         ))}
                       </div>
@@ -363,7 +363,7 @@ function App() {
                             <h3>{useCase.name}</h3>
                           </div>
                         </div>
-                        <TagRail tags={semanticTags(useCase.name, useCase.verdict, useCase.evidence)} />
+                        <TagRail tags={useCaseTags(result, useCase)} />
                         <ReasonSummary useCaseName={useCase.name} verdict={useCase.verdict} reason={useCase.reason} severity={useCase.severity} />
                         {useCase.evidence.length > 0 && (
                           <EvidenceList items={useCase.evidence} useCaseName={useCase.name} />
@@ -515,7 +515,7 @@ function ReportExamples({ onSelect }: { onSelect: (report: string) => void }) {
 function homepageExampleTags(useCases: ReturnType<typeof analyzeReport>["useCases"]): string[] {
   const qualityOrder = { good: 0, watch: 1, risk: 2 } as const;
   const candidates = useCases.flatMap((useCase, useCaseIndex) =>
-    shareTagsForUseCase(useCase).map((tag, tagIndex) => ({
+    semanticTags(useCase.name, useCase.verdict, useCase.evidence).map((tag, tagIndex) => ({
       quality: tagClass(tag) as keyof typeof qualityOrder,
       tag,
       tagIndex,
@@ -904,7 +904,7 @@ function ShareResultCards({ ip, result }: { ip: string; result: ReturnType<typeo
           name={useCase.name}
           result={result}
           title={useCase.verdict}
-          tags={shareTagsForUseCase(useCase).slice(0, 5)}
+          tags={shareTagsForUseCase(result, useCase).slice(0, 5)}
         />
       ))}
     </section>
@@ -980,14 +980,22 @@ function formatShareTitle(title: string): string {
   return title.replace(/，/g, "\n");
 }
 
-function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
+function useCaseTags(result: ReturnType<typeof analyzeReport>, useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
+  return compactTags([
+    ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
+    reportRegionTag(result),
+  ]);
+}
+
+function shareTagsForUseCase(result: ReturnType<typeof analyzeReport>, useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
   if (useCase.name === "代理" && /备用[机鸡]/.test(useCase.verdict)) {
     const regions = proxyGoodRegionTags(useCase.evidence);
-    return regions.length > 0 ? ["谨慎", ...regions].slice(0, 3) : ["谨慎", "线路待确认"];
+    return compactTags([...(regions.length > 0 ? ["谨慎", ...regions] : ["谨慎", "线路待确认"]), reportRegionTag(result)]).slice(0, 3);
   }
   const tags = compactTags([
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
+    reportRegionTag(result),
   ]);
   if (useCase.name !== "代理") return tags;
 
@@ -999,6 +1007,27 @@ function shareTagsForUseCase(useCase: ReturnType<typeof analyzeReport>["useCases
   const anomaly = concise.find((tag) => tag === "部分方向异常");
   if (!anomaly) return concise.slice(0, 3);
   return [...concise.filter((tag) => tag !== anomaly).slice(0, 2), anomaly];
+}
+
+function reportRegionTag(result: ReturnType<typeof analyzeReport>): string {
+  const text = result.modules
+    .flatMap((module) => module.items)
+    .find((item) => item.label === "IP 使用地")?.value ?? "";
+  return locationRegionTag(text);
+}
+
+function locationRegionTag(text: string): string {
+  if (/\[HK\]|香港/.test(text)) return "香港";
+  if (/\[JP\]|日本/.test(text)) return "日本";
+  if (/\[SG\]|新加坡/.test(text)) return "新加坡";
+  if (/\[KR\]|韩国|首尔/.test(text)) return "韩国";
+  if (/\[TW\]|台湾|台北/.test(text)) return "台湾";
+  if (/\[US\]|美国|洛杉矶|西雅图|纽约/.test(text)) return "美国";
+  if (/\[CA\]|加拿大|多伦多|温哥华/.test(text)) return "加拿大";
+  if (/\[EU\]|欧洲|德国|法国|英国|荷兰|芬兰|瑞典|意大利|西班牙|波兰/.test(text)) return "欧洲";
+  if (/\[AU\]|澳洲|澳大利亚|新西兰/.test(text)) return "澳洲";
+  if (/巴西|智利|阿根廷|秘鲁|哥伦比亚/.test(text)) return "南美";
+  return "地区未知";
 }
 
 function proxyGoodRegionTags(evidence: string[]): string[] {
@@ -1174,9 +1203,6 @@ function semanticTags(name: string, verdict: string, evidence: string[]): string
     return compactTags([
       /ChatGPT .*=(解锁|受限)/.test(text) ? "AI可用" : "",
       /Netflix .*解锁|Disney\+ .*解锁|Youtube .*解锁/.test(text) ? "流媒体解锁" : "",
-      /IP 使用地 \[HK\]|Netflix .*\[HK\]|Disney\+ .*\[HK\]/.test(text) ? "香港落地鸡" : "",
-      /IP 使用地 \[JP\]|Netflix .*\[JP\]/.test(text) ? "日本落地鸡" : "",
-      /IP 使用地 \[US\]|Youtube .*\[US\]/.test(text) ? "美国落地鸡" : "",
       /送中风险 .*=单点/.test(text) ? "单点送中" : "",
       /送中风险 .*=明显/.test(text) ? "送中风险" : "",
       /IP 类型 .*广播/.test(text) ? "广播IP" : "",

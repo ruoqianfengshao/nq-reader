@@ -17,6 +17,12 @@ NQ Reader 是一个纯前端的 NodeQuality 报告阅读器。粘贴 NodeQuality
 
 当前不支持直接读取报告 URL。使用时需要复制 NodeQuality 报告正文并粘贴到输入框。
 
+## NodeQuality 页面内总结（油猴）
+
+可通过 [GitHub Release 安装链接](https://github.com/ruoqianfengshao/nq-reader/releases/latest/download/nq-reader.user.js) 直接安装到 Tampermonkey。打开任意 `nodequality.com/r/*` 报告后，它会在“回程路由”后新增 `NQ Reader 总结` 标签；点击标签即可在原页面内查看代理、AI / 流媒体、建站和存储的结论及判断依据。脚本为独立单文件，不使用 iframe；为了专注结论，不展示基础指标逐项翻译。
+
+脚本复用 NodeQuality 页面已有的“复制文本”逻辑，截获完整报告文本后在页面内解析，不上传报告内容。源码位于 `scripts/nq-reader.user.ts`；本地执行 `npm run build:userscript` 仅会生成被 Git 忽略的 `dist/userscripts/nq-reader.user.js`。推送 `v*` tag 时，GitHub Actions 会构建脚本、以 tag 版本写入 `@version`，并发布到 GitHub Release，Tampermonkey 据此自动更新。
+
 ## 本地运行
 
 环境要求：Node.js 18 或更高版本。

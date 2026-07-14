@@ -275,7 +275,7 @@ function severityLabel(severity: Severity) {
 }
 
 function cardRegion(text: string) {
-  if (/欧洲|德国|法国|英国|荷兰|芬兰|瑞典|意大利|西班牙|波兰/.test(text)) return "europe";
+  if (/欧洲|德国|法国|英国|荷兰|芬兰|瑞典|意大利|西班牙|波兰|俄罗斯|Russia/.test(text)) return "europe";
   if (/南美|巴西|智利|阿根廷|秘鲁|哥伦比亚/.test(text)) return "south-america";
   if (/澳洲|澳大利亚|新西兰|大洋洲/.test(text)) return "australia";
   if (/美国|加拿大|洛杉矶|西雅图|纽约|北美/.test(text)) return "north-america";
@@ -336,13 +336,28 @@ function locationRegionTag(text: string) {
   if (/\[HK\]|香港/.test(text)) return "香港";
   if (/\[JP\]|日本/.test(text)) return "日本";
   if (/\[SG\]|新加坡/.test(text)) return "新加坡";
+  if (/\[MY\]|马来西亚|Malaysia/.test(text)) return "马来西亚";
+  if (/\[TH\]|泰国|Thailand/.test(text)) return "泰国";
+  if (/\[VN\]|越南|Vietnam/.test(text)) return "越南";
+  if (/\[ID\]|印尼|印度尼西亚|Indonesia/.test(text)) return "印尼";
+  if (/\[PH\]|菲律宾|Philippines/.test(text)) return "菲律宾";
+  if (/\[IN\]|印度|India/.test(text)) return "印度";
+  if (/\[AE\]|阿联酋|迪拜|United Arab Emirates/.test(text)) return "阿联酋";
+  if (/\[SA\]|沙特|Saudi Arabia/.test(text)) return "沙特";
+  if (/\[TR\]|土耳其|Turkey/.test(text)) return "土耳其";
+  if (/\[RU\]|俄罗斯|Russia/.test(text)) return "俄罗斯";
   if (/\[KR\]|韩国|首尔/.test(text)) return "韩国";
   if (/\[TW\]|台湾|台北/.test(text)) return "台湾";
   if (/\[US\]|美国|洛杉矶|西雅图|纽约/.test(text)) return "美国";
   if (/\[CA\]|加拿大|多伦多|温哥华/.test(text)) return "加拿大";
+  if (/\[MX\]|墨西哥|Mexico/.test(text)) return "墨西哥";
   if (/\[EU\]|欧洲|德国|法国|英国|荷兰|芬兰|瑞典|意大利|西班牙|波兰/.test(text)) return "欧洲";
   if (/\[AU\]|澳洲|澳大利亚|新西兰/.test(text)) return "澳洲";
   if (/巴西|智利|阿根廷|秘鲁|哥伦比亚/.test(text)) return "南美";
+  if (/\[ZA\]|南非|South Africa/.test(text)) return "南非";
+  if (/\[EG\]|埃及|Egypt/.test(text)) return "埃及";
+  const code = text.match(/\[([A-Z]{2})\]/)?.[1];
+  if (code) return code;
   return "地区未知";
 }
 

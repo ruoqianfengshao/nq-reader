@@ -52,8 +52,8 @@ function addStyles() {
     .nqr-heading-description { max-width: 60%; margin: 0; color: #a9b7b2; font-size: 13px; text-align: right; }
     .nqr-overview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 20px 28px; }
     .nqr-overview-card, .nqr-detail { min-width: 0; overflow-wrap: anywhere; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: rgba(255,255,255,.035); }
-    .nqr-overview-card { position: relative; min-height: 126px; padding: 15px; overflow: hidden; text-align: left; border-color: rgba(9, 15, 20, .92); background-color: #1b2028; background-size: cover; background-position: center; box-shadow: inset 0 0 0 1px rgba(255,255,255,.045), inset 0 0 18px rgba(0,0,0,.42); isolation: isolate; }
-    .nqr-overview-card::before { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, rgba(13, 16, 22, .78) 0%, rgba(13, 16, 22, .5) 42%, rgba(13, 16, 22, .16) 100%); content: ""; }
+    .nqr-overview-card { position: relative; min-height: 126px; padding: 15px; overflow: hidden; text-align: left; border-color: rgba(9, 15, 20, .92); background-color: #1b2028; background-size: cover; background-position: center; box-shadow: inset 0 0 0 1px rgba(255,255,255,.045), inset 0 0 18px rgba(0,0,0,.28); isolation: isolate; }
+    .nqr-overview-card::before { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, rgba(13, 16, 22, .68) 0%, rgba(13, 16, 22, .4) 42%, rgba(13, 16, 22, .08) 100%); content: ""; }
     .nqr-overview-card span, .nqr-detail-label { display: block; color: #c3d0ca; font-size: 12px; }
     .nqr-overview-card strong { display: block; margin-top: 8px; color: #fff; font-size: 18px; line-height: 1.35; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
     .nqr-tags { position: absolute; right: 12px; bottom: 12px; left: 15px; display: flex; flex-wrap: wrap; gap: 5px; }

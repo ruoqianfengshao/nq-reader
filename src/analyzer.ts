@@ -964,9 +964,10 @@ function classifyCarrierRoute(carrier: CarrierName, route: string, profile: Pick
     return;
   }
   if (carrier === "联通") {
-    if (/CN2GIA|CTGGIA|10099|CUG|9929/i.test(route)) profile.routeGood.push(route);
+    if (isUnicomTopRoute(route)) profile.routeGood.push(route);
+    else if (/10099|CUG|9929|CN2GIA|CTGGIA/i.test(route)) profile.routeWatch.push(route);
     else if (/NTT|Level3/i.test(route)) profile.routeBad.push(route);
-    else if (/4837|CU169|CTGGIA|CTGNet/i.test(route)) profile.routeWatch.push(route);
+    else if (/4837|CU169|CTGNet/i.test(route)) profile.routeWatch.push(route);
     else profile.routeBad.push(route);
     return;
   }
@@ -974,6 +975,12 @@ function classifyCarrierRoute(carrier: CarrierName, route: string, profile: Pick
   else if (/10099|CMI|CMNET/i.test(route)) profile.routeWatch.push(route);
   else if (/4837|NTT|Level3/i.test(route)) profile.routeBad.push(route);
   else profile.routeBad.push(route);
+}
+
+function isUnicomTopRoute(route: string): boolean {
+  const has10099 = /10099/i.test(route);
+  const premiumExit = /9929|CN2GIA|CTGGIA/i.test(route);
+  return has10099 && premiumExit;
 }
 
 function isValidRoute(route: string): boolean {

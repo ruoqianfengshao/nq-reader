@@ -61,7 +61,7 @@ function proxyUseCase(evidence: Evidence[]): UseCaseVerdict {
     ? `${carriers.map((item) => `${carrierNameFromEvidence(item)}：${item.value}`).join("；")}。${cautions.length > 0 ? `${cautions.join("，")}。` : ""}`
     : "代理要分运营商看：低延迟只说明距离近，回程线路和国内测速异常会直接影响体感。";
 
-  if (/毕业[机鸡]/.test(verdict)) severity = "good";
+  if (/毕业[机鸡]|顶级/.test(verdict) && riskCarriers.length === 0 && international?.severity !== "risk") severity = "good";
   else if (/备用[机鸡]/.test(verdict)) severity = "risk";
 
   return {

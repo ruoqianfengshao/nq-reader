@@ -41,6 +41,7 @@ function addStyles() {
     .nqr-heading { padding: 25px 28px 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
     .nqr-heading-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .nqr-kicker, .nqr-heading-ip { font-size: 12px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    .nqr-heading-location { color: #a9d9ff; }
     .nqr-heading-ip { color: #ffdc82; }
     .nqr-heading-link { color: #26e99e; text-decoration: none; }
     .nqr-heading-link:hover { color: #7ff6be; text-decoration: underline; text-underline-offset: 4px; }
@@ -56,7 +57,6 @@ function addStyles() {
     .nqr-overview-card span, .nqr-detail-label { display: block; color: #c3d0ca; font-size: 12px; }
     .nqr-overview-card strong { display: block; margin-top: 8px; color: #fff; font-size: 18px; line-height: 1.35; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
     .nqr-tags { position: absolute; right: 12px; bottom: 12px; left: 15px; display: flex; flex-wrap: wrap; gap: 5px; }
-    .nqr-region-tag { color: #a9d9ff; border-color: rgba(102, 190, 255, .34); background: rgba(20, 59, 89, .72); }
     .nqr-tag { padding: 2px 7px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; color: #dfeae5; background: rgba(8, 11, 15, .62); font-size: 11px; font-weight: 700; line-height: 1.35; }
     .nqr-tag.good { color: #82f1bd; border-color: rgba(73, 231, 151, .28); }
     .nqr-tag.watch { color: #ffdc82; border-color: rgba(255, 198, 76, .28); }
@@ -371,7 +371,7 @@ function tagPaint(tag: string) {
   return { text: "#ffdc82", fill: "rgba(110, 79, 24, .78)", stroke: "rgba(255, 198, 76, .5)" };
 }
 
-function drawTags(context: CanvasRenderingContext2D, tags: string[], y: number, region = "") {
+function drawTags(context: CanvasRenderingContext2D, tags: string[], y: number) {
   let x = 64;
   context.font = "700 25px system-ui, sans-serif";
   tags.forEach((tag) => {
@@ -388,16 +388,6 @@ function drawTags(context: CanvasRenderingContext2D, tags: string[], y: number, 
     context.fillText(tag, x + 17, y);
     x += width + 12;
   });
-  const width = context.measureText(region).width + 34;
-  context.fillStyle = "rgba(20, 59, 89, .78)";
-  context.strokeStyle = "rgba(102, 190, 255, .52)";
-  context.lineWidth = 2;
-  context.beginPath();
-  context.roundRect(x, y - 30, width, 44, 22);
-  context.fill();
-  context.stroke();
-  context.fillStyle = "#a9d9ff";
-  context.fillText(region, x + 17, y);
 }
 
 function drawStatus(context: CanvasRenderingContext2D, severity: Severity, x: number, y: number) {
@@ -442,7 +432,7 @@ async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: 
     context.fillStyle = "#6ee7b7";
     context.font = "700 34px system-ui, sans-serif";
     context.fillText("NQ READER", 64, 84);
-    const ip = reportIp(reportTitle);
+    const ip = `${reportIp(reportTitle)} · ${region}`;
     context.fillStyle = "rgba(232, 242, 238, .82)";
     context.font = "600 26px ui-monospace, SFMono-Regular, Menlo, monospace";
     context.textAlign = "right";
@@ -456,7 +446,7 @@ async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: 
     context.font = "800 72px system-ui, sans-serif";
     const lines = item.verdict.length > 14 ? [item.verdict.slice(0, 14), item.verdict.slice(14)] : [item.verdict];
     lines.forEach((line, index) => context.fillText(line, 64, 286 + index * 86));
-    drawTags(context, coreTags(item), 560, region);
+    drawTags(context, coreTags(item), 560);
     const blob = await canvasBlob(canvas);
     await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
     button.textContent = "已复制";
@@ -484,10 +474,6 @@ function summaryCard(item: UseCaseVerdict, reportTitle: string, region: string, 
     node.textContent = tag;
     tags.append(node);
   });
-  const node = document.createElement("small");
-  node.className = "nqr-tag nqr-region-tag";
-  node.textContent = region;
-  tags.append(node);
   const copy = document.createElement("button");
   copy.className = "nqr-card-copy";
   copy.type = "button";
@@ -594,10 +580,10 @@ function renderReportInto(target: HTMLElement, report: string) {
   const panel = document.createElement("section");
   panel.className = "nqr-panel";
   const ip = reportIp(result.title);
-  panel.innerHTML = `<header class="nqr-heading"><div class="nqr-heading-top"><a class="nqr-kicker nqr-heading-link" href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ Reader</a><span class="nqr-heading-ip">${ip}</span></div><div class="nqr-heading-bottom"><h2><a href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ 报告简单读</a></h2><p class="nqr-heading-description">根据 NodeQuality 报告中的硬件、IP 与网络数据生成；不包含基础指标逐项翻译。</p></div></header>`;
+  const region = reportRegionTag(report, result.title);
+  panel.innerHTML = `<header class="nqr-heading"><div class="nqr-heading-top"><a class="nqr-kicker nqr-heading-link" href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ Reader</a><span class="nqr-heading-ip">${ip} <i class="nqr-heading-location">· ${region}</i></span></div><div class="nqr-heading-bottom"><h2><a href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ 报告简单读</a></h2><p class="nqr-heading-description">根据 NodeQuality 报告中的硬件、IP 与网络数据生成；不包含基础指标逐项翻译。</p></div></header>`;
   const overview = document.createElement("div");
   overview.className = "nqr-overview";
-  const region = reportRegionTag(report, result.title);
   const imageRegion = cardRegion(region);
   result.useCases.forEach((item) => overview.append(summaryCard(item, result.title, region, imageRegion)));
   const details = document.createElement("div");

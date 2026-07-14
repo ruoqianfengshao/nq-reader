@@ -903,7 +903,7 @@ function TagRail({ tags }: { tags: string[] }) {
 
 function ShareResultCards({ ip, result }: { ip: string; result: ReturnType<typeof analyzeReport> }) {
   if (result.useCases.length === 0) {
-    return <ShareResultCard ip={ip} result={result} title="NQ 报告" tags={["一般"]} />;
+    return <ShareResultCard ip={ip} result={result} title="NQ 报告" tags={["一般"]} region={reportRegionTag(result)} />;
   }
   return (
     <section className="share-card-strip" aria-label="分享结论卡片">
@@ -915,13 +915,14 @@ function ShareResultCards({ ip, result }: { ip: string; result: ReturnType<typeo
           result={result}
           title={useCase.verdict}
           tags={shareTagsForUseCase(result, useCase).slice(0, 5)}
+          region={reportRegionTag(result)}
         />
       ))}
     </section>
   );
 }
 
-function ShareResultCard({ ip, name = "NQ", result, title, tags }: { ip: string; name?: string; result: ReturnType<typeof analyzeReport>; title: string; tags: string[] }) {
+function ShareResultCard({ ip, name = "NQ", result, title, tags, region }: { ip: string; name?: string; result: ReturnType<typeof analyzeReport>; title: string; tags: string[]; region?: string }) {
   const background = posterCard(result, name, title, tags);
   const cardRef = useRef<HTMLElement>(null);
   const [copyState, setCopyState] = useState<"idle" | "copying" | "copied" | "error">("idle");
@@ -979,7 +980,7 @@ function ShareResultCard({ ip, name = "NQ", result, title, tags }: { ip: string;
               <span className={tagClass(tag)} key={tag}>{tag}</span>
             ))}
           </div>
-          <strong className="share-card-ip">{ip}</strong>
+          <strong className="share-card-ip">{ip}{region && <em>· {region}</em>}</strong>
         </div>
       </div>
     </section>
@@ -993,19 +994,17 @@ function formatShareTitle(title: string): string {
 function useCaseTags(result: ReturnType<typeof analyzeReport>, useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
   return compactTags([
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
-    reportRegionTag(result),
   ]);
 }
 
 function shareTagsForUseCase(result: ReturnType<typeof analyzeReport>, useCase: ReturnType<typeof analyzeReport>["useCases"][number]): string[] {
   if (useCase.name === "代理" && /备用[机鸡]/.test(useCase.verdict)) {
     const regions = proxyGoodRegionTags(useCase.evidence);
-    return compactTags([...(regions.length > 0 ? ["谨慎", ...regions] : ["谨慎", "线路待确认"]), reportRegionTag(result)]).slice(0, 3);
+    return compactTags([...(regions.length > 0 ? ["谨慎", ...regions] : ["谨慎", "线路待确认"])]).slice(0, 3);
   }
   const tags = compactTags([
     verdictGrade(useCase.name, useCase.verdict, useCase.severity),
     ...semanticTags(useCase.name, useCase.verdict, useCase.evidence),
-    reportRegionTag(result),
   ]);
   if (useCase.name !== "代理") return tags;
 

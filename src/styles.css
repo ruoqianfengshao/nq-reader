@@ -717,6 +717,12 @@ textarea:focus {
   white-space: nowrap;
 }
 
+.share-card-ip em {
+  color: #a9d9ff;
+  font-family: inherit;
+  font-style: normal;
+}
+
 .result-block {
   display: grid;
   gap: 14px;

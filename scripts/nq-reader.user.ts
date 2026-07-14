@@ -289,10 +289,10 @@ function cardKind(item: UseCaseVerdict) {
   return item.severity === "risk" ? "spare" : "machine";
 }
 
-function cardImage(item: UseCaseVerdict, reportTitle: string) {
-  const region = cardRegion(`${reportTitle} ${item.verdict} ${item.evidence.join(" ")}`);
+function cardImage(item: UseCaseVerdict, reportTitle: string, region?: string) {
+  const imageRegion = region ?? cardRegion(`${reportTitle} ${item.verdict} ${item.evidence.join(" ")}`);
   const kind = cardKind(item);
-  return `https://raw.githubusercontent.com/ruoqianfengshao/nq-reader/main/src/assets/result-card-variants/${region}/${kind}.webp`;
+  return `https://raw.githubusercontent.com/ruoqianfengshao/nq-reader/main/src/assets/result-card-variants/${imageRegion}/${kind}.webp`;
 }
 
 function tagClass(tag: string) {
@@ -420,7 +420,7 @@ function drawStatus(context: CanvasRenderingContext2D, severity: Severity, x: nu
   context.fillText(label, x + 17, y);
 }
 
-async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: string, button: HTMLButtonElement) {
+async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: string, imageRegion: string, button: HTMLButtonElement) {
   const original = button.textContent;
   try {
     if (!navigator.clipboard?.write || typeof ClipboardItem === "undefined") throw new Error("浏览器不支持图片复制");
@@ -431,7 +431,7 @@ async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: 
     canvas.height = height;
     const context = canvas.getContext("2d");
     if (!context) throw new Error("无法生成结论卡片");
-    const image = await imageFromUrl(cardImage(item, reportTitle));
+    const image = await imageFromUrl(cardImage(item, reportTitle, imageRegion));
     context.drawImage(image, 0, 0, width, height);
     const overlay = context.createLinearGradient(0, 0, width, 0);
     overlay.addColorStop(0, "rgba(13, 16, 22, .78)");
@@ -471,10 +471,10 @@ async function copyCardImage(item: UseCaseVerdict, reportTitle: string, region: 
   }, 1600);
 }
 
-function summaryCard(item: UseCaseVerdict, reportTitle: string, region: string) {
+function summaryCard(item: UseCaseVerdict, reportTitle: string, region: string, imageRegion: string) {
   const card = document.createElement("article");
   card.className = "nqr-overview-card";
-  card.style.backgroundImage = `url("${cardImage(item, reportTitle)}")`;
+  card.style.backgroundImage = `url("${cardImage(item, reportTitle, imageRegion)}")`;
   card.innerHTML = `<span>${item.name}</span><strong>${item.verdict}</strong>`;
   const tags = document.createElement("div");
   tags.className = "nqr-tags";
@@ -494,7 +494,7 @@ function summaryCard(item: UseCaseVerdict, reportTitle: string, region: string) 
   copy.title = "复制结论卡片";
   copy.setAttribute("aria-label", "复制结论卡片");
   copy.textContent = "⧉";
-  copy.addEventListener("click", () => { void copyCardImage(item, reportTitle, region, copy); });
+  copy.addEventListener("click", () => { void copyCardImage(item, reportTitle, region, imageRegion, copy); });
   card.append(tags, copy);
   return card;
 }
@@ -598,7 +598,8 @@ function renderReportInto(target: HTMLElement, report: string) {
   const overview = document.createElement("div");
   overview.className = "nqr-overview";
   const region = reportRegionTag(report, result.title);
-  result.useCases.forEach((item) => overview.append(summaryCard(item, result.title, region)));
+  const imageRegion = cardRegion(region);
+  result.useCases.forEach((item) => overview.append(summaryCard(item, result.title, region, imageRegion)));
   const details = document.createElement("div");
   details.className = "nqr-details";
   result.useCases.forEach((item) => details.append(detailCard(item)));

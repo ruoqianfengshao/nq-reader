@@ -80,6 +80,11 @@ function addStyles() {
     .nqr-evidence ul { margin: 8px 0 0; padding-left: 18px; }
     .nqr-evidence li + li { margin-top: 4px; }
     .nqr-error { padding: 24px; border-radius: 10px; color: #ffc7d0; background: rgba(155, 40, 60, .2); }
+    .nqr-loading { display: grid; min-height: 220px; place-items: center; gap: 12px; padding: 28px; color: #c2d0cb; text-align: center; }
+    .nqr-loading::before { width: 28px; height: 28px; border: 3px solid rgba(101, 225, 170, .22); border-top-color: #68e5ae; border-radius: 50%; content: ""; animation: nqr-spin .8s linear infinite; }
+    .nqr-loading strong { display: block; color: #edf7f1; font-size: 16px; }
+    .nqr-loading span { display: block; margin-top: 4px; color: #9eaca6; font-size: 13px; }
+    @keyframes nqr-spin { to { transform: rotate(360deg); } }
     .nq-reader-nodeseek-tab { cursor: pointer; }
     .nq-reader-nodeseek-panel { display: none; padding: 8px 0 0; color: #edf5f2; font: 15px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .nsk-magic-tabs.nq-reader-nodeseek-active > .nsk-magic-tab-body { display: none !important; }
@@ -678,6 +683,12 @@ function nodeSeekReportLink() {
   return document.querySelector<HTMLAnchorElement>("article.post-content a[href*='nodequality.com/r/']");
 }
 
+function renderNodeSeekLoading(message = "报告正在解析中…") {
+  const target = document.getElementById(NODE_SEEK_PANEL_ID);
+  if (!target) return;
+  target.innerHTML = `<div class="nqr-panel"><div class="nqr-loading"><div><strong>${message}</strong><span>正在后台读取 NodeQuality 完整报告</span></div></div></div>`;
+}
+
 async function loadNodeSeekReport(token: string, reportUrl: string) {
   const target = document.getElementById(NODE_SEEK_PANEL_ID)!;
   const cached = await GM_getValue<CachedReport | null>(reportCacheKey(token), null);
@@ -686,7 +697,7 @@ async function loadNodeSeekReport(token: string, reportUrl: string) {
     return;
   }
 
-  target.textContent = "正在读取 NodeQuality 完整报告…";
+  renderNodeSeekLoading();
   await GM_setValue<CachedReport | null>(reportCacheKey(token), null);
   const reportTab = GM_openInTab(reportUrl, { active: false, insert: true, setParent: true });
   const timeout = window.setTimeout(() => {
@@ -722,7 +733,7 @@ function installNodeSeek() {
   const panel = document.createElement("div");
   panel.id = NODE_SEEK_PANEL_ID;
   panel.className = "nq-reader-nodeseek-panel";
-  panel.textContent = "正在读取 NodeQuality 完整报告…";
+  panel.innerHTML = `<div class="nqr-panel"><div class="nqr-loading"><div><strong>报告正在解析中…</strong><span>正在后台读取 NodeQuality 完整报告</span></div></div></div>`;
   tab.addEventListener("click", () => {
     magicTabs.classList.add("nq-reader-nodeseek-active");
     panel.style.display = "block";

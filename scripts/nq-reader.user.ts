@@ -107,6 +107,10 @@ function addStyles() {
     .nq-reader-nodeseek-panel .nqr-proxy-stat { min-width: 0; padding: 10px 11px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: rgba(255,255,255,.035); }
     .nq-reader-nodeseek-panel .nqr-proxy-stat-label { display: block; color: #9eaca6; font-size: 11px; }
     .nq-reader-nodeseek-panel .nqr-proxy-stat-value { display: block; margin-top: 4px; color: #e7efea; font-size: 13px; font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; }
+    .nq-reader-nodeseek-panel .nqr-proxy-grade { white-space: nowrap; }
+    .nq-reader-nodeseek-panel .nqr-proxy-grade.good { color: #82f1bd; }
+    .nq-reader-nodeseek-panel .nqr-proxy-grade.watch { color: #ffdc82; }
+    .nq-reader-nodeseek-panel .nqr-proxy-grade.risk { color: #ffabb7; }
     .nq-reader-nodeseek-panel .nqr-proxy-stat.good .nqr-proxy-stat-value { color: #82f1bd; }
     .nq-reader-nodeseek-panel .nqr-proxy-stat.risk .nqr-proxy-stat-value { color: #ffabb7; }
     .nq-reader-nodeseek-panel .nqr-evidence { display: block !important; width: auto !important; min-width: 0 !important; margin: 14px 0 0 !important; padding: 12px 0 0 !important; border: 0 !important; border-top: 1px solid rgba(255,255,255,.08) !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
@@ -528,15 +532,13 @@ function detailCard(item: UseCaseVerdict) {
 function proxyStats(lines: string[]) {
   const pick = (label: string) => lines.filter((line) => line.startsWith(label));
   const grade = (line: string) => line.split("=").at(-1)?.trim() ?? "未识别";
-  const compactGrades = (prefix: string, names: string[]) => pick(prefix)
-    .map((line, index) => `${names[index] ?? "未知"}${grade(line)}`)
-    .join(" / ") || "未识别";
+  const grades = (prefix: string, carrier: string) => pick(prefix).map((line) => ({ carrier, grade: grade(line) }));
   const statItems = [
-    { label: "三网评级", value: compactGrades("电信代理", ["电信"]).replace(/^电信/, "电信") + formatRemainingCarrierGrades(pick("联通代理"), pick("移动代理")), level: "watch" },
-    { label: "回程线路", value: compactGrades("电信线路", ["电信"]) + formatRemainingLineGrades(pick("联通线路"), pick("移动线路")), level: "watch" },
+    { label: "三网评级", grades: [...grades("电信代理", "电信"), ...grades("联通代理", "联通"), ...grades("移动代理", "移动")] },
+    { label: "回程线路", grades: [...grades("电信线路", "电信"), ...grades("联通线路", "联通"), ...grades("移动线路", "移动")] },
     { label: "国内测速", value: pick("国内测速").map((line) => line.replace(/^国内测速\s*/, "").split("=")[0]).join("；") || "未识别", level: "watch" },
     { label: "丢包情况", value: pick("丢包").map((line) => line.replace(/^丢包\s*/, "").split("=")[0]).join("；") || "未识别", level: "watch" },
-  ].map((item) => ({ ...item, level: proxyStatLevel(item.value) }));
+  ].map((item) => "value" in item ? { ...item, level: proxyStatLevel(item.value) } : item);
   const grid = document.createElement("div");
   grid.className = "nqr-proxy-stats";
   statItems.forEach((item) => {
@@ -547,19 +549,22 @@ function proxyStats(lines: string[]) {
     label.textContent = item.label;
     const value = document.createElement("strong");
     value.className = "nqr-proxy-stat-value";
-    value.textContent = item.value;
+    if ("grades" in item) {
+      if (item.grades.length === 0) value.textContent = "未识别";
+      item.grades.forEach((entry, index) => {
+        if (index > 0) value.append(" / ");
+        const part = document.createElement("span");
+        part.className = `nqr-proxy-grade ${proxyStatLevel(entry.grade)}`;
+        part.textContent = `${entry.carrier}${entry.grade}`;
+        value.append(part);
+      });
+    } else {
+      value.textContent = item.value;
+    }
     stat.append(label, value);
     grid.append(stat);
   });
   return grid;
-}
-
-function formatRemainingCarrierGrades(unicom: string[], mobile: string[]) {
-  return `${unicom.map((line) => ` / 联通${line.split("=").at(-1)?.trim() ?? "未识别"}`).join("")}${mobile.map((line) => ` / 移动${line.split("=").at(-1)?.trim() ?? "未识别"}`).join("")}`;
-}
-
-function formatRemainingLineGrades(unicom: string[], mobile: string[]) {
-  return `${unicom.map((line) => ` / 联通${line.split("=").at(-1)?.trim() ?? "未识别"}`).join("")}${mobile.map((line) => ` / 移动${line.split("=").at(-1)?.trim() ?? "未识别"}`).join("")}`;
 }
 
 function proxyStatLevel(value: string): Severity {

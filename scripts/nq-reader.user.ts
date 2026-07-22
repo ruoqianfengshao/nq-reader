@@ -20,12 +20,6 @@ function debug(event: string, details?: unknown) {
   console.info(`[NQ Reader] ${event}`, details ?? "");
 }
 
-declare const JSZip: {
-  loadAsync(data: string, options: { base64: boolean }): Promise<{
-    file(name: string): { async(type: "text"): Promise<string> } | null;
-  }>;
-};
-
 function addStyles() {
   const style = document.createElement("style");
   style.textContent = `
@@ -127,30 +121,6 @@ function recordToken() {
   return location.pathname.split("/").filter(Boolean).at(-1) ?? "";
 }
 
-async function loadReportFromApi(): Promise<string> {
-  const token = recordToken();
-  if (!token) throw new Error("未识别 NodeQuality 报告编号");
-  const response = await fetch(`https://api.nodequality.com/api/v1/record/${encodeURIComponent(token)}`);
-  debug("API response", { status: response.status, ok: response.ok });
-  if (!response.ok) throw new Error(`NodeQuality 接口不可用（${response.status}）`);
-  const payload = await response.json() as { success?: boolean; message?: string; data?: { result?: string } };
-  if (!payload.success || !payload.data?.result) throw new Error(payload.message || "NodeQuality 未保存完整报告");
-
-  const archive = await JSZip.loadAsync(payload.data.result, { base64: true });
-  const parts = await Promise.all([
-    "header_info.log",
-    "hardware_quality.log",
-    "basic_info.log",
-    "ip_quality.log",
-    "net_quality.log",
-    "backroute_trace.log",
-  ].map(async (name) => archive.file(name)?.async("text") ?? ""));
-  const [header, hardwareQuality, basicInfo, ip, net, trace] = parts;
-  const report = [header, hardwareQuality || basicInfo, ip, net, trace].filter(Boolean).join("\n\n").trim();
-  if (!report) throw new Error("NodeQuality 接口未返回可解读的报告内容");
-  return report;
-}
-
 function stripAnsi(text: string) {
   return text
     .replace(/\x1B(?:\[[0-?]*[ -/]*[@-~]|\][^\x07]*(?:\x07|\x1B\\))/g, "")
@@ -222,52 +192,23 @@ function loadReportFromPage(): string {
   return report;
 }
 
-function loadReportFromClipboard(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const copyButton = [...document.querySelectorAll<HTMLButtonElement>(".bench-buttons .button1")]
-      .find((button) => button.textContent?.trim() === "复制文本");
-    if (!copyButton) return reject(new Error("未找到 NodeQuality 的“复制文本”按钮"));
-
-    const clipboard = navigator.clipboard;
-    const originalWriteText = clipboard?.writeText;
-    if (!clipboard || !originalWriteText) return reject(new Error("浏览器不支持读取 NodeQuality 复制结果"));
-
-    let captured = false;
-    const restore = () => { clipboard.writeText = originalWriteText; };
-    clipboard.writeText = function writeText(text: string) {
-      if (!captured) {
-        captured = true;
-        restore();
-        const report = String(text).trim();
-        report ? resolve(report) : reject(new Error("NodeQuality 未复制出报告文本"));
-      }
-      return originalWriteText.call(clipboard, text);
-    };
-
-    try { copyButton.click(); } catch (error) { restore(); reject(error); }
-    window.setTimeout(() => {
-      if (!captured) { restore(); reject(new Error("NodeQuality 未在预期时间内生成复制文本")); }
-    }, 2000);
-  });
-}
-
 function loadReport(): Promise<string> {
   if (reportPromise) return reportPromise;
-  reportPromise = loadReportFromApi()
-    .catch((error) => {
-      debug("API fallback", error);
+  reportPromise = (async () => {
+    let lastError: unknown;
+    for (let attempt = 0; attempt < 30; attempt += 1) {
       try {
         const report = loadReportFromPage();
+        if (!/网络质量体检报告/.test(report)) throw new Error("NodeQuality 尚未加载完整报告");
         debug("page data loaded", { length: report.length });
         return report;
-      } catch (pageError) {
-        debug("page data fallback", pageError);
-        return loadReportFromClipboard().catch((clipboardError) => {
-          debug("clipboard fallback", clipboardError);
-          throw new Error(`读取失败：API ${error instanceof Error ? error.message : String(error)}；页面数据 ${pageError instanceof Error ? pageError.message : String(pageError)}；复制文本 ${clipboardError instanceof Error ? clipboardError.message : String(clipboardError)}`);
-        });
+      } catch (error) {
+        lastError = error;
+        await new Promise((resolve) => window.setTimeout(resolve, 1_000));
       }
-    });
+    }
+    throw new Error(`NodeQuality 页面报告加载超时：${lastError instanceof Error ? lastError.message : String(lastError)}`);
+  })();
   return reportPromise;
 }
 
@@ -633,7 +574,7 @@ function activateSummary(event: Event) {
   setActive(true);
   const target = document.getElementById(PANEL_ID)!;
   if (target.childElementCount > 0) return;
-  target.textContent = "正在读取报告并生成总结…";
+  target.innerHTML = `<div class="nqr-panel"><div class="nqr-loading"><div><strong>报告正在解析中…</strong><span>正在等待 NodeQuality 页面加载完整报告</span></div></div></div>`;
   loadReport().then(renderReport).catch(showError);
 }
 
@@ -666,22 +607,15 @@ function install() {
 async function cacheReportFromNodeQuality() {
   const token = reportToken();
   if (!token) return;
-  let lastError: unknown;
-  for (let attempt = 0; attempt < 30; attempt += 1) {
-    try {
-      const report = loadReportFromPage();
-      if (!/网络质量体检报告/.test(report)) throw new Error("NodeQuality 尚未加载完整报告");
-      await GM_setValue<CachedReport>(reportCacheKey(token), { report, savedAt: Date.now() });
-      return;
-    } catch (error) {
-      lastError = error;
-      await new Promise((resolve) => window.setTimeout(resolve, 1_000));
-    }
+  try {
+    const report = await loadReport();
+    await GM_setValue<CachedReport>(reportCacheKey(token), { report, savedAt: Date.now() });
+  } catch (error) {
+    await GM_setValue<CachedReport>(reportCacheKey(token), {
+      error: error instanceof Error ? error.message : String(error),
+      savedAt: Date.now(),
+    });
   }
-  await GM_setValue<CachedReport>(reportCacheKey(token), {
-    error: lastError instanceof Error ? lastError.message : String(lastError),
-    savedAt: Date.now(),
-  });
 }
 
 function nodeSeekReportLink() {

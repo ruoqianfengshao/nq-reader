@@ -547,7 +547,7 @@ function renderReportInto(target: HTMLElement, report: string) {
   panel.className = "nqr-panel";
   const ip = reportIp(result.title);
   const region = reportRegionTag(report, result.title);
-  panel.innerHTML = `<header class="nqr-heading"><div class="nqr-heading-top"><a class="nqr-kicker nqr-heading-link" href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ Reader</a><span class="nqr-heading-ip">${ip} <i class="nqr-heading-location">· ${region}</i></span></div><div class="nqr-heading-bottom"><h2><a href="https://nq-reader.cc.cd/" target="_blank" rel="noreferrer">NQ 报告简单读</a></h2><p class="nqr-heading-description">根据 NodeQuality 报告中的硬件、IP 与网络数据生成；不包含基础指标逐项翻译。</p></div></header>`;
+  panel.innerHTML = `<header class="nqr-heading"><div class="nqr-heading-top"><span class="nqr-kicker">NQ Reader</span><span class="nqr-heading-ip">${ip} <i class="nqr-heading-location">· ${region}</i></span></div><div class="nqr-heading-bottom"><h2>NQ 报告简单读</h2><p class="nqr-heading-description">根据 NodeQuality 报告中的硬件、IP 与网络数据生成；不包含基础指标逐项翻译。</p></div></header>`;
   const overview = document.createElement("div");
   overview.className = "nqr-overview";
   const imageRegion = cardRegion(region);
